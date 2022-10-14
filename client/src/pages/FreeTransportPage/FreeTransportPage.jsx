@@ -1,9 +1,7 @@
 import React from "react";
-import "./FreeTransportPage.style.css"
-
+import "./FreeTransportPage.style.css";
 
 const FreeTransportPage = () => {
-
   React.useEffect(() => {
     window.ymaps.ready(function () {
       // Указывается идентификатор HTML-элемента.
@@ -12,10 +10,13 @@ const FreeTransportPage = () => {
         zoom: 10,
       });
       // Ссылка на элемент.
-      var piter_map = new window.ymaps.Map(document.getElementsByTagName("p")[2], {
-        center: [59.94, 30.32],
-        zoom: 9,
-      });
+      var piter_map = new window.ymaps.Map(
+        document.getElementsByTagName("p")[2],
+        {
+          center: [59.94, 30.32],
+          zoom: 9,
+        }
+      );
     });
   }, []);
 
@@ -57,22 +58,25 @@ const FreeTransportPage = () => {
           </div>
         </div>
         <div className="col order-last d-flex h-100 d-inline-block">
-          <div id="first_map" style={{ width: '100%', height: '50vh' }}></div>
+          <div id="first_map" style={{ width: "100%", height: "50vh" }}></div>
         </div>
       </div>
       <div className="row align-items-stretch containerCustomer d-flex">
-        <div className="card" style={{width: "18rem"}}>
-        <img src="..." class="card-img-top" alt="ТС">
+        <div className="card" style={{ width: "18rem" }}>
+          <img src="..." class="card-img-top" alt="ТС" />
           <div className="card-body">
             <h5 className="card-title">Бульдозер</h5>
             <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p className="card-text">Описание</p>
-            <a href="#" className="card-link">Card link</a>
-            <a href="#" className="card-link">Another link</a>
+            <a href="#" className="card-link">
+              Card link
+            </a>
+            <a href="#" className="card-link">
+              Another link
+            </a>
           </div>
         </div>
       </div>
-
     </>
   );
 };
