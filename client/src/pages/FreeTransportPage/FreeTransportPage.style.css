@@ -14,10 +14,6 @@
 
 .text {
     position: absolute;
-    width: 87px;
-    height: 27px;
-    left: 133px;
-    top: 473px;
 
     font-family: var(--font-nunito);
     font-style: normal;
