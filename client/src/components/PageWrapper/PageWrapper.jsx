@@ -24,31 +24,35 @@ const PageWrapper = ({ children }) => {
       {user?.role?.id === 2 ? (
         <>
           <header>
-            <nav class="navbar navbar-expand-lg bg-light">
-              <div class="container-fluid">
+            <nav className="navbar navbar-expand-lg bg-light">
+              <div className="container-fluid">
                 <div
-                  class="collapse navbar-collapse"
+                  className="collapse navbar-collapse"
                   id="navbarSupportedContent"
                 >
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li className="nav-item">
+                      <a
+                        className="nav-link active"
+                        aria-current="page"
+                        href="#"
+                      >
                         Главная
                       </a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
                         Отчеты
                       </a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
                         Время
                       </a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li className="nav-item dropdown">
                       <a
-                        class="nav-link dropdown-toggle"
+                        className="nav-link dropdown-toggle"
                         href="#"
                         role="button"
                         data-bs-toggle="dropdown"
@@ -56,16 +60,22 @@ const PageWrapper = ({ children }) => {
                       >
                         Чел
                       </a>
-                      <ul class="dropdown-menu">
-                        <li >
-                          <button class="dropdown-item" onClick={() => dispatch(fetchUserById(1))}>
+                      <ul className="dropdown-menu">
+                        <li>
+                          <button
+                            className="dropdown-item"
+                            onClick={() => dispatch(fetchUserById(1))}
+                          >
                             {users[0].name}
                           </button>
                         </li>
-                        <li >
-                          <button class="dropdown-item" onClick={() => dispatch(fetchUserById(2))}>
+                        <li>
+                          <button
+                            className="dropdown-item"
+                            onClick={() => dispatch(fetchUserById(2))}
+                          >
                             {users[1].name}
-                          </button >
+                          </button>
                         </li>
                       </ul>
                     </li>
@@ -78,21 +88,25 @@ const PageWrapper = ({ children }) => {
       ) : (
         <>
           <header>
-            <nav class="navbar navbar-expand-lg bg-light">
-              <div class="container-fluid">
+            <nav className="navbar navbar-expand-lg bg-light">
+              <div className="container-fluid">
                 <div
-                  class="collapse navbar-collapse"
+                  className="collapse navbar-collapse"
                   id="navbarSupportedContent"
                 >
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li className="nav-item">
+                      <a
+                        className="nav-link active"
+                        aria-current="page"
+                        href="#"
+                      >
                         Лого
                       </a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li className="nav-item dropdown">
                       <a
-                        class="nav-link dropdown-toggle"
+                        className="nav-link dropdown-toggle"
                         href="#"
                         role="button"
                         data-bs-toggle="dropdown"
@@ -100,16 +114,22 @@ const PageWrapper = ({ children }) => {
                       >
                         Чел
                       </a>
-                      <ul class="dropdown-menu">
-                        <li >
-                          <button class="dropdown-item" onClick={() => dispatch(fetchUserById(1))}>
+                      <ul className="dropdown-menu">
+                        <li>
+                          <button
+                            className="dropdown-item"
+                            onClick={() => dispatch(fetchUserById(1))}
+                          >
                             {users[0].name}
-                          </button >
+                          </button>
                         </li>
-                        <li >
-                          <button class="dropdown-item" onClick={() => dispatch(fetchUserById(1))}>
+                        <li>
+                          <button
+                            className="dropdown-item"
+                            onClick={() => dispatch(fetchUserById(2))}
+                          >
                             {users[1].name}
-                          </button >
+                          </button>
                         </li>
                       </ul>
                     </li>
