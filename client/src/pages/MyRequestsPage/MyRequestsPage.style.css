@@ -1,0 +1,16 @@
+.containerCustomer {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.request {
+border: 1px solid #DADADA;
+border-radius: 15px;
+}
+
+.textRequest{
+    font-family: var(--font-nunito);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    color: #000000;
+}
