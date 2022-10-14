@@ -1,19 +1,24 @@
 import React from "react";
 import "./FreeTransportPage.style.css"
-window.ymaps.ready(function () {
-  // Указывается идентификатор HTML-элемента.
-  var moscow_map = new window.ymaps.Map("first_map", {
-    center: [55.76, 37.64],
-    zoom: 10,
-  });
-  // Ссылка на элемент.
-  var piter_map = new window.ymaps.Map(document.getElementsByTagName("p")[2], {
-    center: [59.94, 30.32],
-    zoom: 9,
-  });
-});
+
 
 const FreeTransportPage = () => {
+
+  React.useEffect(() => {
+    window.ymaps.ready(function () {
+      // Указывается идентификатор HTML-элемента.
+      var moscow_map = new window.ymaps.Map("first_map", {
+        center: [55.76, 37.64],
+        zoom: 10,
+      });
+      // Ссылка на элемент.
+      var piter_map = new window.ymaps.Map(document.getElementsByTagName("p")[2], {
+        center: [59.94, 30.32],
+        zoom: 9,
+      });
+    });
+  }, []);
+
   return (
     <>
       <div className="row align-items-stretch containerCustomer d-flex">
