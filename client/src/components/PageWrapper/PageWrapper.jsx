@@ -109,8 +109,8 @@ const PageWrapper = ({ children }) => {
                   id="navbarSupportedContent"
                 >
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item d-flex justify-content-start">
-                      <IconEditWhite style={{width: '100%'}}/>
+                    <li className="nav-item d-flex justify-content-start" style={{width: '100px'}}>
+                      <IconEditWhite />
                     </li>
                     <li className="nav-item d-flex justify-content-end">
                       <a
