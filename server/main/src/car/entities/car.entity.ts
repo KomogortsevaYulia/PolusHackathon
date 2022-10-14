@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { WorkShift } from 'src/working-shift/entities/working-shift.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  OneToOne,
+} from 'typeorm';
 
 export enum CarTypes {
   TRANSPORTATION = 'Перевозка',
@@ -34,9 +41,15 @@ export class Car {
   @Column()
   number: string;
 
+  @Column({ default: false })
+  broken: boolean;
+
   @Column({ type: 'enum', enum: CarTypes })
   type: CarTypes;
 
   @Column({ type: 'enum', enum: CarSubTypes })
   subType: CarSubTypesValues;
+
+  @OneToOne(() => WorkShift, (workingShift) => workingShift.car)
+  workingShifts: WorkShift[];
 }

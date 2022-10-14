@@ -1,9 +1,11 @@
+import { WorkShift } from 'src/working-shift/entities/working-shift.entity';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   JoinColumn,
   ManyToOne,
+  OneToMany,
 } from 'typeorm';
 import { Role } from './role.entity';
 
@@ -24,4 +26,7 @@ export class User {
   @ManyToOne(() => Role, (role) => role.users)
   @JoinColumn()
   role: Role;
+
+  @OneToMany(() => WorkShift, (workingShift) => workingShift.driver)
+  workingShifts: WorkShift[];
 }
