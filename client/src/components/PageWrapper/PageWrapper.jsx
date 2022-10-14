@@ -37,12 +37,12 @@ const PageWrapper = ({ children }) => {
                         aria-current="page"
                         href="#"
                       >
-                        Главная
+                         <span onClick={() => navigate("/dispatcherMainPage")}>Главная</span>
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#">
-                        Отчеты
+                        <span onClick={() => navigate("/dispatcherReportPage")}>Главная</span>
                       </a>
                     </li>
                     <li className="nav-item">
@@ -51,15 +51,14 @@ const PageWrapper = ({ children }) => {
                       </a>
                     </li>
                     <li className="nav-item dropdown">
-                      <a
+                      <button
                         className="nav-link dropdown-toggle"
-                        href="#"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Чел
-                      </a>
+                        {user.name}
+                      </button>
                       <ul className="dropdown-menu">
                         <li>
                           <button
@@ -105,15 +104,14 @@ const PageWrapper = ({ children }) => {
                       </a>
                     </li>
                     <li className="nav-item dropdown">
-                      <a
+                      <button
                         className="nav-link dropdown-toggle"
-                        href="#"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Чел
-                      </a>
+                        {user.name}
+                      </button>
                       <ul className="dropdown-menu">
                         <li>
                           <button
@@ -147,6 +145,7 @@ const PageWrapper = ({ children }) => {
               </span>
             </nav>
           </header>
+
         </>
       )}
       <main>{children || <Outlet />}</main>
