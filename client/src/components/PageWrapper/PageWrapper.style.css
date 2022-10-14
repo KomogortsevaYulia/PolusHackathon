@@ -1,0 +1,13 @@
+.buttonNav {
+    font-style: var(--font-nunito);
+    font-size: 20px;
+    padding-right: 50px;
+}
+.navCustomer {
+
+    margin: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 50px;
+}
+

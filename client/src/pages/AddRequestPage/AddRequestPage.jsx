@@ -1,7 +1,9 @@
 import React from "react";
 
 const AddRequestPage = () => {
-  return <div>AddRequestPage</div>;
+  return <div>
+
+  </div>;
 };
 
 export default AddRequestPage;
