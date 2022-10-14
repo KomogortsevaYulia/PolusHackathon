@@ -1,4 +1,4 @@
-import { WorkingShift } from 'src/working-shift/entities/working-shift.entity';
+import { WorkingShift } from '../../working-shift/entities/working-shift.entity';
 import {
   Entity,
   Column,

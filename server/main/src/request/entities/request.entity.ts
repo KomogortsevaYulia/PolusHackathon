@@ -1,5 +1,5 @@
-import { CarTypes } from 'src/car/entities/car.entity';
-import { WorkingShift } from 'src/working-shift/entities/working-shift.entity';
+import { CarTypes } from '../../car/entities/car.entity';
+import { WorkingShift } from '../../working-shift/entities/working-shift.entity';
 import {
   Entity,
   Column,

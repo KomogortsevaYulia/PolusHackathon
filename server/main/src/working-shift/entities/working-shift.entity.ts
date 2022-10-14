@@ -1,6 +1,6 @@
-import { Car } from 'src/car/entities/car.entity';
-import { User } from 'src/user/entities/user.entity';
-import { Request } from 'src/request/entities/request.entity';
+import { Car } from '../../car/entities/car.entity';
+import { User } from '../../user/entities/user.entity';
+import { Request } from '../../request/entities/request.entity';
 import {
   Entity,
   Column,
