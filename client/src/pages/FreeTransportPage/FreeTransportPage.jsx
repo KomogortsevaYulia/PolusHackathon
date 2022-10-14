@@ -62,7 +62,7 @@ const FreeTransportPage = () => {
       </div>
       <div className="row align-items-stretch containerCustomer d-flex">
         <div className="card" style={{width: "18rem"}}>
-        <img src="..." class="card-img-top" alt="ТС">
+        <img src="..." class="card-img-top" alt="ТС"/>
           <div className="card-body">
             <h5 className="card-title">Бульдозер</h5>
             <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -72,7 +72,6 @@ const FreeTransportPage = () => {
           </div>
         </div>
       </div>
-
     </>
   );
 };
