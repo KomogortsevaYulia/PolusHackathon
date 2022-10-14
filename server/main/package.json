@@ -1,5 +1,5 @@
 {
-  "name": "user",
+  "name": "main",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -9,6 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "seed": "npx ts-node src/database/seed.ts",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -24,9 +25,14 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/serve-static": "^3.0.0",
+    "faker": "^6.6.6",
+    "mysql2": "^2.3.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "typeorm": "^0.3.10",
+    "typeorm-extension": "^2.1.15"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
