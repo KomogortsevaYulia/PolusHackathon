@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500&family=Roboto+Flex:wght@300;400;500&display=swap');
+
+:root{
+  /*Палитра*/
+  --white-0: #FFFFFF;
+  --grey-5: #F6F7F8;
+  --grey-50: #A7B6C5;
+  --grey-500: #383836;
+
+  --yellow-5: #FAB529;
+  --yellow-50: #FABB05;
+
+  --orange-5: #ED6B06;
+  --orange-50: #EA4335;
+
+  --blue-5: #0096EB;
+  --blue-50: #1A73E8;
+  --blue-500: #5041BC;
+
+  --fontColor-5: #ACACAC;
+  --fontColor-50: #969696;
+  --fontColor-500: #7C7C7C;
+  --fontColor-5000: #414141;
+
+  /*Шрифты*/
+  --font-robotoFlex: 'Roboto Flex', sans-serif;
+  --font-nunito: 'Nunito', sans-serif;
+}
