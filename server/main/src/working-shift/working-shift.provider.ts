@@ -1,10 +1,11 @@
 import { DataSource } from 'typeorm';
-import { WorkShift } from './entities/working-shift.entity';
+import { WorkingShift } from './entities/working-shift.entity';
 
 export const workingShiftProviders = [
   {
     provide: 'WORKING_SHIFT_REPOSITORY',
-    useFactory: (dataSource: DataSource) => dataSource.getRepository(WorkShift),
+    useFactory: (dataSource: DataSource) =>
+      dataSource.getRepository(WorkingShift),
     inject: ['DATA_SOURCE'],
   },
 ];

@@ -1,4 +1,4 @@
-import { WorkShift } from 'src/working-shift/entities/working-shift.entity';
+import { WorkingShift } from 'src/working-shift/entities/working-shift.entity';
 import {
   Entity,
   Column,
@@ -50,6 +50,6 @@ export class Car {
   @Column({ type: 'enum', enum: CarSubTypes })
   subType: CarSubTypesValues;
 
-  @OneToOne(() => WorkShift, (workingShift) => workingShift.car)
-  workingShifts: WorkShift[];
+  @OneToOne(() => WorkingShift, (workingShift) => workingShift.car)
+  workingShifts: WorkingShift[];
 }

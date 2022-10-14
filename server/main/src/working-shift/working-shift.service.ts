@@ -6,7 +6,7 @@ import {
   MoreThanOrEqual,
   Repository,
 } from 'typeorm';
-import { WorkShift } from './entities/working-shift.entity';
+import { WorkingShift } from './entities/working-shift.entity';
 
 export type filters = {
   dateStart?: Date;
@@ -19,7 +19,7 @@ export type filters = {
 export class WorkingShiftService {
   constructor(
     @Inject('WORKING_SHIFT_REPOSITORY')
-    private workingShiftRepo: Repository<WorkShift>,
+    private workingShiftRepo: Repository<WorkingShift>,
   ) {}
 
   async startShift(userId: number, carId: number) {
@@ -65,6 +65,7 @@ export class WorkingShiftService {
       relations: {
         car: true,
         driver: true,
+        requests: true,
       },
     });
   }

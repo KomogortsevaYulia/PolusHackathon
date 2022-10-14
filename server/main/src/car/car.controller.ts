@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param, Patch, Query } from '@nestjs/common';
 import { CarService } from './car.service';
 import {
   CarTypes,
@@ -21,5 +21,15 @@ export class CarController {
   @Get(':id')
   async getById(@Param('id') id: number) {
     return this.carService.getById(id);
+  }
+
+  @Patch('/break/:id')
+  async breakCar(@Param('id') id: number) {
+    return this.carService.breakCar(id);
+  }
+
+  @Patch('/fix/:id')
+  async fixCar(@Param('id') id: number) {
+    return this.carService.fixCar(id);
   }
 }

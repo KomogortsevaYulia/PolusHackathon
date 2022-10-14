@@ -46,4 +46,22 @@ export class CarService {
   async getById(id: number) {
     return this.carRepo.findOne({ where: { id } });
   }
+
+  async breakCar(id: number) {
+    const car = await this.carRepo.findOne({ where: { id } });
+
+    return await this.carRepo.save({
+      ...car,
+      broken: true,
+    });
+  }
+
+  async fixCar(id: number) {
+    const car = await this.carRepo.findOne({ where: { id } });
+
+    return await this.carRepo.save({
+      ...car,
+      broken: false,
+    });
+  }
 }

@@ -1,5 +1,6 @@
 import { Car } from 'src/car/entities/car.entity';
 import { User } from 'src/user/entities/user.entity';
+import { Request } from 'src/request/entities/request.entity';
 import {
   Entity,
   Column,
@@ -9,7 +10,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class WorkShift {
+export class WorkingShift {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -24,4 +25,7 @@ export class WorkShift {
 
   @ManyToOne(() => Car, (car) => car.workingShifts)
   car: Car;
+
+  @OneToMany(() => Request, (request) => request.workingShift)
+  requests: Request[];
 }

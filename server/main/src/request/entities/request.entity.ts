@@ -1,5 +1,12 @@
 import { CarTypes } from 'src/car/entities/car.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { WorkingShift } from 'src/working-shift/entities/working-shift.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToOne,
+} from 'typeorm';
 
 export enum RequestStatuses {
   CREATED = 'Создана',
@@ -30,4 +37,7 @@ export class Request {
 
   @Column({ nullable: true })
   endLon: number;
+
+  @ManyToOne(() => WorkingShift, (workingShift) => workingShift.requests)
+  workingShift: WorkingShift;
 }

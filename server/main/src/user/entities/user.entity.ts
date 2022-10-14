@@ -1,4 +1,4 @@
-import { WorkShift } from 'src/working-shift/entities/working-shift.entity';
+import { WorkingShift } from 'src/working-shift/entities/working-shift.entity';
 import {
   Entity,
   Column,
@@ -27,6 +27,6 @@ export class User {
   @JoinColumn()
   role: Role;
 
-  @OneToMany(() => WorkShift, (workingShift) => workingShift.driver)
-  workingShifts: WorkShift[];
+  @OneToMany(() => WorkingShift, (workingShift) => workingShift.driver)
+  workingShifts: WorkingShift[];
 }
