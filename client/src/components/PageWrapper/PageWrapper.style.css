@@ -9,11 +9,17 @@
     margin-right: 100px;
     padding-top: 50px;
 }
-.dropdownItemMy{
-    font-style: var(--font-nunito);
-    font-size: 24px;
-    padding-right: 50px;
+
+.navbar{
+    height: 4rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1.2rem;
 }
-.navStyles{
-    height: 100 ;
+
+.container-fluid{
+    margin-left: 3.5rem;
+}
+
+.exitItem{
+    border-right: 1px solid var(--fontColor-5);
 }

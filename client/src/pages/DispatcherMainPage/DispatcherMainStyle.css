@@ -10,19 +10,39 @@
     border-radius: 25px;
     height: 6rem;
     background: #FFFFFF;
+    padding: 1.5rem;
 } 
 
 .requestCard{
     box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
     border-radius: 25px;
-    height: 42rem;
+    height: 36rem;
     background: #FFFFFF;
 }
+
+.waitTransport{
+    color: var(--blue-5);
+    font-size: 2rem;
+    border-right: 1px solid var(--fontColor-5);
+}
+
+.requestTransport{
+    color: var(--yellow-50);
+    font-size: 2rem;
+    border-right: 1px solid var(--fontColor-5);
+}
+
+.brokenTransport{
+    color: var(--orange-50);
+    font-size: 2rem;
+    border-right: 1px solid var(--fontColor-5);
+}
+
 
 .requestTableContainer{
     box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
     border-radius: 25px;
-    height: 46rem;
+    height: 40rem;
     background: #FFFFFF; 
     padding: 3rem;   
 }
@@ -43,4 +63,16 @@
 
 .table{
     color: var(--fontColor-50);
+    font-family: var(--font-robotoFlex);
+    font: 300;
+    text-align: center;
+    padding: auto;
+    border-collapse: collapse;
 }
+
+.requestTr{
+    background: #FAFAFC;
+    border-radius: 15px;
+    margin: 4rem;
+}
+

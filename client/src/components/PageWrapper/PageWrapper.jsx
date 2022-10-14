@@ -35,8 +35,8 @@ const PageWrapper = ({ children }) => {
                   className="collapse navbar-collapse"
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+                    <li className="nav-item exitItem">
                       <a className="nav-link" href="#">
                         <span>Выход</span>
                       </a>
@@ -52,14 +52,14 @@ const PageWrapper = ({ children }) => {
                         </span>
                       </a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item ms-3">
                       <a className="nav-link" href="#">
                         <span onClick={() => navigate("/dispatcherReportPage")}>
                           Отчеты
                         </span>
                       </a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item align-self-center">
                       <a className="nav-link" href="#">
                         Время
                       </a>

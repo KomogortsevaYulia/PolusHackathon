@@ -30,3 +30,6 @@
   --font-nunito: 'Nunito', sans-serif;
 }
 
+body{
+  background-color: var(--app-bgc);
+}

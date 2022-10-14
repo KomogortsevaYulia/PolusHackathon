@@ -16,6 +16,18 @@ const MyRequestsPage = () => {
             <input className="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск" />
           </form>
         </div>
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+            <label className="form-check-label" for="flexCheckDefault">
+              Default checkbox
+            </label>
+        </div>
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
+            <label className="form-check-label" for="flexCheckChecked">
+              Checked checkbox
+            </label>
+        </div>
       </div>
     </div>
     <table className="table table-bordered request">
