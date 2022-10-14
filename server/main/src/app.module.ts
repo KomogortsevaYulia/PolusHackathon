@@ -4,6 +4,7 @@ import { resolve } from 'path';
 
 import { DatabaseModule } from './database/database.module';
 import { UserModule } from './user/user.module';
+import { CarModule } from './car/car.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { UserModule } from './user/user.module';
     }),
     DatabaseModule,
     UserModule,
+    CarModule,
   ],
   controllers: [],
   providers: [],
