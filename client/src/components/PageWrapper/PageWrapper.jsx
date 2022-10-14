@@ -6,6 +6,7 @@ import { users } from "../../api/userApi";
 import { fetchUserById } from "../../store/userSlice/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket, faCalendarDays, faTableList } from "@fortawesome/free-solid-svg-icons";
+import { ReactComponent as IconEditWhite } from "../../logo/polus_logo.svg";
 
 
 const PageWrapper = ({ children }) => {
@@ -103,10 +104,10 @@ const PageWrapper = ({ children }) => {
                   className="collapse navbar-collapse"
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item d-flex justify-content-start" style={{width: '100px'}}>
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0" style={{width: '100px'}}>
+                    {/* <li className="nav-item d-flex justify-content-start" >
                       <IconEditWhite />
-                    </li>
+                    </li> */}
                     <li className="nav-item d-flex justify-content-end">
                       <a
                         className="nav-link active"
