@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".api.AuthFragment">
+
+    <ImageView
+        android:id="@+id/iv_auth_main"
+        android:src="@drawable/img_main"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <include
+        android:id="@+id/auth_input_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginHorizontal="50dp"
+        layout="@layout/auth_input_phone"/>
+
+    <include
+        android:id="@+id/auth_input_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginHorizontal="50dp"
+        layout="@layout/auth_input_password"/>
+
+    <Button
+        android:id="@+id/btn_auth_login"
+        android:layout_width="match_parent"
+        android:text="Войти"
+        android:textSize="24sp"
+        android:textAllCaps="false"
+        android:background="@color/orange_light"
+        android:layout_marginHorizontal="48dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="100dp"
+        />
+
+</LinearLayout>

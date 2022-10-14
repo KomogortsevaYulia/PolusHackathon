@@ -1,7 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
-import { Car, ParkTypes } from './entities/car.entity';
+import {
+  Car,
+  CarTypes,
+  TransportationCarTypes,
+  WorkCarTypes,
+} from './entities/car.entity';
 
 @Injectable()
 export class CarService {
@@ -10,14 +15,32 @@ export class CarService {
     private carRepo: Repository<Car>,
   ) {}
 
-  async getAll(type?: ParkTypes) {
-    return type
-      ? this.carRepo.find({
-          where: {
-            type,
-          },
-        })
-      : this.carRepo.find();
+  async getAll(
+    type?: CarTypes,
+    subType?: WorkCarTypes | TransportationCarTypes,
+  ) {
+    if (!type && !subType) {
+      return this.carRepo.find();
+    } else if (!subType) {
+      return this.carRepo.find({
+        where: {
+          type,
+        },
+      });
+    } else if (!type) {
+      return this.carRepo.find({
+        where: {
+          subType: subType,
+        },
+      });
+    }
+
+    return this.carRepo.find({
+      where: {
+        type,
+        subType,
+      },
+    });
   }
 
   async getById(id: number) {

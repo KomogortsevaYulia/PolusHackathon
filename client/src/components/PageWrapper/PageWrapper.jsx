@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
-
+import "./PageWrapper.style.css" 
 import { users } from "../../api/userApi";
 import { fetchUserById } from "../../store/userSlice/userSlice";
 
@@ -42,7 +42,7 @@ const PageWrapper = ({ children }) => {
                         aria-current="page"
                         href="#"
                       >
-                         <span onClick={() => navigate("/dispatcherMainPage")}>Главная</span>
+                        <span onClick={() => navigate("/dispatcherMainPage")}>Главная</span>
                       </a>
                     </li>
                     <li className="nav-item">
@@ -140,15 +140,19 @@ const PageWrapper = ({ children }) => {
                 </div>
               </div>
             </nav>
-            <nav>
-              <span onClick={() => navigate("/freeTrasport")}>
-                Доступные ТС
-              </span>
-              <span onClick={() => navigate("/myRequests")}>Мои заявки</span>
-              <span onClick={() => navigate("/addRequest")}>
-                Создать заявки
-              </span>
-            </nav>
+            <div className="navCustomer">
+              <nav>
+                <span className="buttonNav" onClick={() => navigate("/freeTrasport")}>
+                  Доступные ТС
+                </span>
+                <span className="buttonNav" onClick={() => navigate("/myRequests")}>
+                  Мои заявки
+                </span>
+                <span className="buttonNav" onClick={() => navigate("/addRequest")}>
+                  Создать заявки
+                </span>
+              </nav>
+            </div>
           </header>
 
         </>
