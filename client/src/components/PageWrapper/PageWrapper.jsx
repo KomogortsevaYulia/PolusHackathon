@@ -1,15 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
-import "./PageWrapper.style.css"
+import "./PageWrapper.style.css";
 import { users } from "../../api/userApi";
 import { fetchUserById } from "../../store/userSlice/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRightFromBracket
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 import { ReactComponent as IconEditWhite } from "../../logo/polus_logo.svg";
+// import logo from "../../logo/polus_logo.svg";
 
 const PageWrapper = ({ children }) => {
   const navigate = useNavigate();
@@ -39,7 +38,6 @@ const PageWrapper = ({ children }) => {
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
                       <a className="nav-link" href="#">
-
                         <span>Выход</span>
                       </a>
                     </li>
@@ -49,12 +47,16 @@ const PageWrapper = ({ children }) => {
                         aria-current="page"
                         href="#"
                       >
-                        <span onClick={() => navigate("/dispatcherMainPage")}>Главная</span>
+                        <span onClick={() => navigate("/dispatcherMainPage")}>
+                          Главная
+                        </span>
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#">
-                        <span onClick={() => navigate("/dispatcherReportPage")}>Отчеты</span>
+                        <span onClick={() => navigate("/dispatcherReportPage")}>
+                          Отчеты
+                        </span>
                       </a>
                     </li>
                     <li className="nav-item">
@@ -68,7 +70,6 @@ const PageWrapper = ({ children }) => {
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
-
                       >
                         {user.name}
                       </button>
@@ -77,7 +78,6 @@ const PageWrapper = ({ children }) => {
                           <button
                             className="dropdown-item buttonNav"
                             onClick={() => dispatch(fetchUserById(1))}
-
                           >
                             {users[0].name}
                           </button>
@@ -86,7 +86,6 @@ const PageWrapper = ({ children }) => {
                           <button
                             className="dropdown-item buttonNav"
                             onClick={() => dispatch(fetchUserById(2))}
-
                           >
                             {users[1].name}
                           </button>
@@ -110,7 +109,7 @@ const PageWrapper = ({ children }) => {
                 >
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item d-flex justify-content-start">
-                      <IconEditWhite style={{width: '100%'}}/>
+                      <IconEditWhite style={{ width: "100%" }} />
                     </li>
                     <li className="nav-item d-flex justify-content-end">
                       <a
@@ -156,19 +155,27 @@ const PageWrapper = ({ children }) => {
             </nav>
             <div className="navCustomer">
               <nav>
-                <span className="buttonNav" onClick={() => navigate("/freeTrasport")}>
+                <span
+                  className="buttonNav"
+                  onClick={() => navigate("/freeTrasport")}
+                >
                   Доступные ТС
                 </span>
-                <span className="buttonNav" onClick={() => navigate("/myRequests")}>
+                <span
+                  className="buttonNav"
+                  onClick={() => navigate("/myRequests")}
+                >
                   Мои заявки
                 </span>
-                <span className="buttonNav" onClick={() => navigate("/addRequest")}>
+                <span
+                  className="buttonNav"
+                  onClick={() => navigate("/addRequest")}
+                >
                   Создать заявку
                 </span>
               </nav>
             </div>
           </header>
-
         </>
       )}
       <main>{children || <Outlet />}</main>
