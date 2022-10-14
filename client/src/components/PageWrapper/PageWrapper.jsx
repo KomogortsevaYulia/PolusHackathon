@@ -31,6 +31,11 @@ const PageWrapper = ({ children }) => {
                   id="navbarSupportedContent"
                 >
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                      <a className="nav-link" href="#">
+                        <span>Выход</span>
+                      </a>
+                    </li>
                     <li className="nav-item">
                       <a
                         className="nav-link active"
@@ -42,7 +47,7 @@ const PageWrapper = ({ children }) => {
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#">
-                        <span onClick={() => navigate("/dispatcherReportPage")}>Главная</span>
+                        <span onClick={() => navigate("/dispatcherReportPage")}>Отчеты</span>
                       </a>
                     </li>
                     <li className="nav-item">

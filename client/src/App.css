@@ -17,12 +17,16 @@
   --blue-50: #1A73E8;
   --blue-500: #5041BC;
 
-  --fontColor-5: #ACACAC;
-  --fontColor-50: #969696;
-  --fontColor-500: #7C7C7C;
-  --fontColor-5000: #414141;
+  --fontColor-5: #CBCBCB;
+  --fontColor-50: #ACACAC;
+  --fontColor-500: #969696;
+  --fontColor-5000: #7C7C7C;
+  --fontColor-50000: #414141;
+
+  --app-bgc: #ECF0F1;
 
   /*Шрифты*/
   --font-robotoFlex: 'Roboto Flex', sans-serif;
   --font-nunito: 'Nunito', sans-serif;
 }
+
