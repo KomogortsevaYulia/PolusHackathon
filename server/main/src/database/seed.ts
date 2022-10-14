@@ -4,8 +4,8 @@ import { runSeeders, SeederOptions } from 'typeorm-extension';
 import { User } from '../user/entities/user.entity';
 import { Role } from '../user/entities/role.entity';
 import { Car } from '../car/entities/car.entity';
-import { WorkingShift } from 'src/working-shift/entities/working-shift.entity';
-import { Request } from 'src/request/entities/request.entity';
+import { WorkingShift } from '../working-shift/entities/working-shift.entity';
+import { Request } from '../request/entities/request.entity';
 
 require('dotenv').config();
 
