@@ -4,6 +4,8 @@ import { Outlet, useNavigate } from "react-router-dom";
 import "./PageWrapper.style.css" 
 import { users } from "../../api/userApi";
 import { fetchUserById } from "../../store/userSlice/userSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket, faCalendarDays, faTableList } from "@fortawesome/free-solid-svg-icons";
 
 const PageWrapper = ({ children }) => {
   const navigate = useNavigate();
@@ -30,27 +32,26 @@ const PageWrapper = ({ children }) => {
                   className="collapse navbar-collapse"
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li className="nav-item">
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+                    <li className="nav-item exitItem">
                       <a className="nav-link" href="#">
-                        <span>Выход</span>
+                        <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                        <span className="ms-2">Выход</span>
                       </a>
                     </li>
-                    <li className="nav-item">
-                      <a
-                        className="nav-link active"
-                        aria-current="page"
-                        href="#"
-                      >
-                        <span onClick={() => navigate("/dispatcherMainPage")}>Главная</span>
+                    <li className="nav-item ms-5">
+                      <a className="nav-link">
+                         <FontAwesomeIcon icon={faCalendarDays} />
+                        <span className="ms-3" onClick={() => navigate("/dispatcherMainPage")}>Главная</span>
                       </a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item ms-3">
                       <a className="nav-link" href="#">
-                        <span onClick={() => navigate("/dispatcherReportPage")}>Отчеты</span>
+                      <FontAwesomeIcon icon={faTableList} />
+                        <span className="ms-3" onClick={() => navigate("/dispatcherReportPage")}>Отчеты</span>
                       </a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item align-self-center">
                       <a className="nav-link" href="#">
                         Время
                       </a>
