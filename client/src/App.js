@@ -1,11 +1,21 @@
-import './App.css';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import "./App.css";
+import { fetchUserById } from "./store/userSlice/userSlice";
 
 function App() {
-  return (
-    <div className="App">
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
-    </div>
-  );
+  React.useEffect(() => {
+    dispatch(fetchUserById(1));
+  }, []);
+
+  React.useEffect(() => {
+    console.log(user);
+  }, [user]);
+
+  return <div className="App"></div>;
 }
 
 export default App;
