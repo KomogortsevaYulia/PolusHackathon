@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import AppRouter from "./components/AppRouter/AppRouter";
 import { fetchUserById } from "./store/userSlice/userSlice";
+import AppRoter from "./components/AppRouter/AppRouter";
 
 function App() {
   const { user } = useSelector((state) => state.user);
@@ -16,7 +16,7 @@ function App() {
     console.log(user);
   }, [user]);
 
-  return <AppRouter />;
+  return <AppRoter />;
 }
 
 export default App;
