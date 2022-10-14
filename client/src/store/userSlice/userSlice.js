@@ -1,24 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { UserApi } from "../../api/userApi";
 
-export const fetchUser = createAsyncThunk(
-  "counter/fetchUser",
-  async (user) => {
-    const response = await UserApi.fetchUser(user);
-    return response.data;
-  }
-);
-
 export const fetchUserById = createAsyncThunk(
   "counter/fetchUserById",
   async (user) => {
     const response = await UserApi.fetchById(user);
-    return response.data;
+    return response;
   }
 );
 
 const initialState = {
-  user: {username:'Заказчик Игорь', role:1 },
+  user: { id: 2, name: "Диспетчер Олег", role: { id: 2, name: "DISPATCHER" } },
 };
 
 export const userSlice = createSlice({
@@ -30,7 +22,7 @@ export const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchUser.fulfilled, (state, action) => {
+    builder.addCase(fetchUserById.fulfilled, (state, action) => {
       state.user = action.payload;
     });
   },

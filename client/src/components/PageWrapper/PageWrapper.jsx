@@ -57,15 +57,15 @@ const PageWrapper = ({ children }) => {
                         Чел
                       </a>
                       <ul class="dropdown-menu">
-                        <li onClick={() => dispatch(fetchUserById(1))}>
-                          <a class="dropdown-item" href="#">
+                        <li >
+                          <button class="dropdown-item" onClick={() => dispatch(fetchUserById(1))}>
                             {users[0].name}
-                          </a>
+                          </button>
                         </li>
-                        <li onClick={() => dispatch(fetchUserById(2))}>
-                          <a class="dropdown-item" href="#">
+                        <li >
+                          <button class="dropdown-item" onClick={() => dispatch(fetchUserById(2))}>
                             {users[1].name}
-                          </a>
+                          </button >
                         </li>
                       </ul>
                     </li>
@@ -101,15 +101,15 @@ const PageWrapper = ({ children }) => {
                         Чел
                       </a>
                       <ul class="dropdown-menu">
-                        <li>
-                          <a class="dropdown-item" href="#">
-                            Деловой закзчик
-                          </a>
+                        <li >
+                          <button class="dropdown-item" onClick={() => dispatch(fetchUserById(1))}>
+                            {users[0].name}
+                          </button >
                         </li>
-                        <li>
-                          <a class="dropdown-item" href="#">
-                            Диспетчер
-                          </a>
+                        <li >
+                          <button class="dropdown-item" onClick={() => dispatch(fetchUserById(1))}>
+                            {users[1].name}
+                          </button >
                         </li>
                       </ul>
                     </li>
