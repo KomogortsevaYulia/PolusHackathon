@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
+import AppRouter from "./components/AppRouter/AppRouter";
 import { fetchUserById } from "./store/userSlice/userSlice";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
     console.log(user);
   }, [user]);
 
-  return <div className="App"></div>;
+  return <AppRouter />;
 }
 
 export default App;
