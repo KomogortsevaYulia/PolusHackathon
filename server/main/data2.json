@@ -1,0 +1,1506 @@
+[
+  {
+    "id": 6843248,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А095АА/999",
+    "description": "Автовышка (28 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 6267700,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А096АА/999",
+    "description": "Автовышка (28 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 5006139,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А097АА/999",
+    "description": "Автовышка (28 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 1937529,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А098АА/999",
+    "description": "Автовышка (28 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 5705624,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А099АА/999",
+    "description": "Автовышка (28 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 7212553,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А100АА/999",
+    "description": "Автовышка (28 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 5772855,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А101АА/999",
+    "description": "Автовышка (28 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 9250217,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А102АА/999",
+    "description": "Автовышка (28 мп)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 4808438,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А103АА/999",
+    "description": "Автовышка (28 мп)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 1753681,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А104АА/999",
+    "description": "Автовышка (28 мп)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 5735285,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А105АА/999",
+    "description": "Автовышка (28 мп)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 9007383,
+    "name": "Чайка Сервис 2784SG",
+    "number": "А106АА/999",
+    "description": "Автовышка (28 мп)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 6086996,
+    "name": "КАМАЗ 43114",
+    "number": "А107АА/999",
+    "description": "Автовышка (32 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 8947405,
+    "name": "КАМАЗ 43114",
+    "number": "А108АА/999",
+    "description": "Автовышка (32 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 9375974,
+    "name": "КАМАЗ 43114",
+    "number": "А109АА/999",
+    "description": "Автовышка (32 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 2856780,
+    "name": "КАМАЗ 43114",
+    "number": "А110АА/999",
+    "description": "Автовышка (35 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 4562833,
+    "name": "КАМАЗ 43114",
+    "number": "А111АА/999",
+    "description": "Автовышка (35 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 2818023,
+    "name": "КАМАЗ 43114",
+    "number": "А112АА/999",
+    "description": "Автовышка (35 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 4862887,
+    "name": "КАМАЗ 43114",
+    "number": "А113АА/999",
+    "description": "Автовышка (35 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 4362372,
+    "name": "КАМАЗ 43114",
+    "number": "А114АА/999",
+    "description": "Автовышка (35 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 5629683,
+    "name": "КАМАЗ 43114",
+    "number": "А115АА/999",
+    "description": "Автовышка (45 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 5055236,
+    "name": "КАМАЗ 43114",
+    "number": "А116АА/999",
+    "description": "Автовышка (45 мп)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 1106922,
+    "name": "КАМАЗ 43114",
+    "number": "А117АА/999",
+    "description": "Автовышка (70 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 7557262,
+    "name": "Чайка Сервис 5784ХР",
+    "number": "А118АА/999",
+    "description": "Автовышка (70 м)",
+    "type": "Работа на точке",
+    "subType": "Автовышка"
+  },
+  {
+    "id": 3197612,
+    "name": "LIEBHERR LTM 1100-4.1",
+    "number": "А306АА/999",
+    "description": "Кран 100 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 8949981,
+    "name": "LIEBHERR LTM 1100-4.1",
+    "number": "А307АА/999",
+    "description": "Кран 110 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 5426387,
+    "name": "LIEBHERR LTM 1100-4.1",
+    "number": "А308АА/999",
+    "description": "Кран 110 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 8782834,
+    "name": "LIEBHERR LTM 1100-4.1",
+    "number": "А309АА/999",
+    "description": "Кран 110 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 4049535,
+    "name": "КС-35714К-2",
+    "number": "А310АА/999",
+    "description": "Кран 16 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 3840257,
+    "name": "КС-35714К-2",
+    "number": "А311АА/999",
+    "description": "Кран 16 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 2343508,
+    "name": "КС-35714К-2",
+    "number": "А312АА/999",
+    "description": "Кран 16 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 8009114,
+    "name": "КС-35714К-2",
+    "number": "А313АА/999",
+    "description": "Кран 16 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 488267,
+    "name": "LIEBHERR LTM 1160-5.2",
+    "number": "А314АА/999",
+    "description": "Кран 160 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 661576,
+    "name": "LIEBHERR LTM 1160-5.2",
+    "number": "А315АА/999",
+    "description": "Кран 160 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 242559,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А316АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 1248645,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А317АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 798937,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А318АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 818622,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А319АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 4638909,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А320АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 9678397,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А321АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 4892314,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А322АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 5714572,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А323АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 7568379,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А324АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 5778318,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А325АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 3997946,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А326АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 9867246,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А327АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 3895863,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А328АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 1137425,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А329АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 7797419,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А330АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 979243,
+    "name": "КС-45717К-3(25т.)",
+    "number": "А331АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 5580187,
+    "name": "КС-45717К-3Р",
+    "number": "А332АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 848285,
+    "name": "КС-45717К-3Р",
+    "number": "А333АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 9864654,
+    "name": "КС-45717К-3Р",
+    "number": "А334АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 2367861,
+    "name": "КС-45717К-3Р",
+    "number": "А335АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 8242177,
+    "name": "КС-5363А",
+    "number": "А336АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 849726,
+    "name": "КС-5363Д",
+    "number": "А337АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 5538040,
+    "name": "КС-5363Д",
+    "number": "А338АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 1713326,
+    "name": "КС-55713-5В",
+    "number": "А339АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 9072853,
+    "name": "КС-55713-5В",
+    "number": "А340АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 5433902,
+    "name": "КС-55713-5В",
+    "number": "А341АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 5711820,
+    "name": "КС-55713-5Л на шасси КамАЗ-43118-46",
+    "number": "А342АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 5472603,
+    "name": "КС-55713-5Л на шасси КамАЗ-43118-46",
+    "number": "А343АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 7368501,
+    "name": "КС-55722-2",
+    "number": "А344АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 2820160,
+    "name": "КС-55733",
+    "number": "А345АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 5924979,
+    "name": "КС-55733",
+    "number": "А346АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 970537,
+    "name": "КС-55733",
+    "number": "А347АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 7530363,
+    "name": "КС-55733",
+    "number": "А348АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 6140391,
+    "name": "КС-55733",
+    "number": "А349АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 4518301,
+    "name": "КС-55733",
+    "number": "А350АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 4732334,
+    "name": "КС-55733",
+    "number": "А351АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 9996368,
+    "name": "КС-55733",
+    "number": "А352АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 9180866,
+    "name": "КС-55733",
+    "number": "А353АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 629107,
+    "name": "КС-55733",
+    "number": "А354АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 8870313,
+    "name": "КС-55733",
+    "number": "А355АА/999",
+    "description": "Кран 25 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 2542534,
+    "name": "TEREX RT35",
+    "number": "А356АА/999",
+    "description": "Кран 35 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 1903538,
+    "name": "TEREX RT35",
+    "number": "А357АА/999",
+    "description": "Кран 35 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 2853910,
+    "name": "TEREX RT35",
+    "number": "А358АА/999",
+    "description": "Кран 35 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 7833152,
+    "name": "TEREX RT35",
+    "number": "А359АА/999",
+    "description": "Кран 35 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 7841560,
+    "name": "КС 55713-4",
+    "number": "А360АА/999",
+    "description": "Кран 35 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 9345492,
+    "name": "КС 55713-4",
+    "number": "А361АА/999",
+    "description": "Кран 35 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 63896,
+    "name": "КС 55713-4",
+    "number": "А362АА/999",
+    "description": "Кран 35 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 7694690,
+    "name": "КС 65717 (50т.)",
+    "number": "А363АА/999",
+    "description": "Кран 50 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 3413332,
+    "name": "КС 65717 (50т.)",
+    "number": "А364АА/999",
+    "description": "Кран 50 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 8883797,
+    "name": "КС 65717 (50т.)",
+    "number": "А365АА/999",
+    "description": "Кран 50 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 4976335,
+    "name": "КС 65717 (50т.)",
+    "number": "А366АА/999",
+    "description": "Кран 50 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 5930148,
+    "name": "КС 65717 (50т.)",
+    "number": "А367АА/999",
+    "description": "Кран 50 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 1151913,
+    "name": "КС 65717 (50т.)",
+    "number": "А368АА/999",
+    "description": "Кран 50 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 83503,
+    "name": "КС-6476",
+    "number": "А369АА/999",
+    "description": "Кран 50 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 6068432,
+    "name": "TEREX RC60",
+    "number": "А370АА/999",
+    "description": "Кран 60 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 4540781,
+    "name": "TEREX RC60",
+    "number": "А371АА/999",
+    "description": "Кран 60 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 2882834,
+    "name": "КС-75721-6",
+    "number": "А372АА/999",
+    "description": "Кран 70 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 9028324,
+    "name": "КС-75721-6",
+    "number": "А373АА/999",
+    "description": "Кран 70 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 2807922,
+    "name": "КС-75721-6",
+    "number": "А374АА/999",
+    "description": "Кран 70 т.",
+    "type": "Работа на точке",
+    "subType": "Кран"
+  },
+  {
+    "id": 775305,
+    "name": "DIECI ICARUS 40.17",
+    "number": "А589АА/999",
+    "description": "Погрузчик Телескопический 7,5т/5,4м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 6178680,
+    "name": "KOMATSU FD30T-17",
+    "number": "А590АА/999",
+    "description": "Погрузчик_Вилочный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 5538587,
+    "name": "KOMATSU FD30T-17",
+    "number": "А591АА/999",
+    "description": "Погрузчик_Вилочный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 6867400,
+    "name": "KOMATSU FD30T-17",
+    "number": "А592АА/999",
+    "description": "Погрузчик_Вилочный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 8467326,
+    "name": "KOMATSU FD30T-17",
+    "number": "А593АА/999",
+    "description": "Погрузчик_Вилочный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 8671512,
+    "name": "KOMATSU FD35AT",
+    "number": "А594АА/999",
+    "description": "Погрузчик_Вилочный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 23095,
+    "name": "KOMATSU FD50AYT-10",
+    "number": "А595АА/999",
+    "description": "Погрузчик_Вилочный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 5421241,
+    "name": "KOMATSU FD50AYT-10",
+    "number": "А596АА/999",
+    "description": "Погрузчик_Вилочный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 2133034,
+    "name": "KOMATSU FD50AYT-10",
+    "number": "А597АА/999",
+    "description": "Погрузчик_Вилочный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 1746109,
+    "name": "KOMATSU FD50AYT-10",
+    "number": "А598АА/999",
+    "description": "Погрузчик_Вилочный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 5380897,
+    "name": "KOMATSU FD30T-17",
+    "number": "А599АА/999",
+    "description": "Погрузчик_Вилочный_Диз_3т/6м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 1481920,
+    "name": "KOMATSU FD30T-17",
+    "number": "А600АА/999",
+    "description": "Погрузчик_Вилочный_Диз_3т/6м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 935543,
+    "name": "KOMATSU FD30T-17",
+    "number": "А601АА/999",
+    "description": "Погрузчик_Вилочный_Диз_3т/6м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 1791328,
+    "name": "KOMATSU FD30T-17",
+    "number": "А602АА/999",
+    "description": "Погрузчик_Вилочный_Диз_3т/6м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 1686042,
+    "name": "KOMATSU FD35AT",
+    "number": "А603АА/999",
+    "description": "Погрузчик_Вилочный_Диз_3т/6м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 7878334,
+    "name": "KOMATSU FD50AYT-10",
+    "number": "А604АА/999",
+    "description": "Погрузчик_Вилочный_Диз_5т/6м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 2719648,
+    "name": "KOMATSU FD50AYT-10",
+    "number": "А605АА/999",
+    "description": "Погрузчик_Вилочный_Диз_5т/6м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 1257545,
+    "name": "Dressta-534Е",
+    "number": "А606АА/999",
+    "description": "Погрузчик_Вилочный_Диз_7т/6м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 7125523,
+    "name": "SUPERSTACER TFC45H",
+    "number": "А607АА/999",
+    "description": "Погрузчик_Ричтрак_контейнерный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 9581555,
+    "name": "SUPERSTACER TFC45H",
+    "number": "А608АА/999",
+    "description": "Погрузчик_Ричтрак_контейнерный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 1200587,
+    "name": "Bobcat S530",
+    "number": "А609АА/999",
+    "description": "Погрузчик_с_боковым_поворотом",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 4294467,
+    "name": "Bobcat S530",
+    "number": "А610АА/999",
+    "description": "Погрузчик_с_боковым_поворотом",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 1698909,
+    "name": "Bobcat S530",
+    "number": "А611АА/999",
+    "description": "Погрузчик_с_боковым_поворотом",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 1362015,
+    "name": "Bobcat S530",
+    "number": "А612АА/999",
+    "description": "Погрузчик_с_боковым_поворотом",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 4891037,
+    "name": "Bobcat S530",
+    "number": "А613АА/999",
+    "description": "Погрузчик_с_боковым_поворотом",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 3341499,
+    "name": "Bobcat S570",
+    "number": "А614АА/999",
+    "description": "Погрузчик_с_боковым_поворотом",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 9506573,
+    "name": "Bobcat T2250",
+    "number": "А615АА/999",
+    "description": "Погрузчик_с_боковым_поворотом",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 4881031,
+    "name": "HYUNDAI HL760-7A",
+    "number": "А616АА/999",
+    "description": "Погрузчик_с_боковым_поворотом",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 7790439,
+    "name": "Bobcat T2250",
+    "number": "А617АА/999",
+    "description": "Погрузчик_Телескопический",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 5572720,
+    "name": "Bobcat T2250",
+    "number": "А618АА/999",
+    "description": "Погрузчик_Телескопический",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 515368,
+    "name": "Bobcat T2250",
+    "number": "А619АА/999",
+    "description": "Погрузчик_Телескопический",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 4155593,
+    "name": "DIECI ICARUS 40.17",
+    "number": "А620АА/999",
+    "description": "Погрузчик_Телескопический",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 6049031,
+    "name": "MANITOU MHT-X 860L",
+    "number": "А621АА/999",
+    "description": "Погрузчик_Телескопический",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 6604902,
+    "name": "MANITOU MHT-X 860L",
+    "number": "А622АА/999",
+    "description": "Погрузчик_Телескопический",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 4852714,
+    "name": "Погрузчик JCB 527-58",
+    "number": "А623АА/999",
+    "description": "Погрузчик_Телескопический",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 4926339,
+    "name": "Погрузчик JCB 527-58",
+    "number": "А624АА/999",
+    "description": "Погрузчик_Телескопический 1т/3м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 3533460,
+    "name": "MANITOU MHT-X 860L",
+    "number": "А625АА/999",
+    "description": "Погрузчик_Телескопический 6т/8м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 8370100,
+    "name": "MANITOU MHT-X 860L",
+    "number": "А626АА/999",
+    "description": "Погрузчик_Телескопический 9т/6м",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 3459597,
+    "name": "Dressta-534Е",
+    "number": "А627АА/999",
+    "description": "Погрузчик_Фронтальный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 5533560,
+    "name": "Dressta-534Е",
+    "number": "А628АА/999",
+    "description": "Погрузчик_Фронтальный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 9105584,
+    "name": "Dressta-534Е",
+    "number": "А629АА/999",
+    "description": "Погрузчик_Фронтальный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 2604814,
+    "name": "HYUNDAI HL760-7A",
+    "number": "А630АА/999",
+    "description": "Погрузчик_Фронтальный",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 120511,
+    "name": "Dressta-534Е",
+    "number": "А631АА/999",
+    "description": "Погрузчик_Фронтальный 3м3",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 6458125,
+    "name": "Dressta-534Е",
+    "number": "А632АА/999",
+    "description": "Погрузчик_Фронтальный 3м3",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 9313809,
+    "name": "Dressta-534Е",
+    "number": "А633АА/999",
+    "description": "Погрузчик_Фронтальный 3м3",
+    "type": "Работа на точке",
+    "subType": "Погрузчик"
+  },
+  {
+    "id": 1158166,
+    "name": "Sharon",
+    "number": "A071AA/999",
+    "description": "Excepturi ratione hic sed repudiandae beatae est.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 6448191,
+    "name": "Blaze",
+    "number": "A942AA/999",
+    "description": "Rem illo a autem error.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 6674935,
+    "name": "Willow",
+    "number": "A936AA/999",
+    "description": "Beatae consequuntur aliquid voluptatum ipsa odio ipsum velit vel alias.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 1290376,
+    "name": "Yvette",
+    "number": "A197AA/999",
+    "description": "Veniam quae deserunt nihil occaecati.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 345437,
+    "name": "Zola",
+    "number": "A411AA/999",
+    "description": "Delectus numquam dignissimos.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 6647532,
+    "name": "Kellie",
+    "number": "A507AA/999",
+    "description": "Tempore sunt consectetur eum.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 3627868,
+    "name": "Efrain",
+    "number": "A682AA/999",
+    "description": "Laudantium pariatur autem explicabo earum maxime amet architecto ut.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 3082658,
+    "name": "Arvel",
+    "number": "A538AA/999",
+    "description": "Tempore perferendis sunt.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 1655769,
+    "name": "Kaia",
+    "number": "A543AA/999",
+    "description": "Aut unde tempora laborum cum quidem rerum in ex suscipit.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 4361718,
+    "name": "Orin",
+    "number": "A538AA/999",
+    "description": "Dolor libero consequatur nobis.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 2961937,
+    "name": "Tianna",
+    "number": "A598AA/999",
+    "description": "Quia saepe voluptates modi provident esse.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 3210876,
+    "name": "Sabryna",
+    "number": "A444AA/999",
+    "description": "Ratione necessitatibus nostrum accusamus reiciendis enim rem placeat quos.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 3026722,
+    "name": "Winnifred",
+    "number": "A985AA/999",
+    "description": "Autem id modi magni veniam ut.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 4796429,
+    "name": "Presley",
+    "number": "A993AA/999",
+    "description": "Veritatis provident a unde iste molestiae porro sunt.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 1344486,
+    "name": "Fermin",
+    "number": "A763AA/999",
+    "description": "Nostrum enim a pariatur similique consequatur dolorum.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 5446550,
+    "name": "Santa",
+    "number": "A525AA/999",
+    "description": "Exercitationem earum consectetur quia quae.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 2649393,
+    "name": "Kavon",
+    "number": "A801AA/999",
+    "description": "Magnam eos laborum.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 1793105,
+    "name": "Felix",
+    "number": "A705AA/999",
+    "description": "Recusandae minima ducimus fugiat asperiores ipsa est similique eos delectus.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 9386983,
+    "name": "Loyce",
+    "number": "A892AA/999",
+    "description": "Soluta nesciunt voluptates explicabo eligendi delectus.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 8147563,
+    "name": "Jakob",
+    "number": "A786AA/999",
+    "description": "Iusto libero impedit cupiditate.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 4067219,
+    "name": "Lesly",
+    "number": "A527AA/999",
+    "description": "Eaque pariatur officiis voluptatum.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 3569893,
+    "name": "Mabelle",
+    "number": "A109AA/999",
+    "description": "Voluptatum ut commodi magni.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 1456519,
+    "name": "Kaia",
+    "number": "A296AA/999",
+    "description": "Id fugiat cumque quisquam magnam modi ullam.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 6065705,
+    "name": "Pattie",
+    "number": "A233AA/999",
+    "description": "Deleniti blanditiis laborum.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 519037,
+    "name": "Roderick",
+    "number": "A929AA/999",
+    "description": "Reprehenderit commodi soluta esse necessitatibus excepturi voluptatem amet.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 6960987,
+    "name": "Cheyenne",
+    "number": "A391AA/999",
+    "description": "Id harum quis labore accusantium ipsa.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 221097,
+    "name": "Brayan",
+    "number": "A750AA/999",
+    "description": "At hic id rem.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 9721850,
+    "name": "Elias",
+    "number": "A459AA/999",
+    "description": "Culpa molestiae consequatur modi.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 4142250,
+    "name": "Macy",
+    "number": "A700AA/999",
+    "description": "Nemo nemo atque tempora aperiam nam eligendi nihil occaecati.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 8888153,
+    "name": "Maybelle",
+    "number": "A321AA/999",
+    "description": "Ea nesciunt dolorum cumque dolorum.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 6179343,
+    "name": "Cordell",
+    "number": "A453AA/999",
+    "description": "Vel quia reprehenderit sapiente quia placeat.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 7206922,
+    "name": "Osborne",
+    "number": "A168AA/999",
+    "description": "Deleniti quia asperiores ex quam.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 4115867,
+    "name": "Gwendolyn",
+    "number": "A839AA/999",
+    "description": "Assumenda laboriosam consectetur natus sapiente totam possimus.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 8656097,
+    "name": "Cornelius",
+    "number": "A526AA/999",
+    "description": "Enim necessitatibus cum atque sequi esse.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 2874551,
+    "name": "Hillard",
+    "number": "A619AA/999",
+    "description": "Quae provident culpa tempora sint repellat.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 2589028,
+    "name": "Eveline",
+    "number": "A300AA/999",
+    "description": "Laborum labore ab.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 3639733,
+    "name": "Thelma",
+    "number": "A011AA/999",
+    "description": "Excepturi optio perspiciatis.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 8684702,
+    "name": "Madelynn",
+    "number": "A201AA/999",
+    "description": "Unde corporis unde.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 1710870,
+    "name": "Daniella",
+    "number": "A440AA/999",
+    "description": "Sit modi amet dolores repudiandae quibusdam maiores sed repellat vero.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 4327883,
+    "name": "Ashly",
+    "number": "A955AA/999",
+    "description": "Quam occaecati rem dolorem vel cum.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 5468330,
+    "name": "Tina",
+    "number": "A281AA/999",
+    "description": "Debitis aut ratione aliquam inventore aperiam est.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 1075327,
+    "name": "Terrance",
+    "number": "A672AA/999",
+    "description": "Delectus aperiam fugit omnis reiciendis.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 7458941,
+    "name": "Suzanne",
+    "number": "A418AA/999",
+    "description": "Laboriosam hic similique.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 1052156,
+    "name": "Yvette",
+    "number": "A193AA/999",
+    "description": "Esse delectus fugiat consequatur atque et culpa laboriosam ut animi.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 3250883,
+    "name": "Laurianne",
+    "number": "A483AA/999",
+    "description": "Dolores consequuntur praesentium consectetur corporis.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 3114678,
+    "name": "Van",
+    "number": "A953AA/999",
+    "description": "Animi porro voluptates quas nihil nemo nam.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 7772893,
+    "name": "Vickie",
+    "number": "A325AA/999",
+    "description": "Pariatur porro illum maiores vero quod ea quae voluptate.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 1874277,
+    "name": "Juwan",
+    "number": "A701AA/999",
+    "description": "Illo et distinctio.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  },
+  {
+    "id": 2688362,
+    "name": "Emilio",
+    "number": "A536AA/999",
+    "description": "Laudantium aut voluptatem.",
+    "type": "Перевозка",
+    "subType": "Пассажирский"
+  },
+  {
+    "id": 7280262,
+    "name": "Margarett",
+    "number": "A191AA/999",
+    "description": "A placeat beatae ipsa error sed adipisci commodi repellat officia.",
+    "type": "Перевозка",
+    "subType": "Грузовой"
+  }
+]
