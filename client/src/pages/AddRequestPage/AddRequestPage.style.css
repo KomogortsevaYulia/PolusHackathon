@@ -14,7 +14,6 @@
 
 .text {
     position: absolute;
-
     font-family: var(--font-nunito);
     font-style: normal;
     font-weight: 500;
@@ -50,3 +49,16 @@
     padding: 0;
     background: #FFFFFF;
 }
+
+.btnAdd {
+    background: linear-gradient(180deg, #FAB529 0%, #FAE529 100%);
+    box-shadow: -4px -4px 4px rgba(255, 255, 255, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    width: 25%;
+    padding: 10px;
+    font-family: var(--font-nunito);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 18px;
+ }
