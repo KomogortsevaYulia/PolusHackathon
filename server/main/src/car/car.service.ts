@@ -119,6 +119,14 @@ export class CarService {
 
     const mappedCars = cars.map(carsCallback);
 
-    return status ? mappedCars.filter((c) => c.status === status) : mappedCars;
+    const carsMap = new Map();
+
+    mappedCars.forEach((c) => {
+      if (!carsMap.has(c.name)) carsMap.set(c.name, [c]);
+      else carsMap.get(c.name).push(c);
+    });
+
+    // return status ? mappedCars.filter((c) => c.status === status) : mappedCars;
+    return Object.fromEntries(carsMap);
   }
 }
