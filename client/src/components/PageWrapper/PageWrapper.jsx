@@ -133,55 +133,6 @@ const PageWrapper = ({ children }) => {
                 </div>
               </div>  
             </div>
-            {/* <nav className="navbar bg-white navbar-expand-lg bg-light navStyles">
-              <div className="container-fluid ">
-                <div
-                  className="collapse navbar-collapse "
-                  id="navbarSupportedContent"
-                >
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item d-flex justify-content-start">
-                      <img src={logo} style={{ height: '50px' }} alt="Логотип" />
-                    </li>
-                    <li className="nav-item exitItem">
-                      <a className="nav-link" href="#">
-                        <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                        <span>Выход</span>
-                      </a>
-                    </li>
-                    <li className="buttonNav nav-item dropdown">
-                      <span
-                        className=" nav-link dropdown-toggle buttonNav"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        {user.name}
-                      </span>
-                      <ul className="dropdown-menu">
-                        <li>
-                          <button
-                            className="dropdown-item buttonNav"
-                            onClick={() => dispatch(fetchUserById(1))}
-                          >
-                            {users[0].name}
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            className="dropdown-item buttonNav"
-                            onClick={() => dispatch(fetchUserById(2))}
-                          >
-                            {users[1].name}
-                          </button>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-      */}
             <div className={`navCustomer`}>
               <nav>
                 <span
