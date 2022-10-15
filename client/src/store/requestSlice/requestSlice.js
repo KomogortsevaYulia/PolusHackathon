@@ -24,7 +24,6 @@ export const fetchRequestAll = createAsyncThunk(
   }
 );
 
-
 const initialState = {
   requests: null,
 };
@@ -38,9 +37,13 @@ export const requestSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchRequestByClientId.fulfilled, (state, action) => {
-      state.requests = action.payload;
-    });
+    builder
+      .addCase(fetchRequestByClientId.fulfilled, (state, action) => {
+        state.requests = action.payload;
+      })
+      .addCase(addRequest.fulfilled, (state, action) => {
+        state.requests.push(action.payload);
+      });
   },
 });
 

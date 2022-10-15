@@ -13,6 +13,8 @@ import { addRequest } from "../../store/requestSlice/requestSlice";
 var myMap;
 
 const AddRequestPage = () => {
+  const navigate = useNavigate();
+
   const [isRadio, setIsRadio] = useState("Работа на точке");
   const [isSelect, setIsSelect] = useState("Погрузчик");
   const [isCar, setIsCar] = useState("");
@@ -152,8 +154,8 @@ const AddRequestPage = () => {
             endLat: place1[1],
             plannedDateStart: startDate,
             plannedDateEnd: endDate,
-            firstPlace: {firstPlace},
-            secondPlace: {secondPlace},
+            firstPlace,
+            secondPlace,
             userId: 1,
             comment,
           })
@@ -169,12 +171,14 @@ const AddRequestPage = () => {
             endLat: place2[1],
             plannedDateStart: startDate,
             plannedDateEnd: startDate,
-            firstPlace: {firstPlace},
-            secondPlace: {firstPlace},
+            firstPlace,
+            secondPlace,
             userId: 1,
             comment,
           })
         );
+
+    navigate("/myRequests");
   };
 
   const typeRequest = React.useState();
@@ -367,7 +371,7 @@ const AddRequestPage = () => {
               </div>
 
               <div class="mb-3 row mt-5 choiseTransportType ps-3 col-8">
-                  Комментарий
+                Комментарий
                 <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
