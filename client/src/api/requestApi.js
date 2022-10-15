@@ -3,16 +3,16 @@ import axios from "axios";
 const apiUrl = "/api";
 
 export class RequestApi {
-
   static async addRequest(data) {
+    console.log(data);
     return axios
-      .post(`${apiUrl}/transferRuble`, { ...data })
+      .post(`${apiUrl}/request`, data)
       .then((response) => response.data);
   }
 
-  static async fetchRequestByUserId(id) {
+  static async fetchRequestByClientId(id) {
     return axios
-      .get(`${apiUrl}/car`)
+      .get(`${apiUrl}/request/byClient/${id}`)
       .then((response) => response.data)
       .catch((err) => {
         console.log(err);
