@@ -33,6 +33,8 @@ android {
 }
 
 dependencies {
+    implementation project(':core_domain')
+
     implementation okhttpDependencies.okhttp
     implementation okhttpDependencies.okhttp_logging_interceptor
 

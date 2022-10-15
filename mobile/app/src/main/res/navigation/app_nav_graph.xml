@@ -10,12 +10,40 @@
         android:name="ru.pochtifullstack.feature_auth.api.AuthFragment"
         android:label="AuthFragment" >
         <action
-            android:id="@+id/action_authFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_authFragment_to_startShiftFragment"
+            app:destination="@id/startShiftFragment" />
     </fragment>
-
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="ru.pochtifullstack.polusmobile.MainFragment"
-        android:label="MainFragment" />
+        android:id="@+id/startShiftFragment"
+        android:name="ru.pochtifullstack.feature_shift.api.StartShiftFragment"
+        android:label="fragment_start_shift"
+        tools:layout="@layout/fragment_start_shift" >
+        <action
+            android:id="@+id/action_startShiftFragment_to_scanerFragment"
+            app:destination="@id/scanerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanerFragment"
+        android:name="ru.pochtifullstack.feature_scaner.api.ScanerFragment"
+        android:label="ScanerFragment" >
+        <action
+            android:id="@+id/action_scanerFragment_to_approveVehicleFragment"
+            app:destination="@id/approveVehicleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/approveVehicleFragment"
+        android:name="ru.pochtifullstack.feature_shift.api.ApproveVehicleFragment"
+        android:label="ApproveVehicleFragment" >
+        <action
+            android:id="@+id/action_approveVehicleFragment_to_requestListFragment"
+            app:destination="@id/requestListFragment" />
+        <argument
+            android:name="vehicleId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestListFragment"
+        android:name="ru.pochtifullstack.feature_shift.api.RequestListFragment"
+        android:label="RequestListFragment" />
+
 </navigation>

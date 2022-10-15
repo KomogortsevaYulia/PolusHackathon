@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feature_request_list_nav_graph"
+    app:startDestination="@id/approveVehicleFragment">
+    <fragment
+        android:id="@+id/approveVehicleFragment"
+        android:name="ru.pochtifullstack.feature_shift.api.ApproveVehicleFragment"
+        android:label="ApproveVehicleFragment" >
+        <argument
+            android:name="vehicleId"
+            app:argType="string" />
+    </fragment>
+</navigation>

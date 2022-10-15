@@ -40,7 +40,7 @@ class StartShiftFragment : Fragment(R.layout.fragment_start_shift) {
 
     private fun init() {
         binding.btnStartShift.setOnClickListener {
-            shiftViewModel.moveToRequestList()
+            shiftViewModel.moveToScaner()
         }
     }
 }

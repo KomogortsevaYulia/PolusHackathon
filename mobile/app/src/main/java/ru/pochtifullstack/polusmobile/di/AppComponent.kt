@@ -4,9 +4,9 @@ import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
 import ru.pochtifullstack.feature_auth.api.AuthDeps
+import ru.pochtifullstack.feature_scaner.api.ScanerDeps
 import ru.pochtifullstack.feature_shift.api.ShiftDeps
 import ru.pochtifullstack.polusmobile.MainActivity
-import ru.pochtifullstack.polusmobile.MainFragment
 import javax.inject.Qualifier
 import javax.inject.Scope
 
@@ -16,10 +16,12 @@ annotation class AppScope
 @[AppScope Component(
     modules = [
         NavigationModule::class,
-        NetworkModule::class
+        NetworkModule::class,
+        DatabaseModule::class,
+        DataComponent::class
     ]
 )]
-interface AppComponent : AuthDeps, ShiftDeps {
+interface AppComponent : AuthDeps, ShiftDeps, ScanerDeps {
 
     @Component.Factory
     interface Factory {
@@ -30,7 +32,6 @@ interface AppComponent : AuthDeps, ShiftDeps {
     }
 
     fun inject(mainActivity: MainActivity)
-    fun inject(mainFragment: MainFragment)
 }
 
 @Qualifier

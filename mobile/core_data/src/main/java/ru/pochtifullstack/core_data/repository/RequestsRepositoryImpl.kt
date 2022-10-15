@@ -5,11 +5,11 @@ import ru.pochtifullstack.core_domain.repository.RequestsRepository
 
 class RequestsRepositoryImpl: RequestsRepository {
 
-    override fun getRequests(): List<Request> {
+    override suspend fun getRequests(): List<Request> {
         TODO("Not yet implemented")
     }
 
-    override fun approveRequest(request: Request) {
+    override suspend fun approveRequest(request: Request) {
         TODO("Not yet implemented")
     }
 }

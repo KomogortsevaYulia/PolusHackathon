@@ -4,6 +4,8 @@ plugins {
     id 'kotlin-kapt'
 }
 
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 apply from: "$rootDir/dependencies.gradle"
 
 android {
@@ -32,6 +34,13 @@ android {
     }
     buildFeatures {
         viewBinding true
+    }
+    sourceSets {
+        main {
+            java {
+                srcDirs += 'build/generated/source/navigation-args'
+            }
+        }
     }
 }
 

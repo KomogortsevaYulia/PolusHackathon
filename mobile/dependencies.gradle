@@ -15,7 +15,8 @@ ext.versions = [
         viewBinding         : "1.4.7",
         room                : "2.4.3",
         retrofit            : "2.9.0",
-        blurry              : "4.0.1"
+        blurry              : "4.0.1",
+        qrScaner            : "2.3.2"
 ]
 
 ext.versions.androidx = [
@@ -77,4 +78,8 @@ ext.androidxNavigationDependencies = [
 
 ext.blurryDependencies = [
         blurry: "jp.wasabeef:blurry:${versions.blurry}"
+]
+
+ext.qrScaner = [
+        scaner: "com.github.yuriy-budiyev:code-scanner:${versions.qrScaner}"
 ]

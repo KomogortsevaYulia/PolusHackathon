@@ -1,6 +1,7 @@
 package ru.pochtifullstack.feature_shift.internal.di
 
 import dagger.Component
+import ru.pochtifullstack.feature_shift.api.ApproveVehicleFragment
 import ru.pochtifullstack.feature_shift.api.RequestListFragment
 import ru.pochtifullstack.feature_shift.api.ShiftDeps
 import ru.pochtifullstack.feature_shift.api.StartShiftFragment
@@ -24,4 +25,5 @@ internal interface ShiftComponent {
 
     fun inject(startShiftFragment: StartShiftFragment)
     fun inject(requestListFragment: RequestListFragment)
+    fun inject(approveVehicleFragment: ApproveVehicleFragment)
 }

@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 class DriverClient {
 
-    val BASE_URL = "https://beta.mrdekk.ru/todobackend/"
+    val BASE_URL = "https://virgo.tucana.org/api/"
 
     private fun getOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
