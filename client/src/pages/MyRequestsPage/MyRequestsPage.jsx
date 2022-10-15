@@ -1,8 +1,11 @@
 import React from "react";
 import "./MyRequestsPage.style.css";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRequestByClientId } from "../../store/requestSlice/requestSlice";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
 
 const MyRequestsPage = () => {
   const { user } = useSelector((state) => state.user);
