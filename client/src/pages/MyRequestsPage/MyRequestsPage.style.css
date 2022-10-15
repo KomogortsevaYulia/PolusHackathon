@@ -14,3 +14,6 @@ border-radius: 15px;
     font-size: 28px;
     color: #000000;
 }
+.searchBox{
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+}
