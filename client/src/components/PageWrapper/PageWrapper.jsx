@@ -7,7 +7,11 @@ import { fetchUserById } from "../../store/userSlice/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../../sourse/logo.png";
 import { useLocation } from "react-router-dom";
-import { faArrowRightFromBracket, faListSquares, faListCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRightFromBracket,
+  faListSquares,
+  faListCheck,
+} from "@fortawesome/free-solid-svg-icons";
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -21,7 +25,7 @@ const PageWrapper = ({ children }) => {
   }, []);
 
   React.useEffect(() => {
-    console.log(user);
+    navigate("/");
   }, [user]);
 
   return (
@@ -43,12 +47,12 @@ const PageWrapper = ({ children }) => {
                       </a>
                     </li>
                     <li className="nav-item ms-3">
-                      <a
-                        className="nav-link"
-                        href="#"
-                      >
+                      <a className="nav-link" href="#">
                         <FontAwesomeIcon icon={faListSquares} />
-                        <span className="ms-3" onClick={() => navigate("/dispatcherMainPage")}>
+                        <span
+                          className="ms-3"
+                          onClick={() => navigate("/dispatcherMainPage")}
+                        >
                           Главная
                         </span>
                       </a>
@@ -56,7 +60,10 @@ const PageWrapper = ({ children }) => {
                     <li className="nav-item ms-3">
                       <a className="nav-link" href="#">
                         <FontAwesomeIcon icon={faListCheck} />
-                        <span className="ms-3" onClick={() => navigate("/dispatcherReportPage")}>
+                        <span
+                          className="ms-3"
+                          onClick={() => navigate("/dispatcherReportPage")}
+                        >
                           Отчеты
                         </span>
                       </a>
@@ -111,7 +118,11 @@ const PageWrapper = ({ children }) => {
                 >
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item d-flex justify-content-start">
-                      <img src={logo} style={{ height: '50px' }} alt="Логотип" />
+                      <img
+                        src={logo}
+                        style={{ height: "50px" }}
+                        alt="Логотип"
+                      />
                     </li>
                     <li className="nav-item exitItem">
                       <a className="nav-link" href="#">
@@ -154,19 +165,27 @@ const PageWrapper = ({ children }) => {
             <div className="navCustomer">
               <nav>
                 <span
-                  className={`buttonNav ${"/freeTransport" === location.pathname ? 'buttonNavActive' : ''}`}
+                  className={`buttonNav ${
+                    "/freeTransport" === location.pathname
+                      ? "buttonNavActive"
+                      : ""
+                  }`}
                   onClick={() => navigate("/freeTransport")}
                 >
                   Доступные ТС
                 </span>
                 <span
-                  className={`buttonNav ${"/myRequests" === location.pathname ? 'buttonNavActive' : ''}`}
+                  className={`buttonNav ${
+                    "/myRequests" === location.pathname ? "buttonNavActive" : ""
+                  }`}
                   onClick={() => navigate("/myRequests")}
                 >
                   Мои заявки
                 </span>
                 <span
-                  className={`buttonNav ${"/addRequest" === location.pathname ? 'buttonNavActive' : ''}`}
+                  className={`buttonNav ${
+                    "/addRequest" === location.pathname ? "buttonNavActive" : ""
+                  }`}
                   onClick={() => navigate("/addRequest")}
                 >
                   Создать заявку

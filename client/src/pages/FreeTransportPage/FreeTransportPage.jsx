@@ -5,7 +5,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { fetchTransport } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
 
-
 const FreeTransportPage = () => {
   React.useEffect(() => {
     window.ymaps.ready(function () {
@@ -91,7 +90,11 @@ const FreeTransportPage = () => {
       >
         {transport &&
           transport?.map((row) => (
-            <div className="card cardBoxWhite" style={{ width: "18rem" }}>
+            <div
+              className="card cardBoxWhite"
+              style={{ width: "18rem" }}
+              key={row.id}
+            >
               <img
                 src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg"
                 class="card-img-top"
