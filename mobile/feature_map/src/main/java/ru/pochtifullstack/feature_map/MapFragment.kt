@@ -88,6 +88,9 @@ class MapFragment : Fragment(R.layout.fragment_map) {
         binding.apply {
             val bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheet.root)
             bottomSheetBehavior.isHideable = true
+            bottomSheetBehavior.peekHeight = 200
+            bottomSheetBehavior.maxHeight = 1200
+            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED)
         }
     }
 }
