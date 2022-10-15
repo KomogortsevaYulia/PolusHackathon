@@ -1,32 +1,22 @@
 import React from "react";
 import "./MyRequestsPage.style.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import CalendarComp from '../../components/Calendar/CalendarComp.jsx'
 
 const MyRequestsPage = () => {
   return <div className="containerCustomer">
-    <div className="row align-items-stretch  d-flex card">
+    <div className="row align-items-stretch  d-flex card searchBox">
       <div className="card-body">
-        <div className="col-auto">
-          Сортировочка по дате
+        <div className="row">
+        <div className="col-6">
+          <div className = "dropdown">
+              <CalendarComp className = "calendarDateSelect col-12"/>
+          </div>
         </div>
-        <div className="col-auto">
-          Даты
+        <div className="col-6">
+          qq
         </div>
-        <div className="col-auto">
-          <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск" />
-          </form>
-        </div>
-        <div className="form-check">
-          <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-            <label className="form-check-label" for="flexCheckDefault">
-              Default checkbox
-            </label>
-        </div>
-        <div className="form-check">
-          <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
-            <label className="form-check-label" for="flexCheckChecked">
-              Checked checkbox
-            </label>
         </div>
       </div>
     </div>

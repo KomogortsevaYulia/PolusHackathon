@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { fetchTransport } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
+import { useState } from "react";
 
 
 const FreeTransportPage = () => {
@@ -41,6 +42,8 @@ const FreeTransportPage = () => {
     console.log(transport);
   }, [transport]);
 
+  const [selected, setSelected] = useState(true);
+
   return (
     <>
       <div className="row align-items-stretch containerCustomer d-flex ">
@@ -53,11 +56,11 @@ const FreeTransportPage = () => {
             >
               <input
                 type="radio"
-                className="btn-check"
+                className= {selected? "btn-check selected" : "btn-check"}
                 name="btnradio"
                 id="btnradio1"
                 autoComplete="off"
-                checked
+                onClick={() => setSelected(true)}
               />
               <label className="btn btnYellow " htmlFor="btnradio1">
                 Специальная техника
@@ -68,6 +71,7 @@ const FreeTransportPage = () => {
                 name="btnradio"
                 id="btnradio2"
                 autoComplete="off"
+                onClick={() => setSelected(false)}
               />
               <label className="btn btnYellow" htmlFor="btnradio2">
                 Грузопассажирский транспорт
