@@ -1,7 +1,7 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { init } from "../../utils/yamap";
+import { createtwoPlacemark } from "../../utils/yamap";
 import "./AddRequestPage.style.css";
 
 const AddRequestPage = () => {
@@ -41,7 +41,7 @@ const AddRequestPage = () => {
         );
 
       createtwoPlacemark(myMap);
-      createMultiRoute(myMap)
+      // createMultiRoute(myMap)
     });
   }, []);
 
