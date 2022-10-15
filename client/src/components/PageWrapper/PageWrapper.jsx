@@ -67,14 +67,14 @@ const PageWrapper = ({ children }) => {
                       </a>
                     </li>
                     <li className="nav-item dropdown">
-                      <button
-                        className="nav-link dropdown-toggle buttonNav"
+                      <span
+                        className=" nav-link dropdown-toggle buttonNav"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
                         {user.name}
-                      </button>
+                      </span>
                       <ul className="dropdown-menu">
                         <li>
                           <button
