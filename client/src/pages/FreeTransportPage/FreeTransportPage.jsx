@@ -22,12 +22,12 @@ const FreeTransportPage = () => {
 
   return (
     <>
-      <div className="row align-items-stretch containerCustomer d-flex">
-        <div className="col-auto ">
-          <div className="row ">
+      <div className="row align-items-stretch containerCustomer d-flex ">
+        <div className="col-auto boxWhite">
+          <div className="row">
             <span className="text">Фильтры</span>
           </div>
-          <div className="row ">
+          <div className="row">
             <div
               className="btn-group"
               role="group"
@@ -41,7 +41,7 @@ const FreeTransportPage = () => {
                 autoComplete="off"
                 checked
               />
-              <label className="btn btn-outline-primary" htmlFor="btnradio1">
+              <label className="btn btnYellow " htmlFor="btnradio1">
                 Специальная техника
               </label>
               <input
@@ -51,22 +51,22 @@ const FreeTransportPage = () => {
                 id="btnradio2"
                 autoComplete="off"
               />
-              <label className="btn btn-outline-primary" htmlFor="btnradio2">
+              <label className="btn btnYellow" htmlFor="btnradio2">
                 Грузопассажирский транспорт
               </label>
             </div>
           </div>
         </div>
-        <div className="col order-last d-flex h-100 d-inline-block">
-          <div id="first_map" style={{ width: "100%", height: "50vh" }}></div>
+        <div className="col order-last d-flex h-100 d-inline-block boxWhite">
+          <div id="first_map" style={{ width: "100%", height: "50vh", borderRadius: "25px" }} ></div>
         </div>
       </div>
-      <div className="row align-items-stretch containerCustomer d-flex">
-        <div className="card" style={{ width: "18rem" }}>
+      <div className="row align-items-stretch containerCustomer d-flex ">
+        <div className="card cardBoxWhite" style={{ width: "18rem" }}>
           <img src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg" class="card-img-top" alt="ТС" />
           <div className="card-body">
-            <h5 className="card-title">Бульдозер</h5>
-            <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <h5 className="card-title">Погрузчик</h5>
+            <h6 className="card-subtitle mb-2 text-muted">Имя</h6>
             <p className="card-text">Описание</p>
           </div>
         </div>

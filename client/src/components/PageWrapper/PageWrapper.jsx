@@ -6,11 +6,11 @@ import { users } from "../../api/userApi";
 import { fetchUserById } from "../../store/userSlice/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-
-import { ReactComponent as IconEditWhite } from "../../logo/polus_logo.svg";
-// import logo from "../../logo/polus_logo.svg";
+import logo from "../../sourse/logo.png";
+import { useLocation } from "react-router-dom";
 
 const PageWrapper = ({ children }) => {
+  const location = useLocation();
   const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.user);
@@ -102,29 +102,25 @@ const PageWrapper = ({ children }) => {
       ) : (
         <>
           <header>
-            <nav className="navbar navbar-expand-lg bg-light">
-              <div className="container-fluid">
+          <nav className="navbar bg-white navbar-expand-lg bg-light navStyles">
+              <div className="container-fluid ">
                 <div
-                  className="collapse navbar-collapse"
+                  className="collapse navbar-collapse "
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item d-flex justify-content-start">
-                      <IconEditWhite style={{ width: "10%" }} />
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+                  <li className="nav-item " >
+                      <img src={logo} style={{height:'50px'}} alt="Логотип" />
                     </li>
-                    <li className="nav-item d-flex justify-content-end">
-                      <a
-                        className="nav-link active"
-                        aria-current="page"
-                        href="#"
-                      >
+                    <li className="nav-item exitItem">
+                      <a className="nav-link" href="#">
                         <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                        Выход
+                        <span>Выход</span>
                       </a>
                     </li>
-                    <li className="buttonNav nav-item dropdown d-flex justify-content-end">
+                    <li className="buttonNav nav-item dropdown">
                       <span
-                        className="nav-link dropdown-toggle buttonNav"
+                        className=" nav-link dropdown-toggle buttonNav"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
@@ -157,19 +153,19 @@ const PageWrapper = ({ children }) => {
             <div className="navCustomer">
               <nav>
                 <span
-                  className="buttonNav"
+                  className={`buttonNav ${"/freeTrasport" === location.pathname ? 'buttonNavActive' : ''}`} 
                   onClick={() => navigate("/freeTrasport")}
                 >
                   Доступные ТС
                 </span>
                 <span
-                  className="buttonNav"
+                  className={`buttonNav ${"/myRequests" === location.pathname ? 'buttonNavActive' : ''}`} 
                   onClick={() => navigate("/myRequests")}
                 >
                   Мои заявки
                 </span>
                 <span
-                  className="buttonNav"
+                  className={`buttonNav ${"/addRequest" === location.pathname ? 'buttonNavActive' : ''}`} 
                   onClick={() => navigate("/addRequest")}
                 >
                   Создать заявку
