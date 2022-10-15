@@ -1,8 +1,9 @@
 import { CarSubTypesValues, CarTypes } from 'src/car/entities/car.entity';
+import { RequestTypes, RequestSubTypes } from '../entities/request.entity';
 
 export class CreateRequestDto {
-  type: CarTypes;
-  subType: CarSubTypesValues;
+  type: RequestTypes;
+  subType: RequestSubTypes;
   startLon: number;
   startLat: number;
   endLon?: number;

@@ -3,6 +3,7 @@ import { Repository } from 'typeorm';
 
 import {
   Car,
+  CarSubTypes,
   CarTypes,
   TransportationCarTypes,
   WorkCarTypes,
@@ -21,10 +22,7 @@ export class CarService {
     private carRepo: Repository<Car>,
   ) {}
 
-  async getAll(
-    type?: CarTypes,
-    subType?: WorkCarTypes | TransportationCarTypes,
-  ) {
+  async getAll(type?: CarTypes, subType?: CarSubTypes) {
     if (!type && !subType) {
       return this.carRepo.find({
         relations: {
@@ -90,7 +88,7 @@ export class CarService {
 
   async getCarsWithStatuses(
     type?: CarTypes,
-    subType?: WorkCarTypes | TransportationCarTypes,
+    subType?: CarSubTypes,
     status?: CarStatus,
   ) {
     const cars = await this.getAll(type, subType);

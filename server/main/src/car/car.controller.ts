@@ -1,6 +1,7 @@
 import { Controller, Get, Param, Patch, Query } from '@nestjs/common';
 import { CarService, CarStatus } from './car.service';
 import {
+  CarSubTypes,
   CarTypes,
   TransportationCarTypes,
   WorkCarTypes,
@@ -13,7 +14,7 @@ export class CarController {
   @Get()
   async getAll(
     @Query('type') type: CarTypes,
-    @Query('sub_type') subType: WorkCarTypes | TransportationCarTypes,
+    @Query('sub_type') subType: CarSubTypes,
     @Query('status') status: CarStatus,
   ) {
     return this.carService.getCarsWithStatuses(type, subType, status);

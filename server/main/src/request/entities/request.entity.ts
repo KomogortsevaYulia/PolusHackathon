@@ -22,24 +22,35 @@ export enum RequestStatuses {
   COMPLETED = 'Выполнена',
 }
 
+export enum RequestTypes {
+  TRANSPORTATION = 'Перевозка',
+  WORK = 'Работа на точке',
+}
+
+export enum RequestSubTypes {
+  PASSENGER = 'Пассажирский',
+  CARGO = 'Грузовой',
+  TOWER = 'Автовышка',
+  CRANE = 'Кран',
+  LOADER = 'Погрузчик',
+}
+
 @Entity()
 export class Request {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'enum', enum: RequestStatuses, enumName: 'RequestStatuses' })
+  @Column({ type: 'enum', enum: RequestStatuses })
   status: RequestStatuses;
 
-  // @Column({ type: 'enum', enum: CarTypes, enumName: 'RequestTypes' })
-  // type: CarTypes;
+  @Column({ type: 'enum', enum: RequestTypes })
+  type: RequestTypes;
 
   @Column({
     type: 'enum',
-    enum: CarSubTypes,
-    enumName: 'RequestSub',
-    nullable: false,
+    enum: RequestSubTypes,
   })
-  subType: CarSubTypesValues;
+  subType: RequestSubTypes;
 
   @Column()
   startLon: number;
