@@ -86,7 +86,6 @@ const FreeTransportPage = () => {
         className="row align-items-stretch containerCustomer d-flex justify-content-between mt-4"
         style={{ overflowX: "auto", flexWrap: "none" }}
       >
-        <ReactCardSlider/>
         {transport &&
           transport?.map((row) => (
             <div

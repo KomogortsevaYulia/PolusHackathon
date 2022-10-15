@@ -91,7 +91,7 @@ export function createMultiRoute (myMap) {
       // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
       boundsAutoApply: true
   });
-
+  
   // Создаем кнопки для управления мультимаршрутом.
   var trafficButton = new ymaps.control.Button({
           data: { content: "Учитывать пробки" },
