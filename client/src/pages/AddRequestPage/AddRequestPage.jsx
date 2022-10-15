@@ -178,11 +178,11 @@ const AddRequestPage = () => {
   return (
     <div>
       <form action="#" id="#" method="put" onSubmit={onSubmit}>
-        <div className="row align-items-stretch containerCustomer d-flex boxWhite p-4 ">
+        <div className="row align-items-stretch containerCustomer d-flex boxWhite p-5 ">
           <div className="row">
             <div className="col m-2">
               <div className="row pb-5">
-                <div className="col textForm ">
+                <div className="col textForm choiseTransportType">
                   {" "}
                   Тип услуги
                   <div className="form-check">
@@ -222,10 +222,8 @@ const AddRequestPage = () => {
                 </div>
                 <div className="col"></div>
               </div>
-              <div className="row pb-5">
-                <label for="exampleFormControlTextarea1" class="form-label">
-                  Вид транспортного средства
-                </label>
+              <div className="row pb-2 choiseTransportType ps-3 col-8">
+                Вид транспортного средства
                 <select
                   class="form-select textForm"
                   aria-label="Default select example"
@@ -267,7 +265,7 @@ const AddRequestPage = () => {
                   )}
                 </select>
               </div>
-              <div className="row pb-5">
+              <div className="row mt-5 choiseTransportType">
                 {isRadio === "Перевозка" ? (
                   <div className="row textForm">
                     <div className="col-auto textForm">Время</div>
@@ -318,10 +316,8 @@ const AddRequestPage = () => {
                   </div>
                 )}
               </div>
-              <div className="row pb-5">
-                <label for="exampleFormControlTextarea1" class="form-label">
-                  Модель ТС
-                </label>
+              <div className="row mt-5 choiseTransportType ps-3 col-8">
+                Модель ТС
                 <select
                   class="form-select textForm"
                   aria-label="Default select example"
@@ -335,7 +331,7 @@ const AddRequestPage = () => {
                     ))}
                 </select>
               </div>
-              <div class="mb-3 row">
+              <div class="mt-5 row ps-3 col-8 choiseTransportType">
                 {isRadio === "Перевозка" ? (
                   <div class="mb-3 row">
                     <label
@@ -366,13 +362,8 @@ const AddRequestPage = () => {
                 )}
               </div>
 
-              <div class="mb-3 row">
-                <label
-                  for="exampleFormControlTextarea1"
-                  className="textForm form-label"
-                >
+              <div class="mb-3 row mt-5 choiseTransportType ps-3 col-8">
                   Комментарий
-                </label>
                 <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
@@ -385,7 +376,7 @@ const AddRequestPage = () => {
             <div className="col order-last d-flex h-100 d-inline-block">
               <div
                 id="first_map"
-                style={{ width: "100%", height: "50vh", borderRadius: "25px" }}
+                style={{ width: "100%", height: "63vh", borderRadius: "25px" }}
               ></div>
             </div>
           </div>
