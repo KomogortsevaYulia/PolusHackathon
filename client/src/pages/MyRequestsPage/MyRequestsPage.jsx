@@ -3,9 +3,7 @@ import "./MyRequestsPage.style.css";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRequestByClientId } from "../../store/requestSlice/requestSlice";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
 
 const MyRequestsPage = () => {
   const { user } = useSelector((state) => state.user);
@@ -38,56 +36,78 @@ const MyRequestsPage = () => {
         </div>
         <div className="myRequestMenuItem col-3">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Найти" aria-label="Recipient's username" aria-describedby="button-addon2" />
-            <button className="btn btn-outline-secondary col-2" type="button" id="button-addon2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Найти"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <button
+              className="btn btn-outline-secondary col-2"
+              type="button"
+              id="button-addon2"
+            >
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
           </div>
         </div>
       </div>
-      <table className="table table-bordered request mt-3">
-        <tbody>
-          {requests &&
+
+      <div className="col mt-5">
+      {requests &&
             requests?.map((row) => (
-              <tr className="bg-white ">
-                <td>
-                  <p className="textRequest">{row.type}</p> <p>Даты</p>{" "}
-                </td>
-                <td>{row.status} </td>
-                <td>{row.type}</td>
+              <>
+              <div className="row requestTable d-flex mt-3">
+                <div className="col-1 borderItem pt-4">
+                  <p className="requestType">{row.type}</p>
+                  <p>Даты</p>
+                </div>
+                <div className="col-1 borderItem  pt-4">
+                  <p>{row.status}</p>
+                </div>
+                <div className="col-1 borderItem  pt-4">
+                  <p>{row.type}</p>
+                </div>
                 {row.plannedDateEnd === row.plannedDateStart ? (
                   <>
-                    <td>
+                    <div className="col-3 borderItem pt-4">
+                      <p>
                       {row.plannedDateStart
                         .split("T")
                         .map((s) => s.split(".")[0])
                         .join(" ")}
-                    </td>
-                    <td>Точка</td>
+                      </p>
+                    </div>
+                    <div className="col-2 borderItem pt-4">Точка</div>
                   </>
                 ) : (
                   <>
-                    <td>
-                      {row.plannedDateStart
-                        .split("T")
-                        .map((s) => s.split(".")[0])
-                        .join(" ")}{" "}
-                      -{" "}
-                      {row.plannedDateEnd
-                        .split("T")
-                        .map((s) => s.split(".")[0])
-                        .join(" ")}
-                    </td>
-                    <td>Точка</td>
+                    <div className="col-3 borderItem pt-4">
+                      <p>
+                        {row.plannedDateStart
+                          .split("T")
+                          .map((s) => s.split(".")[0])
+                          .join(" ")}{" "}
+                        -{" "}
+                        {row.plannedDateEnd
+                          .split("T")
+                          .map((s) => s.split(".")[0])
+                          .join(" ")}
+                      </p>
+                    </div>
+                    <div className="col-2 borderItem pt-4">Точка</div>
+                    <div className="col-2 borderItem pt-4">Точка</div>
                   </>
                 )}
-                <td>{row.comment}</td>
-              </tr>
+                <div className="col">
+                  {row.comment}
+                </div>
+              </div>
+              </>
             ))}
-        </tbody>
-      </table>
+      </div>
     </div>
-    
   );
 };
 

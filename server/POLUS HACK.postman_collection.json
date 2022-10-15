@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "1fb4717f-c932-42cd-8e44-ee41890a78e7",
+		"name": "POLUS HACK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18524433"
+	},
+	"item": [
+		{
+			"name": "get user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/user/3",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get car",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/car/221097",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"car",
+						"221097"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get cars by type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/car?sub_type=Грузовой&status=free",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"car"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Работа на точке",
+							"disabled": true
+						},
+						{
+							"key": "sub_type",
+							"value": "Грузовой"
+						},
+						{
+							"key": "status",
+							"value": "free"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "start working shift",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 3,\r\n    \"carId\": 661576\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/working-shift",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"working-shift"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "end working shift",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/working-shift/6448191",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"working-shift",
+						"6448191"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all wotking shifts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/working-shift?dateStart=2022-10-13",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"working-shift"
+					],
+					"query": [
+						{
+							"key": "carId",
+							"value": "661576",
+							"disabled": true
+						},
+						{
+							"key": "dateStart",
+							"value": "2022-10-13"
+						},
+						{
+							"key": "userId",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "break the car",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/car/break/661576",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"car",
+						"break",
+						"661576"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fix the car",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/car/fix/661576",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"car",
+						"fix",
+						"661576"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"Перевозка\",\r\n    \"subType\": \"Грузовой\",\r\n    \"startLon\": 111.11,\r\n    \"startLat\": 55.555,\r\n    \"endLon\": 55.555,\r\n    \"endLat\": 111.11,\r\n    \"plannedDateStart\": \"2022-10-16T12:00:00Z\",\r\n    \"plannedDateEnd\": \"2022-10-16T17:00:00Z\",\r\n    \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/request",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appoint request",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carId\": 221097\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/request/appoint/2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"request",
+						"appoint",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get requests by car",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/request/byCar/221097",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"request",
+						"byCar",
+						"221097"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create request to server",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"Работа на точке\",\r\n    \"subType\": \"Погрузчик\",\r\n    \"startLon\": 111.11,\r\n    \"startLat\": \"55.555\",\r\n    \"endLon\": \"55.555\",\r\n    \"endLat\": \"111.11\",\r\n    \"plannedDateStart\": \"2022-10-16T12:00:00Z\",\r\n    \"plannedDateEnd\": \"2022-10-16T17:00:00Z\",\r\n    \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://virgo.tucana.org/api/request",
+					"protocol": "https",
+					"host": [
+						"virgo",
+						"tucana",
+						"org"
+					],
+					"path": [
+						"api",
+						"request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appoint request to server",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carId\": 23095\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://virgo.tucana.org/api/request/appoint/1",
+					"protocol": "https",
+					"host": [
+						"virgo",
+						"tucana",
+						"org"
+					],
+					"path": [
+						"api",
+						"request",
+						"appoint",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get car from server",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get request by driver id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/request/byDriver/3",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"request",
+						"byDriver",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:5000/api",
+			"type": "string"
+		}
+	]
+}
