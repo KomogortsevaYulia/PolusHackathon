@@ -68,4 +68,11 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 18px;
+    cursor: pointer;
  }
+
+ .choiseTransportType{
+    border-left: 2px solid var(--yellow-5);
+ }
+ 
+ 

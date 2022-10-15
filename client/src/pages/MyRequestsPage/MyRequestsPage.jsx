@@ -9,11 +9,12 @@ const MyRequestsPage = () => {
     <div className="row align-items-stretch  d-flex card searchBox">
       <div className="card-body">
         <div className="row">
-        <div className="col-6">
-          <div className = "dropdown">
-              <CalendarComp className = "calendarDateSelect col-12"/>
+          <div></div>
+          <div className="col-6">
+            <div className = "dropdown">
+                <CalendarComp className = "calendarDateSelect col-12"/>
+            </div>
           </div>
-        </div>
         <div className="col-6">
           qq
         </div>
