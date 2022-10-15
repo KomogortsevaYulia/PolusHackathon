@@ -1,7 +1,5 @@
 import React from "react";
 import "./MyRequestsPage.style.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRequestByClientId } from "../../store/requestSlice/requestSlice";
@@ -35,7 +33,7 @@ const MyRequestsPage = () => {
                 </td>
                 <td>{row.status} </td>
                 <td>{row.type}</td>
-                {row.plannedDateEnd == row.plannedDateStart ? (
+                {row.plannedDateEnd === row.plannedDateStart ? (
                   <>
                     <td>
                       {row.plannedDateStart

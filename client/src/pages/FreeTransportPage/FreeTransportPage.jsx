@@ -1,10 +1,11 @@
 import React from "react";
 import "./FreeTransportPage.style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useLocation } from "react-router-dom";
-import { fetchTransport } from "../../store/transportSlice/transportSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fetchTransportName } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
 import { useState } from "react";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const FreeTransportPage = () => {
   React.useEffect(() => {
@@ -14,67 +15,143 @@ const FreeTransportPage = () => {
         center: [55.76, 37.64],
         zoom: 10,
       });
-      // // Ссылка на элемент.
-      // var piter_map = new window.ymaps.Map(
-      //   document.getElementsByTagName("p")[2],
-      //   {
-      //     center: [59.94, 30.32],
-      //     zoom: 9,
-      //   }
-      // );
     });
   }, []);
 
-  const location = useLocation();
-  const navigate = useNavigate();
+  const [isRadio, setIsRadio] = useState("Работа на точке");
+  const [isSelect, setIsSelect] = useState("Погрузчик");
+  const [isCar, setIsCar] = useState("");
 
-  const { user } = useSelector((state) => state.user);
   const { transport } = useSelector((state) => state.transport);
   const dispatch = useDispatch();
-  const [isRadio, setIsRadio] = useState("Специальная техника");
   console.log(isRadio);
 
   React.useEffect(() => {
     dispatch(fetchUserById(1));
-    dispatch(fetchTransport());
   }, []);
+
+  React.useEffect(() => {
+    dispatch(fetchTransportName(isSelect));
+  }, [isSelect]);
+
 
   React.useEffect(() => {
     console.log(transport);
   }, [transport]);
 
+  const handleChangeCar = (e) => {
+    setIsCar(e.currentTarget.value);
+  };
+
+  const handleChange = (e) => {
+    setIsRadio(e.currentTarget.value);
+  };
+
+  const handleChangeselect = (e) => {
+    setIsSelect(e.currentTarget.value);
+  };
+
   return (
     <>
       <div className="row align-items-stretch containerCustomer d-flex ">
-        <div className="col boxWhite p-4 transportSearchBox">
-          <div className="row">
-            <div
-              className="btn-group"
-              role="group"
-              aria-label="Basic radio toggle button group"
-            >
-              <input
-                type="radio"
-                className="btn-check"
-                name="btnradio"
-                id="btnradio1"
-                autoComplete="off"
-                checked
-              />
-              <label className="btn btnYellow " htmlFor="btnradio1">
-                Специальная техника
-              </label>
-              <input
-                type="radio"
-                className="btn-check"
-                name="btnradio"
-                id="btnradio2"
-                autoComplete="off"
-              />
-              <label className="btn btnYellow" htmlFor="btnradio2">
-                Грузопассажирский транспорт
-              </label>
+        <div className="col boxWhite p-4 ">
+          <div className="row  pb-5">
+            <div className="col textForm choiseTransportType ">
+              {" "}
+              Тип услуги
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                  value="Перевозка"
+                  onChange={handleChange}
+                  checked={isRadio === "Перевозка"}
+                />
+                <label
+                  className="form-check-label textForm"
+                  for="flexRadioDefault1"
+                >
+                  Перевозка
+                </label>
+              </div>
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  value="Работа на точке"
+                  onChange={handleChange}
+                  checked={isRadio === "Работа на точке"}
+                />
+                <label
+                  className="form-check-label textForm"
+                  for="flexRadioDefault2"
+                >
+                  Работа на точке
+                </label>
+              </div>
             </div>
+          </div>
+          <div className="row pb-2 choiseTransportType ps-3 col-8">
+            Вид транспортного средства
+            <select
+              class="form-select textForm"
+              aria-label="Default select example"
+              onChange={handleChangeselect}
+            >
+              {isRadio === "Работа на точке" ? (
+                <>
+                  <option
+                    selected={isSelect === "Автовышка"}
+                    value="Автовышка"
+                  >
+                    Автовышка
+                  </option>
+                  <option
+                    selected={isSelect === "Погрузчик"}
+                    value="Погрузчик"
+                  >
+                    Погрузчик
+                  </option>
+                  <option selected={isSelect === "Кран"} value="Кран">
+                    Кран
+                  </option>
+                </>
+              ) : (
+                <>
+                  <option
+                    selected={isSelect === "Пассажирский"}
+                    value="Пассажирский"
+                  >
+                    Пассажирский
+                  </option>
+                  <option
+                    selected={isSelect === "Грузовой"}
+                    value="Грузовой"
+                  >
+                    Грузовой
+                  </option>
+                </>
+              )}
+            </select>
+          </div>
+          <div className="row mt-5 choiseTransportType ps-3 col-8">
+            Модель ТС
+            <select
+              class="form-select textForm"
+              aria-label="Default select example"
+              onChange={handleChangeCar}
+            >
+              {transport &&
+                Object.keys(transport)?.map((row) => (
+                  <option selected={isCar === row} value={row}>
+                    {row}
+                  </option>
+                ))}
+            </select>
           </div>
         </div>
         <div className="col order-last d-flex d-inline-block boxWhite transportSearchBox">
@@ -102,8 +179,6 @@ const FreeTransportPage = () => {
               />
               <div className="card-body">
                 <h5 className="card-title">{transport[key][0].name}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">Имя</h6>
-                <p className="card-text">Описание</p>
               </div>
             </div>
           ))}

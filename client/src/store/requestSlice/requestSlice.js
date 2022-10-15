@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { UserApi } from "../../api/requestApi";
 import { RequestApi } from "../../api/requestApi";
 
 export const fetchRequestByClientId = createAsyncThunk(
