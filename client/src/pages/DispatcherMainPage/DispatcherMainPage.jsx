@@ -38,7 +38,7 @@ const DispatcherMainPage = () => {
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </button>
                 </div>
-                <div className = "row justify-content-between">
+                <div className = "row">
                   <div className = "dropdown col-3">
                       <button className = "btn btn-filter btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Dropdown button
@@ -128,7 +128,7 @@ const DispatcherMainPage = () => {
           <div className = "transportStatus col m-4">
             <div className="row d-flex justify-content-start align-items-center">
               <p className="waitTransport col-auto ms-2">28</p>
-              <p className="col-auto p-2">В ожидании</p>
+              <p className="col-auto p-2 ms-3">В ожидании</p>
             </div>
           </div>
           <div className = "requestCard col m-4">

@@ -38,6 +38,7 @@ const PageWrapper = ({ children }) => {
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
                     <li className="nav-item exitItem">
                       <a className="nav-link" href="#">
+                        <FontAwesomeIcon icon={faArrowRightFromBracket} />
                         <span>Выход</span>
                       </a>
                     </li>
@@ -109,7 +110,7 @@ const PageWrapper = ({ children }) => {
                 >
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item d-flex justify-content-start">
-                      <IconEditWhite style={{ width: "100%" }} />
+                      <IconEditWhite style={{ width: "10%" }} />
                     </li>
                     <li className="nav-item d-flex justify-content-end">
                       <a
