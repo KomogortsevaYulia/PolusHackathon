@@ -61,7 +61,6 @@ const FreeTransportPage = () => {
                 autoComplete="off"
                 checked
               />
-
               <label className="btn btnYellow " htmlFor="btnradio1">
                 Специальная техника
               </label>
