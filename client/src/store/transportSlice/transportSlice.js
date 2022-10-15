@@ -17,13 +17,13 @@ export const transportSlice = createSlice({
   name: "transport",
   initialState,
   reducers: {
-    resetUser: (state) => {
+    resetTransport: (state) => {
       state.transport = null;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchTransport.fulfilled, (state, action) => {
-      state.request = action.payload;
+      state.transport = action.payload;
     });
   },
 });

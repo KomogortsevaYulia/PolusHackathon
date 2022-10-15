@@ -1,9 +1,9 @@
 import React from "react";
 import "./FreeTransportPage.style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet, useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { fetchTransport } from "../../store/transportSlice/transportSlice";
+import { fetchUserById } from "../../store/userSlice/userSlice";
 
 const FreeTransportPage = () => {
   React.useEffect(() => {
@@ -32,18 +32,19 @@ const FreeTransportPage = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
+    dispatch(fetchUserById(1));
     dispatch(fetchTransport());
   }, []);
 
   React.useEffect(() => {
-    console.log(user);
-  }, [user]);
+    console.log(transport);
+  }, [transport]);
 
   return (
     <>
       <div className="row align-items-stretch containerCustomer d-flex ">
         <div className="col boxWhite">
-          <div className="row"  >
+          <div className="row">
             <p className="text">Фильтры</p>
           </div>
           <div className="row">
@@ -77,14 +78,21 @@ const FreeTransportPage = () => {
           </div>
         </div>
         <div className="col order-last d-flex h-100 d-inline-block boxWhite">
-          <div id="first_map" style={{ width: "100%", height: "50vh", borderRadius: "25px" }} ></div>
+          <div
+            id="first_map"
+            style={{ width: "100%", height: "50vh", borderRadius: "25px" }}
+          ></div>
         </div>
       </div>
       <div className="row align-items-stretch containerCustomer d-flex ">
         {transport &&
           transport?.map((row) => (
             <div className="card cardBoxWhite" style={{ width: "18rem" }}>
-              <img src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg" class="card-img-top" alt="ТС" />
+              <img
+                src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg"
+                class="card-img-top"
+                alt="ТС"
+              />
               <div className="card-body">
                 <h5 className="card-title">{row.name}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">Имя</h6>
@@ -92,7 +100,6 @@ const FreeTransportPage = () => {
               </div>
             </div>
           ))}
-
       </div>
     </>
   );
