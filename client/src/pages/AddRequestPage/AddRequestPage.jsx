@@ -269,9 +269,10 @@ const AddRequestPage = () => {
                     <div className="col-auto textForm">Время</div>
                     <div className="col-auto">
                       <DatePicker
+                        className="datePickerMy"
                         id="startDateTime"
                         selected={startDate}
-                        showTimeSelect
+                        showTimeInput
                         locale="ru"
                         dateFormat="MMMM d, yyyy h:mm aa"
                         onChange={(date) => setStartDate(date)}
@@ -283,6 +284,7 @@ const AddRequestPage = () => {
                     <div className="col-auto textForm">Время работы</div>
                     <div className="col-auto">
                       <DatePicker
+                        className="datePickerMy"
                         id="startDateTime"
                         selected={startDate}
                         locale="ru"
@@ -297,6 +299,7 @@ const AddRequestPage = () => {
                     <div className="col-auto">
                       <DatePicker
                         selected={endDate}
+                        className="datePickerMy"
                         selectsEnd
                         locale="ru"
                         id="endDateTime"
