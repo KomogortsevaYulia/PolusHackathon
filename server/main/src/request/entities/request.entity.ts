@@ -18,8 +18,9 @@ import { WorkingShift } from '../../working-shift/entities/working-shift.entity'
 export enum RequestStatuses {
   CREATED = 'Создана',
   APPOINTED = 'Назначена',
-  NOT_APPOINTED = 'Не назначена',
+  PERFORMING = 'Выполняется',
   COMPLETED = 'Выполнена',
+  CANCELLED = 'Отменена',
 }
 
 export enum RequestTypes {
@@ -92,5 +93,5 @@ export class Request {
 
   @ManyToOne(() => User, (user) => user.requests)
   @JoinColumn()
-  user: User;
+  client: User;
 }

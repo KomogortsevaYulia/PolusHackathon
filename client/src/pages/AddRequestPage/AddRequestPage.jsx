@@ -40,7 +40,8 @@ const AddRequestPage = () => {
           }
         );
 
-      init(myMap);
+      createtwoPlacemark(myMap);
+      createMultiRoute(myMap)
     });
   }, []);
 
