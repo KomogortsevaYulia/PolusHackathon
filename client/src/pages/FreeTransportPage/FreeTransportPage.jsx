@@ -10,12 +10,16 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 const FreeTransportPage = () => {
   React.useEffect(() => {
     window.ymaps.ready(function () {
+      console.log(132);
       // Указывается идентификатор HTML-элемента.
       var moscow_map = new window.ymaps.Map("first_map", {
         center: [55.76, 37.64],
         zoom: 10,
       });
     });
+
+    dispatch(fetchUserById(1));
+    dispatch(fetchTransport());
   }, []);
 
   const [isRadio, setIsRadio] = useState("Работа на точке");
@@ -33,7 +37,6 @@ const FreeTransportPage = () => {
   React.useEffect(() => {
     dispatch(fetchTransportName(isSelect));
   }, [isSelect]);
-
 
   React.useEffect(() => {
     console.log(transport);
@@ -104,16 +107,10 @@ const FreeTransportPage = () => {
             >
               {isRadio === "Работа на точке" ? (
                 <>
-                  <option
-                    selected={isSelect === "Автовышка"}
-                    value="Автовышка"
-                  >
+                  <option selected={isSelect === "Автовышка"} value="Автовышка">
                     Автовышка
                   </option>
-                  <option
-                    selected={isSelect === "Погрузчик"}
-                    value="Погрузчик"
-                  >
+                  <option selected={isSelect === "Погрузчик"} value="Погрузчик">
                     Погрузчик
                   </option>
                   <option selected={isSelect === "Кран"} value="Кран">
@@ -128,10 +125,7 @@ const FreeTransportPage = () => {
                   >
                     Пассажирский
                   </option>
-                  <option
-                    selected={isSelect === "Грузовой"}
-                    value="Грузовой"
-                  >
+                  <option selected={isSelect === "Грузовой"} value="Грузовой">
                     Грузовой
                   </option>
                 </>
@@ -158,6 +152,7 @@ const FreeTransportPage = () => {
           <div
             id="first_map"
             style={{ width: "100%", borderRadius: "25px" }}
+            className="map"
           ></div>
         </div>
       </div>
