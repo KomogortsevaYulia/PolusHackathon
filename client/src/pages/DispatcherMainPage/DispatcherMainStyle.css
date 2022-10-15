@@ -16,7 +16,7 @@
 .requestCard{
     box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
     border-radius: 25px;
-    height: 42rem;
+    height: 36rem;
     background: #FFFFFF;
     font-family: var(--font-robotoFlex);
 }
@@ -43,7 +43,7 @@
 .requestTableContainer{
     box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
     border-radius: 25px;
-    height: 46rem;
+    height: 40rem;
     background: #FFFFFF; 
     padding: 3rem;   
 }
@@ -104,4 +104,8 @@
 
 span:hover {
     color: var(--yellow-50);
+}
+
+.btn-secondary .checkMap{
+    background-color: black;
 }
