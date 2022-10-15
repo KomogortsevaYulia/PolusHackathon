@@ -32,3 +32,14 @@
 .exitItem{
     border-right: 1px solid var(--fontColor-5);
 }
+
+.backgroundAdd{
+    /* height: 60vh;
+    width: 100vw;
+    background-size:cover ;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-image:url("../../sourse/background.png") ; */
+    
+}

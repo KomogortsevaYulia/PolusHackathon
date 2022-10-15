@@ -151,7 +151,7 @@ const PageWrapper = ({ children }) => {
                 </div>
               </div>
             </nav>
-            <div className="navCustomer">
+            <div className={`navCustomer`}>
               <nav>
                 <span
                   className={`buttonNav ${"/freeTransport" === location.pathname ? 'buttonNavActive' : ''}`}
@@ -176,7 +176,7 @@ const PageWrapper = ({ children }) => {
           </header>
         </>
       )}
-      <main>{children || <Outlet />}</main>
+      <main className={`  ${"/addRequest" === location.pathname ? 'backgroundAdd' : ''}`} >{children || <Outlet />}</main>
     </>
   );
 };
