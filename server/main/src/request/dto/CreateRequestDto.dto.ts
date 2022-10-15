@@ -4,6 +4,7 @@ import { RequestTypes, RequestSubTypes } from '../entities/request.entity';
 export class CreateRequestDto {
   type: RequestTypes;
   subType: RequestSubTypes;
+  requiredCarName: string;
   startLon: number;
   startLat: number;
   endLon?: number;

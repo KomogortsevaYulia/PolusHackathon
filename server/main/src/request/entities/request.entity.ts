@@ -54,6 +54,9 @@ export class Request {
   subType: RequestSubTypes;
 
   @Column()
+  requiredCarName: string;
+
+  @Column()
   startLon: number;
 
   @Column()
