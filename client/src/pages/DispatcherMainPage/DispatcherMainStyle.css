@@ -16,7 +16,7 @@
 .requestCard{
     box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
     border-radius: 25px;
-    height: 36rem;
+    height: 42rem;
     background: #FFFFFF;
     font-family: var(--font-robotoFlex);
 }
@@ -43,7 +43,7 @@
 .requestTableContainer{
     box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
     border-radius: 25px;
-    height: 40rem;
+    height: 46rem;
     background: #FFFFFF; 
     padding: 3rem;   
 }
@@ -81,7 +81,7 @@
 }
 
 .requestTitle{
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--yellow-50);
 }
 
@@ -100,4 +100,8 @@
 
 .boldCardText{
     font: 500;
+}
+
+span:hover {
+    color: var(--yellow-50);
 }

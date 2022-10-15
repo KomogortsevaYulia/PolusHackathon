@@ -5,7 +5,7 @@ import "./PageWrapper.style.css";
 import { users } from "../../api/userApi";
 import { fetchUserById } from "../../store/userSlice/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket, faListSquares, faListCheck} from "@fortawesome/free-solid-svg-icons";
 
 import { ReactComponent as IconEditWhite } from "../../logo/polus_logo.svg";
 // import logo from "../../logo/polus_logo.svg";
@@ -32,34 +32,36 @@ const PageWrapper = ({ children }) => {
             <nav className="navbar navbar-expand-lg bg-light navStyles">
               <div className="container-fluid">
                 <div
-                  className="collapse navbar-collapse"
+                  className="collapse navbar-collapse col-6"
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item exitItem">
                       <a className="nav-link" href="#">
-                        <span>Выход</span>
+                        <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                        <span className="ms-3 me-3">Выход</span>
                       </a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item ms-3">
                       <a
-                        className="nav-link active"
-                        aria-current="page"
+                        className="nav-link"
                         href="#"
                       >
-                        <span onClick={() => navigate("/dispatcherMainPage")}>
+                        <FontAwesomeIcon icon={faListSquares} />
+                        <span className = "ms-3" onClick={() => navigate("/dispatcherMainPage")}>
                           Главная
                         </span>
                       </a>
                     </li>
                     <li className="nav-item ms-3">
                       <a className="nav-link" href="#">
-                        <span onClick={() => navigate("/dispatcherReportPage")}>
+                      <FontAwesomeIcon icon={faListCheck} />
+                        <span className = "ms-3" onClick={() => navigate("/dispatcherReportPage")}>
                           Отчеты
                         </span>
                       </a>
                     </li>
-                    <li className="nav-item align-self-center">
+                    <li className="nav-item align-self-center col-6">
                       <a className="nav-link" href="#">
                         Время
                       </a>

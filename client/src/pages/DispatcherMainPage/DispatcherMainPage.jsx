@@ -11,7 +11,7 @@ const DispatcherMainPage = () => {
            <div className = "row justify-content-center">
               <div className = "col-3 m-4">
                 <div className = "dropdown">
-                    <button className = "btn btn-calendar btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className = "btn btn-calendar btn-secondary dropdown-toggle col-12" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Dropdown button
                     </button>
                     <ul className="dropdown-menu">
@@ -21,8 +21,8 @@ const DispatcherMainPage = () => {
                     </ul>
                 </div>
                 <div className = "dropdown mt-4">
-                    <button className = "btn btn-filter btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown button
+                    <button className = "btn btn-filter btn-secondary dropdown-toggle col-12" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Фильтр 1
                     </button>
                     <ul class="dropdown-menu">
                       <li><a className = "dropdown-item" href="#">Action</a></li>
@@ -39,9 +39,9 @@ const DispatcherMainPage = () => {
                   </button>
                 </div>
                 <div className = "row justify-content-between">
-                  <div className = "dropdown col-3">
-                      <button className = "btn btn-filter btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown button
+                  <div className = "dropdown col-4">
+                      <button className = "btn btn-filter btn-secondary dropdown-toggle col-12" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Фильтр 2
                       </button>
                       <ul class="dropdown-menu">
                         <li><a className = "dropdown-item" href="#">Action</a></li>
@@ -55,13 +55,13 @@ const DispatcherMainPage = () => {
                       Истекает время
                     </label>
                   </div>
-                  <div className = "form-check col-3 pt-2">
+                  <div className = "form-check col-2 pt-2">
                     <input className = "form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
                     <label className = "form-check-label" for="flexCheckDefault">
                       Накладка ТС
                     </label>
                   </div>
-                  <div className = "form-check col-3 pt-2">
+                  <div className = "form-check col-2 pt-2">
                     <input className = "form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
                     <label className = "form-check-label" for="flexCheckDefault">
                       Доступные
