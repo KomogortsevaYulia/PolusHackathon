@@ -31,8 +31,6 @@ const FreeTransportPage = () => {
   const { user } = useSelector((state) => state.user);
   const { transport } = useSelector((state) => state.transport);
   const dispatch = useDispatch();
-  const [isRadio, setIsRadio] = useState("Специальная техника");
-  console.log(isRadio)
 
   React.useEffect(() => {
     dispatch(fetchUserById(1));
@@ -61,7 +59,6 @@ const FreeTransportPage = () => {
                 autoComplete="off"
                 checked
               />
-
               <label className="btn btnYellow " htmlFor="btnradio1">
                 Специальная техника
               </label>
