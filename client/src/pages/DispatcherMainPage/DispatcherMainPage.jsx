@@ -2,9 +2,14 @@ import React from "react";
 import "./DispatcherMainStyle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faCheck, faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+
 
 
 const DispatcherMainPage = () => {
+  const [selectedMap, setSelectedMap] = useState(true);
+  const [selectedRequest, setSelectedRequest] = useState(false);
+
   return (
       <div className = "row justify-content-center mt-4 ">
         <div className = "col-7 subMenu mt-4">
@@ -24,7 +29,7 @@ const DispatcherMainPage = () => {
                     <button className = "btn btn-filter btn-secondary dropdown-toggle col-12" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Фильтр 1
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul className = "dropdown-menu">
                       <li><a className = "dropdown-item" href="#">Action</a></li>
                       <li><a className = "dropdown-item" href="#">Another action</a></li>
                       <li><a className = "dropdown-item" href="#">Something else here</a></li>
@@ -70,47 +75,57 @@ const DispatcherMainPage = () => {
                 </div>
               </div>
               <div className = "requestTableContainer m-4">
+                <input type="radio" className = "btn-check" name="options" onClick={() => setSelectedMap(true)} id="option1" autocomplete="off" checked/>
+                <label class="btn btn-secondary" for="option1" >Таблица</label>
+                <input type="radio" className = "btn-check" name="options" onClick={() => setSelectedMap(false)} id="option2" autocomplete="off"/>
+                <label class="btn btn-secondary" for="option2">Карта</label>
+                {selectedMap? 
                 <table className = "table request">
-                  <thead>
-                    <tr>
-                      <th scope="col">Время</th>
-                      <th scope="col">Статус</th>
-                      <th scope="col">Адрес</th>
-                      <th scope="col">ТС</th>
-                      <th scope="col">Тип</th>
-                      <th scope="col">Бронирование</th>
-                      <th scope="col"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="requestTr">
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr className="requestTr">
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr className="requestTr">
-                      <th scope="row">3</th>
-                      <td colspan="2">Larry the Bird</td>
-                      <td>@twitter</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>@mdo</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <thead>
+                  <tr>
+                    <th scope="col">Время</th>
+                    <th scope="col">Статус</th>
+                    <th scope="col">Адрес</th>
+                    <th scope="col">ТС</th>
+                    <th scope="col">Тип</th>
+                    <th scope="col">Бронирование</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="requestTr" onClick={() => setSelectedRequest(!selectedRequest)}>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr className="requestTr">
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr className="requestTr">
+                    <th scope="row">3</th>
+                    <td colSpan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>:
+                <div className="col order-last d-flex h-100 d-inline-block boxWhite">
+                  <div id="first_map" style={{ width: "100%", height: "50vh", borderRadius: "25px" }} ></div>
+                </div>
+                }
+              
               </div>
            </div>
         </div>
@@ -131,13 +146,15 @@ const DispatcherMainPage = () => {
               <p className="col-auto p-2 ms-3">В ожидании</p>
             </div>
           </div>
-          <div className = "requestCard col m-4 p-5">
+
+
+         {selectedRequest?  <div className = "requestCard col m-4 p-5">
             <div className="row mt-3">
                 <p className = "requestTitle col-8">
                     Заявка на перевоз груза
                     <FontAwesomeIcon icon={faCheck} className = "ms-2 requestCheck" />
                 </p>
-                <p class="col text-end requestData">
+                <p className="col text-end requestData">
                     12.12.2309
                 </p>
             </div>
@@ -145,7 +162,7 @@ const DispatcherMainPage = () => {
                 <p className = "mt-4 requestCompanyTitle col-8">
                     OOO "Газпром"
                 </p>
-                <p class="mt-4 col-4 text-end requestData">
+                <p className="mt-4 col-4 text-end requestData">
                     10:10
                 </p>
             </div>
@@ -170,7 +187,7 @@ const DispatcherMainPage = () => {
                 453553</p>
               </div>
             </div>
-          </div>
+          </div> : <></>}
         </div>
       </div>
   );
