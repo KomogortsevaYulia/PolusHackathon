@@ -4,10 +4,7 @@ import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRequestByClientId } from "../../store/requestSlice/requestSlice";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
 
 const MyRequestsPage = () => {
   const { user } = useSelector((state) => state.user);
@@ -40,8 +37,18 @@ const MyRequestsPage = () => {
         </div>
         <div className="myRequestMenuItem col-3">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Найти" aria-label="Recipient's username" aria-describedby="button-addon2" />
-            <button className="btn btn-outline-secondary col-2" type="button" id="button-addon2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Найти"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <button
+              className="btn btn-outline-secondary col-2"
+              type="button"
+              id="button-addon2"
+            >
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
           </div>
@@ -89,7 +96,6 @@ const MyRequestsPage = () => {
         </tbody>
       </table>
     </div>
-    
   );
 };
 
