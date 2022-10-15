@@ -369,7 +369,6 @@ const AddRequestPage = () => {
                   </div>
                 )}
               </div>
-
               <div class="mb-3 row mt-5 choiseTransportType ps-3 col-8">
                 Комментарий
                 <textarea

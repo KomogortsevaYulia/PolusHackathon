@@ -22,8 +22,19 @@ const MyRequestsPage = () => {
 
   return (
     <div className="containerCustomer">
-      <div className="row align-items-stretch d-flex">
-          <CalendarComp className="calendarDateSelect col-12" />
+      <div className="row">
+        <div className="menuItem col-3">
+          Текущие
+        </div>
+        <div className="menuItem col-3">
+          История заявок
+        </div>
+        <div className="menuItem col-3">
+          Бронь
+        </div>
+        <div className="row align-items-stretch d-flex cardBoxWhite requestMenu">
+          <CalendarComp className="calendarDateSelect"/>
+        </div>
       </div>
       <table className="table table-bordered request">
         <tbody>
