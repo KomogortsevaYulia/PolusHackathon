@@ -1,4 +1,4 @@
-export function createtwoPlacemark(myMap) {
+export function createtwoPlacemark(myMap, setMark1, setMark2) {
   var myPlacemark, myPlacemark2;
 
   // Слушаем клик на карте.
@@ -14,12 +14,14 @@ export function createtwoPlacemark(myMap) {
       myPlacemark2.events.add("dragend", function () {
         createMultiRoute(myMap, myPlacemark, myPlacemark2);
         getAddress(myPlacemark2.geometry.getCoordinates(), myPlacemark2);
+        setMark2(Object.assign({}, myPlacemark2));
         myMap.geoObjects.add(myPlacemark);
         myMap.geoObjects.add(myPlacemark2);
       });
 
       createMultiRoute(myMap, myPlacemark, myPlacemark2);
       getAddress(coords, myPlacemark2);
+      setMark2(myPlacemark2);
       myMap.geoObjects.add(myPlacemark);
       myMap.geoObjects.add(myPlacemark2);
     }
@@ -33,9 +35,12 @@ export function createtwoPlacemark(myMap) {
       myPlacemark.events.add("dragend", function () {
         createMultiRoute(myMap, myPlacemark, myPlacemark2);
         getAddress(myPlacemark.geometry.getCoordinates(), myPlacemark);
+        setMark1(Object.assign({}, myPlacemark));
         myMap.geoObjects.add(myPlacemark);
         myMap.geoObjects.add(myPlacemark2);
       });
+
+      setMark1(myPlacemark);
 
       // createMultiRoute(myMap, myPlacemark, myPlacemark2);
       getAddress(coords, myPlacemark);
@@ -83,7 +88,7 @@ export function createtwoPlacemark(myMap) {
     });
   }
 
-  return({myPlacemark,myPlacemark2})
+  return { myPlacemark, myPlacemark2 };
 }
 
 export function createMultiRoute(myMap, mark1, mark2) {

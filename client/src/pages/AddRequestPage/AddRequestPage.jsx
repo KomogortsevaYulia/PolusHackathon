@@ -6,12 +6,11 @@ import "./AddRequestPage.style.css";
 import { useState } from "react";
 var myMap;
 
-
 const AddRequestPage = () => {
   React.useEffect(() => {
     window.ymaps.ready(function () {
       // Указывается идентификатор HTML-элемента.
-      
+
       myMap = new window.ymaps.Map("first_map", {
         center: [55.76, 37.64],
         zoom: 10,
@@ -43,19 +42,65 @@ const AddRequestPage = () => {
           }
         );
 
-      var listPlacemark=createtwoPlacemark(myMap);
-      setPlacemark(listPlacemark.myPlacemark)
-      setPlacemark2(listPlacemark.myPlacemark2)
-      
+      createtwoPlacemark(myMap, setPlacemark, setPlacemark2);
+
       // createMultiRoute(myMap)
     });
   }, []);
 
   const [isRadio, setIsRadio] = useState("Работа на точке");
   const [isSelect, setIsSelect] = useState();
+
   const [myPlacemark, setPlacemark] = useState();
+  const [firstPlace, setFirstPlace] = useState("");
+
   const [myPlacemark2, setPlacemark2] = useState();
+  const [secondPlace, setSecondPlace] = useState("");
   // HANDLE THE ONCHANGE HERE
+
+  React.useEffect(() => {
+    if (!myPlacemark) return;
+
+    window.ymaps
+      .geocode(myPlacemark.geometry.getCoordinates())
+      .then(function (res) {
+        var firstGeoObject = res.geoObjects.get(0);
+        setFirstPlace(
+          [
+            // Название населенного пункта или вышестоящее административно-территориальное образование.
+            firstGeoObject.getLocalities().length
+              ? firstGeoObject.getLocalities()
+              : firstGeoObject.getAdministrativeAreas(),
+            // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+            firstGeoObject.getThoroughfare() || firstGeoObject.getPremise(),
+          ]
+            .filter(Boolean)
+            .join(", ")
+        );
+      });
+  }, [myPlacemark]);
+
+  React.useEffect(() => {
+    if (!myPlacemark2) return;
+
+    window.ymaps
+      .geocode(myPlacemark2.geometry.getCoordinates())
+      .then(function (res) {
+        var firstGeoObject = res.geoObjects.get(0);
+        setSecondPlace(
+          [
+            // Название населенного пункта или вышестоящее административно-территориальное образование.
+            firstGeoObject.getLocalities().length
+              ? firstGeoObject.getLocalities()
+              : firstGeoObject.getAdministrativeAreas(),
+            // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+            firstGeoObject.getThoroughfare() || firstGeoObject.getPremise(),
+          ]
+            .filter(Boolean)
+            .join(", ")
+        );
+      });
+  }, [myPlacemark2]);
 
   const handleChange = (e) => {
     setIsRadio(e.currentTarget.value);
@@ -63,13 +108,11 @@ const AddRequestPage = () => {
 
   const handleChangeselect = (e) => {
     setIsSelect(e.currentTarget.value);
-
   };
 
   const onSubmit = async (e) => {
-    
-    console.log(myPlacemark)
-    e.preventDefault()
+    console.log(myPlacemark);
+    e.preventDefault();
 
     const typeRequest = document.getElementById("nidInput").value;
     const udInput = document.getElementById("udInput").value;
@@ -149,16 +192,44 @@ const AddRequestPage = () => {
                 <label for="exampleFormControlTextarea1" class="form-label">
                   Вид транспортного средства
                 </label>
-                {isRadio == "Работа на точке" ?
-                  <select class="form-select textForm" aria-label="Default select example" onChange={handleChangeselect} >
-                    <option selected={isSelect === "Автовышка"} value="Автовышка">Автовышка</option>
-                    <option selected={isSelect === "Погрузчик"} value="Погрузчик">Погрузчик</option>
-                    <option selected={isSelect === "Кран"} value="Кран">Кран</option></select>
-                  :
-                  <select class="form-select textForm" aria-label="Default select example" >
-                    <option selected={isSelect === "Пассажирский"} value="Пассажирский">Пассажирский</option>
-                    <option selected={isSelect === "Грузовой"} value="Грузовой">Грузовой</option></select>
-                }
+                {isRadio == "Работа на точке" ? (
+                  <select
+                    class="form-select textForm"
+                    aria-label="Default select example"
+                    onChange={handleChangeselect}
+                  >
+                    <option
+                      selected={isSelect === "Автовышка"}
+                      value="Автовышка"
+                    >
+                      Автовышка
+                    </option>
+                    <option
+                      selected={isSelect === "Погрузчик"}
+                      value="Погрузчик"
+                    >
+                      Погрузчик
+                    </option>
+                    <option selected={isSelect === "Кран"} value="Кран">
+                      Кран
+                    </option>
+                  </select>
+                ) : (
+                  <select
+                    class="form-select textForm"
+                    aria-label="Default select example"
+                  >
+                    <option
+                      selected={isSelect === "Пассажирский"}
+                      value="Пассажирский"
+                    >
+                      Пассажирский
+                    </option>
+                    <option selected={isSelect === "Грузовой"} value="Грузовой">
+                      Грузовой
+                    </option>
+                  </select>
+                )}
               </div>
               <div className="row pb-5">
                 {isRadio === "Перевозка" ? (
@@ -193,7 +264,6 @@ const AddRequestPage = () => {
                         endDate={endDate}
                         minDate={startDate}
                         onChange={(date) => setEndDate(date)}
-
                         showTimeInput
                       />
                     </div>
@@ -221,26 +291,33 @@ const AddRequestPage = () => {
                       for="exampleFormControlTextarea1"
                       className="textForm form-label col"
                     >
-                      Точка А
+                      Точка А = {firstPlace} (
+                      {myPlacemark?.geometry.getCoordinates().join(", ")})
                     </label>
                     <label
                       for="exampleFormControlTextarea1"
                       className="textForm form-label col"
                     >
-                      Точка Б
-                    </label></div>) : (<div class="mb-3 row">
-                      <label
-                        for="exampleFormControlTextarea1"
-                        className="textForm form-label col"
-                      >
-                        Место
-                      </label>
-                      <label for="exampleFormControlTextarea1" className="textForm form-label col" >
-                      {myPlacemark}
-                      </label>
-                    </div>
+                      Точка Б = {secondPlace} (
+                      {myPlacemark2?.geometry.getCoordinates().join(", ")})
+                    </label>
+                  </div>
+                ) : (
+                  <div class="mb-3 row">
+                    <label
+                      for="exampleFormControlTextarea1"
+                      className="textForm form-label col"
+                    >
+                      Место
+                    </label>
+                    <label
+                      for="exampleFormControlTextarea1"
+                      className="textForm form-label col"
+                    >
+                      {myPlacemark?.geometry.getCoordinates().join(", ")}
+                    </label>
+                  </div>
                 )}
-
               </div>
             </div>
             <div className="col order-last d-flex h-100 d-inline-block">
