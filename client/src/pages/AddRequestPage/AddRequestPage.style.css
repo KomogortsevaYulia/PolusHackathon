@@ -10,6 +10,7 @@
 .containerCustomer {
     margin-left: 100px;
     margin-right: 100px;
+    
 }
 
 .text {
@@ -19,7 +20,13 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 27px;
+    color: #000000;
+}
 
+.textForm {
+    font-family: var(--font-nunito);
+    font-style: normal;
+    font-size: 18px;
     color: #000000;
 }
 
