@@ -17,7 +17,7 @@ export const addRequest = createAsyncThunk(
 );
 
 export const fetchRequestAll = createAsyncThunk(
-  "request/addRequestAll",
+  "request/fetchRequestAll",
   async (data) => {
     return RequestApi.fetchRequestAll(data);
   }
@@ -42,6 +42,9 @@ export const requestSlice = createSlice({
       })
       .addCase(addRequest.fulfilled, (state, action) => {
         state.requests.push(action.payload);
+      })
+      .addCase(fetchRequestAll.fulfilled, (state, action) => {
+        state.requests = action.payload;
       });
   },
 });
