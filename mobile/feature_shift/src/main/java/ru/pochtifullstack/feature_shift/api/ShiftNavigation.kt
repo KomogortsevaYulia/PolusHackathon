@@ -6,7 +6,9 @@ interface ShiftNavigation {
 
     fun moveToRequestList()
 
-    fun moveBackToStartShift()
+    fun moveBackToScaner()
+
+    fun moveBackToShift()
 
     fun moveBackToAuth()
 }

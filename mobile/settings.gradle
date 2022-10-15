@@ -10,7 +10,13 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://jitpack.io'
+        }
+        maven {
+            url "http://maven.google.com/"
+            allowInsecureProtocol = true
+        }
     }
 }
 rootProject.name = "PolusMobile"
@@ -24,3 +30,4 @@ include ':feature_auth'
 include ':feature_shift'
 include ':core_data'
 include ':feature_scaner'
+include ':feature_map'

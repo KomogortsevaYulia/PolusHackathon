@@ -4,6 +4,7 @@ import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import ru.pochtifullstack.core_database.DriverDB
+
 import ru.pochtifullstack.core_database.DriverDao
 import ru.pochtifullstack.polusmobile.App
 

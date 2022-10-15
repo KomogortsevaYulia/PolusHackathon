@@ -2,6 +2,7 @@ package ru.pochtifullstack.core_network.api
 
 import retrofit2.http.*
 import ru.pochtifullstack.core_domain.domain.CarInfo
+import ru.pochtifullstack.core_domain.domain.Request
 import ru.pochtifullstack.core_network.api.dto.DriverShift
 
 interface DriverApi {
@@ -9,7 +10,7 @@ interface DriverApi {
     @GET("request/byCar/{id}")
     suspend fun getRequestsByCar(
         @Path("id") id: Int
-    )
+    ): List<Request>
 
     @POST("working-shift")
     suspend fun startShift(

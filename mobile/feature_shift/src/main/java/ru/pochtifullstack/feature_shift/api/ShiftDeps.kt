@@ -3,6 +3,7 @@ package ru.pochtifullstack.feature_shift.api
 import android.app.Application
 import android.content.Context
 import ru.pochtifullstack.core_domain.repository.DriverRepository
+import ru.pochtifullstack.core_domain.repository.RequestsRepository
 import ru.pochtifullstack.core_domain.repository.VehicleRepository
 import ru.pochtifullstack.feature_shift.internal.di.ShiftScope
 
@@ -11,6 +12,7 @@ interface ShiftDeps {
     val shiftNavigation: ShiftNavigation
     val vehicleRepository: VehicleRepository
     val driverRepository: DriverRepository
+    val requestsRepository: RequestsRepository
 }
 
 interface ShiftDepsProvider {

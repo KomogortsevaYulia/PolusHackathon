@@ -42,5 +42,9 @@ class StartShiftFragment : Fragment(R.layout.fragment_start_shift) {
         binding.btnStartShift.setOnClickListener {
             shiftViewModel.moveToScaner()
         }
+
+        binding.btnShiftExit.setOnClickListener {
+            shiftViewModel.moveBackToAuth()
+        }
     }
 }

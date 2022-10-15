@@ -35,6 +35,7 @@ android {
 dependencies {
     implementation project(':core_domain')
     implementation project(':core_network')
+    implementation project(':core_database')
 
     implementation daggerDependencies.dagger
     kapt daggerDependencies.dagger_compiler

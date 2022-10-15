@@ -18,11 +18,15 @@ class ShiftNavigationImpl @Inject constructor(
         baseNavigation.navController?.navigate(R.id.action_approveVehicleFragment_to_requestListFragment)
     }
 
-    override fun moveBackToStartShift() {
-        TODO("Not yet implemented")
+    override fun moveBackToScaner() {
+        baseNavigation.navController?.navigate(R.id.action_requestListFragment_to_scanerFragment)
+    }
+
+    override fun moveBackToShift() {
+        baseNavigation.navController?.navigate(R.id.action_requestListFragment_to_startShiftFragment)
     }
 
     override fun moveBackToAuth() {
-        TODO("Not yet implemented")
+        baseNavigation.navController?.navigate(R.id.action_startShiftFragment_to_authFragment)
     }
 }

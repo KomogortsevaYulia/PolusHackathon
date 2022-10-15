@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ru.pochtifullstack.core_domain.domain.CarInfo
+import ru.pochtifullstack.core_domain.domain.Request
 import ru.pochtifullstack.core_domain.repository.DriverRepository
+import ru.pochtifullstack.core_domain.repository.RequestsRepository
 import ru.pochtifullstack.core_domain.repository.VehicleRepository
 import ru.pochtifullstack.core_network.api.DriverApi
 import ru.pochtifullstack.feature_shift.api.ShiftNavigation
@@ -15,7 +17,8 @@ import javax.inject.Inject
 class ShiftViewModel @Inject constructor(
     private val shiftNavigation: ShiftNavigation,
     private val vehicleRepository: VehicleRepository,
-    private val driverRepository: DriverRepository
+    private val driverRepository: DriverRepository,
+    private val requestsRepository: RequestsRepository
 ): ViewModel() {
 
     private val _carInfoLiveData = MutableLiveData<CarInfo>()
@@ -25,16 +28,28 @@ class ShiftViewModel @Inject constructor(
         shiftNavigation.moveToScaner()
     }
 
-    fun moveBackToStartShift() {
-        shiftNavigation.moveBackToStartShift()
+    fun moveBackToScaner() {
+        shiftNavigation.moveBackToScaner()
+    }
+
+    fun moveBackToShift() {
+        endShift()
+        shiftNavigation.moveBackToShift()
     }
 
     fun moveBackToAuth() {
+        endShift()
         shiftNavigation.moveBackToAuth()
     }
 
-    fun getVehicleRequests() {
+    fun loadVehicleRequests() {
+        viewModelScope.launch {
+            requestsRepository.loadRequests()
+        }
+    }
 
+    fun getRequests(): LiveData<List<Request>> {
+        return requestsRepository.getRequests()
     }
 
     fun getCarInfo() {

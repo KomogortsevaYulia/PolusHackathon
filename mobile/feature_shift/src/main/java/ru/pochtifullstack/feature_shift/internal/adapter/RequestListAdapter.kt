@@ -17,7 +17,7 @@ internal class RequestListAdapter(
     private val onRequestItemClickListener: OnRequestItemClickListener
 ): RecyclerView.Adapter<RequestListViewHolder>() {
 
-    var requests = mutableListOf<Request>()
+    var requests = listOf<Request>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RequestListViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -42,11 +42,12 @@ internal class RequestListViewHolder(
 
     fun bind(request: Request) {
         binding.apply {
-            tvRequestCustomer.text = request.customer
-            tvRequestTime.text = request.time
-            tvRequestDate.text = request.date
-            tvRequestFrom.text = request.from
-            tvRequestTo.text = request.to
+            tvRequestTitle.text = request.type
+            tvRequestCustomer.text = request.client.name
+            //tvRequestTime.text = request.
+            //tvRequestDate.text = request.date
+            //tvRequestFrom.text = request
+            //tvRequestTo.text = request.to
 
             binding.root.setOnClickListener {
                 onRequestItemClickListener.onRequestItemClicked()

@@ -11,7 +11,8 @@
         android:label="AuthFragment" >
         <action
             android:id="@+id/action_authFragment_to_startShiftFragment"
-            app:destination="@id/startShiftFragment" />
+            app:destination="@id/startShiftFragment"
+            app:popUpTo="@id/app_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/startShiftFragment"
@@ -20,7 +21,11 @@
         tools:layout="@layout/fragment_start_shift" >
         <action
             android:id="@+id/action_startShiftFragment_to_scanerFragment"
-            app:destination="@id/scanerFragment" />
+            app:destination="@id/scanerFragment"
+            app:popUpTo="@id/app_nav_graph" />
+        <action
+            android:id="@+id/action_startShiftFragment_to_authFragment"
+            app:destination="@id/authFragment" />
     </fragment>
     <fragment
         android:id="@+id/scanerFragment"
@@ -28,7 +33,8 @@
         android:label="ScanerFragment" >
         <action
             android:id="@+id/action_scanerFragment_to_approveVehicleFragment"
-            app:destination="@id/approveVehicleFragment" />
+            app:destination="@id/approveVehicleFragment"
+            app:popUpTo="@id/app_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/approveVehicleFragment"
@@ -36,7 +42,8 @@
         android:label="ApproveVehicleFragment" >
         <action
             android:id="@+id/action_approveVehicleFragment_to_requestListFragment"
-            app:destination="@id/requestListFragment" />
+            app:destination="@id/requestListFragment"
+            app:popUpTo="@id/app_nav_graph" />
         <argument
             android:name="vehicleId"
             app:argType="string" />
@@ -44,6 +51,14 @@
     <fragment
         android:id="@+id/requestListFragment"
         android:name="ru.pochtifullstack.feature_shift.api.RequestListFragment"
-        android:label="RequestListFragment" />
+        android:label="RequestListFragment" >
+        <action
+            android:id="@+id/action_requestListFragment_to_scanerFragment"
+            app:destination="@id/scanerFragment"
+            app:popUpTo="@id/app_nav_graph" />
+        <action
+            android:id="@+id/action_requestListFragment_to_startShiftFragment"
+            app:destination="@id/startShiftFragment" />
+    </fragment>
 
 </navigation>

@@ -7,18 +7,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".api.RequestListFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_end_shift"
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:text="Завершить смену"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:layout_margin="16dp"/>
+        android:weightSum="1">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_end_shift"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Завершить смену"
+            android:textAllCaps="false"
+            android:layout_weight="0.5"
+            android:textSize="14sp"
+            android:layout_margin="16dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_change_vehicle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Сменить ТС"
+            android:textAllCaps="false"
+            android:layout_weight="0.5"
+            android:textSize="14sp"
+            android:layout_margin="16dp"/>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_requests"
         android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/request_item"
         android:layout_height="match_parent"/>
 

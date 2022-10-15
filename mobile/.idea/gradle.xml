@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/core_style" />
             <option value="$PROJECT_DIR$/core_util" />
             <option value="$PROJECT_DIR$/feature_auth" />
+            <option value="$PROJECT_DIR$/feature_map" />
             <option value="$PROJECT_DIR$/feature_scaner" />
             <option value="$PROJECT_DIR$/feature_shift" />
           </set>
