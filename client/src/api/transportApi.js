@@ -11,4 +11,14 @@ export class TransportApi {
         return err;
       });
   }
+
+  static async fetchTransportName(carType) {
+    return axios
+      .get(`${apiUrl}/car?sub_type=${carType}`)
+      .then((response) => response.data)
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
+  }
 }

@@ -9,6 +9,14 @@ export const fetchTransport = createAsyncThunk(
   }
 );
 
+export const fetchTransportName = createAsyncThunk(
+  "counter/fetchTransportName",
+  async (request) => {
+    const response = await TransportApi.fetchTransportName(request);
+    return response;
+  }
+);
+
 const initialState = {
   transport: null,
 };
@@ -23,6 +31,9 @@ export const transportSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchTransport.fulfilled, (state, action) => {
+      state.transport = action.payload;
+    });
+    builder.addCase(fetchTransportName.fulfilled, (state, action) => {
       state.transport = action.payload;
     });
   },
