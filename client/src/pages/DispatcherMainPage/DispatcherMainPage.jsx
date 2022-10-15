@@ -1,14 +1,39 @@
 import React from "react";
 import "./DispatcherMainStyle.css";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faCheck, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 
-
 const DispatcherMainPage = () => {
   const [selectedMap, setSelectedMap] = useState(true);
   const [selectedRequest, setSelectedRequest] = useState(false);
+
+  React.useEffect(() => {
+    window.ymaps.ready(function () {
+      // Указывается идентификатор HTML-элемента.
+      var moscow_map = new window.ymaps.Map("first_map", {
+        center: [55.76, 37.64],
+        zoom: 10,
+      });
+      // Ссылка на элемент.
+      var piter_map = new window.ymaps.Map(
+        document.getElementsByTagName("p")[2],
+        {
+          center: [59.94, 30.32],
+          zoom: 9,
+        }
+      );
+    });
+  }, []);
+
+  const { transport } = useSelector((state) => state.transport);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    console.log(transport);
+  }, [transport]);
 
   return (
       <div className = "row justify-content-center mt-4 ">
@@ -121,10 +146,13 @@ const DispatcherMainPage = () => {
                   </tr>
                 </tbody>
               </table>:
-                <div className="col order-last d-flex h-100 d-inline-block boxWhite">
-                  <div id="first_map" style={{ width: "100%", height: "50vh", borderRadius: "25px" }} ></div>
-                </div>
-                }
+              <div className="col order-last d-flex d-inline-block">
+                <div
+                    id="first_map"
+                    style={{ width: "100%", height: "50vh", borderRadius: "25px" }}
+                  ></div>
+              </div>
+              }
               
               </div>
            </div>
