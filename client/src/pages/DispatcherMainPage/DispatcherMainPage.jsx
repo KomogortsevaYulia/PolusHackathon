@@ -80,7 +80,7 @@ const DispatcherMainPage = () => {
                 <input type="radio" className = "btn-check" name="options" onClick={() => setSelectedMap(false)} id="option2" autocomplete="off"/>
                 <label class="btn btn-secondary" for="option2">Карта</label>
                 {selectedMap? 
-                <table className = "table request">
+                <table class="table table-striped mt-3">
                 <thead>
                   <tr>
                     <th scope="col">Время</th>
@@ -142,13 +142,14 @@ const DispatcherMainPage = () => {
           </div>
           <div className = "transportStatus col m-4">
             <div className="row d-flex justify-content-start align-items-center">
-              <p className="waitTransport col-auto ms-4">28</p>
+              <p className="waitTransport col-auto ms-2">28</p>
               <p className="col-auto p-2 ms-3">В ожидании</p>
             </div>
           </div>
 
 
-         {selectedRequest?  <div className = "requestCard col m-4 p-5">
+         {selectedRequest?  
+         <div className = "requestCard col m-4 p-5">
             <div className="row mt-3">
                 <p className = "requestTitle col-8">
                     Заявка на перевоз груза

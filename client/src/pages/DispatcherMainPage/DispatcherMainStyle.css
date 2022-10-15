@@ -109,3 +109,8 @@ span:hover {
 .btn-secondary .checkMap{
     background-color: black;
 }
+
+tr:hover{
+    background-color: var(--grey-5);
+    cursor: pointer;
+}
