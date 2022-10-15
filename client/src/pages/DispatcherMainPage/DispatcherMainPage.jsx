@@ -2,7 +2,7 @@ import React from "react";
 import "./DispatcherMainStyle.css";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faCheck, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faCheck, faEnvelope, faRainbow } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import CalendarComp from '../../components/Calendar/CalendarComp.jsx'
 import { fetchRequestAll } from "../../store/requestSlice/requestSlice";
@@ -104,8 +104,7 @@ const DispatcherMainPage = () => {
                     <th scope="col">Адрес</th>
                     <th scope="col">ТС</th>
                     <th scope="col">Тип</th>
-                    <th scope="col">Бронирование</th>
-                    <th scope="col"></th>
+                    {/* <th scope="col">Бронирование</th> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -113,32 +112,13 @@ const DispatcherMainPage = () => {
                     requests?.map((row) => (
                       <tr className="requestTr" onClick={() => setSelectedRequest(!selectedRequest)}>
                         <th scope="row"></th>
-                        <td>{}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{row.plannedDateStart}</td>
+                        <td>{row.status}</td>
+                        <td>{row.firstPlace}</td>
+                        <td>{row?.car.id}</td>
+                        <td>{row.type}</td>
                       </tr>
                     ))}
-
-                  <tr className="requestTr">
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr className="requestTr">
-                    <th scope="row">3</th>
-                    <td colSpan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                  </tr>
                 </tbody>
               </table> :
               <div className="col order-last d-flex d-inline-block">
