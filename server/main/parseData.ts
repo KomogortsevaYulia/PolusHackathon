@@ -31,9 +31,8 @@ const generateCar = () => ({
   const newCars = [
     ...cars.map((car) => ({
       id: +faker.phone.number('#######'),
-      name: car['Наименование ТС'],
+      name: `${car['Наименование ТС']} - ${car['описание характеристики']}`,
       number: car['Номер ТС'],
-      description: car['описание характеристики'],
       type: 'Работа на точке',
       subType: ToSubType[car['Парк техники'].split(' ')[1]],
     })),

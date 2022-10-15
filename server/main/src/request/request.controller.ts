@@ -22,6 +22,11 @@ export class RequestController {
     return this.requestService.getAllByClient(clientId);
   }
 
+  @Get('/byDriver/:driverId')
+  async getAllByDriver(@Param('driverId') driverId: number) {
+    return this.requestService.getAllByDriver(driverId);
+  }
+
   @Patch('/appoint/:requestId')
   async appoint(
     @Param('requestId') requestId: number,

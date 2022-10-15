@@ -84,17 +84,6 @@ export class RequestService {
   }
 
   async getAllByCar(carId: number) {
-    // const shifts = await this.workingShiftRepo.find({
-    //   where: { car: { id: carId } },
-    //   relations: {
-    //     requests: true,
-    //   },
-    // });
-
-    // return shifts
-    //   .map((s) => s.requests)
-    //   .reduce((prev, cur) => prev.concat(cur), []);
-
     return this.requestRepo.find({
       where: {
         car: { id: carId },
@@ -104,5 +93,18 @@ export class RequestService {
         client: true,
       },
     });
+  }
+
+  async getAllByDriver(driverId: number) {
+    const shifts = await this.workingShiftRepo.find({
+      where: { driver: { id: driverId } },
+      relations: {
+        requests: true,
+      },
+    });
+
+    return shifts
+      .map((s) => s.requests)
+      .reduce((prev, cur) => prev.concat(cur), []);
   }
 }
