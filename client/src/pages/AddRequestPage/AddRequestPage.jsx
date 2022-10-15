@@ -11,7 +11,7 @@ const AddRequestPage = () => {
   React.useEffect(() => {
     window.ymaps.ready(function () {
       // Указывается идентификатор HTML-элемента.
-      
+
       myMap = new window.ymaps.Map("first_map", {
         center: [55.76, 37.64],
         zoom: 10,
@@ -43,10 +43,10 @@ const AddRequestPage = () => {
           }
         );
 
-      var listPlacemark=createtwoPlacemark(myMap);
+      var listPlacemark = createtwoPlacemark(myMap);
       setPlacemark(listPlacemark.myPlacemark)
       setPlacemark2(listPlacemark.myPlacemark2)
-      
+
       // createMultiRoute(myMap)
     });
   }, []);
@@ -67,7 +67,7 @@ const AddRequestPage = () => {
   };
 
   const onSubmit = async (e) => {
-    
+
     console.log(myPlacemark)
     e.preventDefault()
 
@@ -236,7 +236,7 @@ const AddRequestPage = () => {
                         Место
                       </label>
                       <label for="exampleFormControlTextarea1" className="textForm form-label col" >
-                      {myPlacemark}
+                        {myPlacemark}
                       </label>
                     </div>
                 )}
@@ -248,6 +248,17 @@ const AddRequestPage = () => {
                 id="first_map"
                 style={{ width: "100%", height: "50vh", borderRadius: "25px" }}
               ></div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="card" style="width: 18rem;">
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" className="card-link">Card link</a>
+                <a href="#" className="card-link">Another link</a>
+              </div>
             </div>
           </div>
           <div className="row">
