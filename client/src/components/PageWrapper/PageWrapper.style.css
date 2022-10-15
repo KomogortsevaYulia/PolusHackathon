@@ -12,10 +12,9 @@
 }
 
 .navCustomer {
-    margin: 50px;
-    margin-left: 100px;
-    margin-right: 100px;
-
+    margin: 1.5rem;
+    margin-left: 7rem;
+    
 }
 
 .navbarWhite{
@@ -37,9 +36,7 @@
 .exitItem2{
     border-right: 1px solid var(--fontColor-5);
     text-align: end;
-
 }
-
 
 .userChoise{
     text-align: end;
