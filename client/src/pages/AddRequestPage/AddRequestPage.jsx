@@ -15,7 +15,7 @@ var myMap;
 const AddRequestPage = () => {
   const [isRadio, setIsRadio] = useState("Работа на точке");
   const [isSelect, setIsSelect] = useState("Погрузчик");
-  const [isCar, setIsCar] = useState();
+  const [isCar, setIsCar] = useState("");
 
   React.useEffect(() => {
     window.ymaps.ready(function () {
@@ -131,6 +131,8 @@ const AddRequestPage = () => {
   const [startDate, setStartDate] = React.useState(new Date());
   const [endDate, setEndDate] = React.useState(new Date());
 
+  const [comment, setComment] = React.useState("");
+
   const onSubmit = async (e) => {
     console.log(myPlacemark);
     e.preventDefault();
@@ -151,6 +153,7 @@ const AddRequestPage = () => {
             plannedDateStart: startDate,
             plannedDateEnd: endDate,
             userId: 1,
+            comment,
           })
         )
       : dispatch(
@@ -165,6 +168,7 @@ const AddRequestPage = () => {
             plannedDateStart: startDate,
             plannedDateEnd: startDate,
             userId: 1,
+            comment,
           })
         );
   };
@@ -267,9 +271,10 @@ const AddRequestPage = () => {
                     <div className="col-auto textForm">Время</div>
                     <div className="col-auto">
                       <DatePicker
+                        className="datePickerMy"
                         id="startDateTime"
                         selected={startDate}
-                        showTimeSelect
+                        showTimeInput
                         locale="ru"
                         dateFormat="MMMM d, yyyy h:mm aa"
                         onChange={(date) => setStartDate(date)}
@@ -281,6 +286,7 @@ const AddRequestPage = () => {
                     <div className="col-auto textForm">Время работы</div>
                     <div className="col-auto">
                       <DatePicker
+                        className="datePickerMy"
                         id="startDateTime"
                         selected={startDate}
                         locale="ru"
@@ -295,6 +301,7 @@ const AddRequestPage = () => {
                     <div className="col-auto">
                       <DatePicker
                         selected={endDate}
+                        className="datePickerMy"
                         selectsEnd
                         locale="ru"
                         id="endDateTime"
@@ -361,6 +368,8 @@ const AddRequestPage = () => {
                   class="form-control"
                   id="exampleFormControlTextarea1"
                   rows="1"
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
                 ></textarea>
               </div>
             </div>

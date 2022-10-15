@@ -12,6 +12,11 @@ export class RequestController {
     return this.requestService.create(dto);
   }
 
+  @Get()
+  async getAll() {
+    return this.requestService.getAll();
+  }
+
   @Get('/byCar/:carId')
   async getAllByCar(@Param('carId') carId: number) {
     return this.requestService.getAllByCar(carId);

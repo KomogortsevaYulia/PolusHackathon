@@ -2,11 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { UserApi } from "../../api/requestApi";
 import { RequestApi } from "../../api/requestApi";
 
-
-export const fetchRequestByUserId = createAsyncThunk(
-  "request/fetchRequestByUserId",
-  async (request) => {
-    const response = await RequestApi.fetchRequestByUserId(request);
+export const fetchRequestByClientId = createAsyncThunk(
+  "request/fetchRequestByClientId",
+  async (id) => {
+    const response = await RequestApi.fetchRequestByClientId(id);
     return response;
   }
 );
@@ -18,9 +17,8 @@ export const addRequest = createAsyncThunk(
   }
 );
 
-
 const initialState = {
-  request: null,
+  requests: null,
 };
 
 export const requestSlice = createSlice({
@@ -32,8 +30,8 @@ export const requestSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchRequestByUserId.fulfilled, (state, action) => {
-      state.request = action.payload;
+    builder.addCase(fetchRequestByClientId.fulfilled, (state, action) => {
+      state.requests = action.payload;
     });
   },
 });

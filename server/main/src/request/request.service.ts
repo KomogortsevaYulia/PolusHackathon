@@ -107,4 +107,8 @@ export class RequestService {
       .map((s) => s.requests)
       .reduce((prev, cur) => prev.concat(cur), []);
   }
+
+  async getAll() {
+    return this.requestRepo.find({ relations: { car: true, client: true } });
+  }
 }
