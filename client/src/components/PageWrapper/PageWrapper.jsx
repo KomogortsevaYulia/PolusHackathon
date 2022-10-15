@@ -65,15 +65,15 @@ const PageWrapper = ({ children }) => {
                         Время
                       </a>
                     </li>
-                    <li className="nav-item dropdown">
-                      <button
-                        className="nav-link dropdown-toggle buttonNav"
+                    <li className="buttonNav nav-item dropdown">
+                      <span
+                        className=" nav-link dropdown-toggle buttonNav"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
                         {user.name}
-                      </button>
+                      </span>
                       <ul className="dropdown-menu">
                         <li>
                           <button
@@ -122,15 +122,15 @@ const PageWrapper = ({ children }) => {
                         Выход
                       </a>
                     </li>
-                    <li className="nav-item dropdown d-flex justify-content-end">
-                      <button
+                    <li className="buttonNav nav-item dropdown d-flex justify-content-end">
+                      <span
                         className="nav-link dropdown-toggle buttonNav"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
                         {user.name}
-                      </button>
+                      </span>
                       <ul className="dropdown-menu">
                         <li>
                           <button

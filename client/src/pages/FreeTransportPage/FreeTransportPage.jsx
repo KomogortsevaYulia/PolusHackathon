@@ -63,17 +63,11 @@ const FreeTransportPage = () => {
       </div>
       <div className="row align-items-stretch containerCustomer d-flex">
         <div className="card" style={{ width: "18rem" }}>
-          <img src="..." class="card-img-top" alt="ТС" />
+          <img src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg" class="card-img-top" alt="ТС" />
           <div className="card-body">
             <h5 className="card-title">Бульдозер</h5>
             <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p className="card-text">Описание</p>
-            <a href="#" className="card-link">
-              Card link
-            </a>
-            <a href="#" className="card-link">
-              Another link
-            </a>
           </div>
         </div>
       </div>
