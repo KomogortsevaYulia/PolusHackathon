@@ -184,7 +184,8 @@ const AddRequestPage = () => {
   const typeRequest = React.useState();
 
   return (
-    <div className="container col-12">
+    <div className="row justify-content-center">
+    <div className="col-10">
       <form action="#" id="#" method="put" onSubmit={onSubmit}>
         <div className="row align-items-stretch containerCustomer d-flex boxWhite p-5 ">
           <div className="row">
@@ -394,6 +395,7 @@ const AddRequestPage = () => {
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 };

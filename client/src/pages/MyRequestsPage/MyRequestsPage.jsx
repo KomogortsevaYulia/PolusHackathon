@@ -5,6 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRequestByClientId } from "../../store/requestSlice/requestSlice";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+<<<<<<< HEAD
+=======
+
+>>>>>>> f1e96a2023b77dab1c38d9e39c942f9f13500da0
 
 const MyRequestsPage = () => {
   const { user } = useSelector((state) => state.user);
