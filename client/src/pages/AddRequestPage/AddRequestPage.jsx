@@ -152,6 +152,8 @@ const AddRequestPage = () => {
             endLat: place1[1],
             plannedDateStart: startDate,
             plannedDateEnd: endDate,
+            firstPlace: {firstPlace},
+            secondPlace: {secondPlace},
             userId: 1,
             comment,
           })
@@ -167,6 +169,8 @@ const AddRequestPage = () => {
             endLat: place2[1],
             plannedDateStart: startDate,
             plannedDateEnd: startDate,
+            firstPlace: {firstPlace},
+            secondPlace: {firstPlace},
             userId: 1,
             comment,
           })
