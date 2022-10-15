@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { fetchTransport } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
-import HorizontalScroll from "react-scroll-horizontal";
+
 
 const FreeTransportPage = () => {
   React.useEffect(() => {
@@ -14,14 +14,14 @@ const FreeTransportPage = () => {
         center: [55.76, 37.64],
         zoom: 10,
       });
-      // Ссылка на элемент.
-      var piter_map = new window.ymaps.Map(
-        document.getElementsByTagName("p")[2],
-        {
-          center: [59.94, 30.32],
-          zoom: 9,
-        }
-      );
+      // // Ссылка на элемент.
+      // var piter_map = new window.ymaps.Map(
+      //   document.getElementsByTagName("p")[2],
+      //   {
+      //     center: [59.94, 30.32],
+      //     zoom: 9,
+      //   }
+      // );
     });
   }, []);
 
