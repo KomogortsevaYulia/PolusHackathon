@@ -12,4 +12,6 @@ export class CreateRequestDto {
   plannedDateStart: Date;
   plannedDateEnd?: Date;
   userId: number;
+  firstPlace?: string;
+  secondPlace?: string;
 }

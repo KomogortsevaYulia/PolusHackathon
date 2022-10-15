@@ -71,6 +71,12 @@ export class Request {
   @Column({ nullable: true })
   comment: string;
 
+  @Column({ nullable: true })
+  firstPlace: string;
+
+  @Column({ nullable: true })
+  secondPlace: string;
+
   @Column()
   dateCreate: Date;
 
