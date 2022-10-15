@@ -35,7 +35,7 @@ const CalendarComp = () => {
     }
 
     return(
-        <div className = "calendarWrap">
+        <div className = "calendarWrap col">
             <button 
                 className = "btn btn-calendar btn-secondary dropdown-toggle"
                 type="button" 
