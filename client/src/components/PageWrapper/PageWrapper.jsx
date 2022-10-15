@@ -32,48 +32,49 @@ const PageWrapper = ({ children }) => {
             <nav className="navbar navbar-expand-lg bg-light navStyles">
               <div className="container-fluid">
                 <div
-                  className="collapse navbar-collapse"
+                  className="collapse navbar-collapse col-6"
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item exitItem">
                       <a className="nav-link" href="#">
                         <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                        <span>Выход</span>
+                        <span className="ms-3 me-3">Выход</span>
                       </a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item ms-3">
                       <a
-                        className="nav-link active"
-                        aria-current="page"
+                        className="nav-link"
                         href="#"
                       >
-                        <span onClick={() => navigate("/dispatcherMainPage")}>
+                        <FontAwesomeIcon icon={faListSquares} />
+                        <span className = "ms-3" onClick={() => navigate("/dispatcherMainPage")}>
                           Главная
                         </span>
                       </a>
                     </li>
                     <li className="nav-item ms-3">
                       <a className="nav-link" href="#">
-                        <span onClick={() => navigate("/dispatcherReportPage")}>
+                      <FontAwesomeIcon icon={faListCheck} />
+                        <span className = "ms-3" onClick={() => navigate("/dispatcherReportPage")}>
                           Отчеты
                         </span>
                       </a>
                     </li>
-                    <li className="nav-item align-self-center">
+                    <li className="nav-item align-self-center col-6">
                       <a className="nav-link" href="#">
                         Время
                       </a>
                     </li>
-                    <li className="buttonNav nav-item dropdown">
-                      <span
-                        className=" nav-link dropdown-toggle buttonNav"
+                    <li className="nav-item dropdown">
+                      <button
+                        className="nav-link dropdown-toggle buttonNav"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
                         {user.name}
-                      </span>
+                      </button>
                       <ul className="dropdown-menu">
                         <li>
                           <button
@@ -108,9 +109,9 @@ const PageWrapper = ({ children }) => {
                   className="collapse navbar-collapse "
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
-                  <li className="nav-item " >
-                      <img src={logo} style={{height:'50px'}} alt="Логотип" />
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li className="nav-item d-flex justify-content-start">
+                      <IconEditWhite style={{ width: "10%" }} />
                     </li>
                     <li className="nav-item exitItem">
                       <a className="nav-link" href="#">
