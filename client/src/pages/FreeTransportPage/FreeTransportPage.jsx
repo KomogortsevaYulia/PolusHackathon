@@ -44,7 +44,7 @@ const FreeTransportPage = () => {
   return (
     <>
       <div className="row align-items-stretch containerCustomer d-flex ">
-        <div className="col boxWhite p-4">
+        <div className="col transportSearchBox  boxWhite p-4">
           <div className="row">
             <div
               className="btn-group"
@@ -75,21 +75,26 @@ const FreeTransportPage = () => {
             </div>
           </div>
         </div>
-        <div className="col order-last d-flex h-100 d-inline-block boxWhite">
+        <div className="col order-last d-flex  transportSearchBox d-inline-block boxWhite">
           <div
             id="first_map"
-            style={{ width: "100%", height: "50vh", borderRadius: "25px" }}
+            style={{ width: "100%", borderRadius: "25px" }}
           ></div>
         </div>
       </div>
+
+      
       <div
         className="row align-items-stretch containerCustomer d-flex justify-content-between mt-4"
         style={{ overflowX: "auto", flexWrap: "none" }}
       >
+        <div className="wrapper">
+
+        </div>
         {transport &&
           transport?.map((row) => (
             <div
-              className="card cardBoxWhite"
+              className="card cardBoxWhite "
               style={{ width: "18rem" }}
               key={row.id}
             >
@@ -98,10 +103,12 @@ const FreeTransportPage = () => {
                 class="card-img-top"
                 alt="ТС"
               />
-              <div className="card-body">
+              <div className="card-body p-4">
                 <h5 className="card-title">{row.name}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">Имя</h6>
                 <p className="card-text">Описание</p>
+                <p className="card-text"></p>
+                <button className="btn btnRequest col-12"> Выбрать машину </button>
               </div>
             </div>
           ))}
