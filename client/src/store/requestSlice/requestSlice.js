@@ -17,6 +17,14 @@ export const addRequest = createAsyncThunk(
   }
 );
 
+export const fetchRequestAll = createAsyncThunk(
+  "request/addRequestAll",
+  async (data) => {
+    return RequestApi.fetchRequestAll(data);
+  }
+);
+
+
 const initialState = {
   requests: null,
 };

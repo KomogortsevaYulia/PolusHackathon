@@ -20,5 +20,9 @@ export class RequestApi {
       });
   }
 
-  
+  static async fetchRequestAll() {
+    return axios
+      .get(`${apiUrl}/request`)
+      .then((response) => response.data);
+  }
 }
