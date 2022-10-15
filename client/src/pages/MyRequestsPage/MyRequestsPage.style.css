@@ -41,5 +41,20 @@
 
 .request{
     text-align: center;
+}
 
+.requestTable{
+    height: 8rem;
+    text-align: center;
+    background: white;
+    border-radius: 15px;
+}
+
+.requestTable:hover{
+    background: var(--grey-5);
+    cursor: pointer;
+}
+
+.borderItem{
+    border-right: 1px solid var(--fontColor-5);
 }
