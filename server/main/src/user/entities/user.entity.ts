@@ -31,6 +31,6 @@ export class User {
   @OneToMany(() => WorkingShift, (workingShift) => workingShift.driver)
   workingShifts: WorkingShift[];
 
-  @OneToMany(() => Request, (request) => request.user)
+  @OneToMany(() => Request, (request) => request.client)
   requests: Request[];
 }

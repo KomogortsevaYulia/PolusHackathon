@@ -1,13 +1,16 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { WorkingShift } from 'src/working-shift/entities/working-shift.entity';
 import { Repository } from 'typeorm';
 import { CreateRequestDto } from './dto/CreateRequestDto.dto';
-import { Request } from './entities/request.entity';
+import { Request, RequestStatuses } from './entities/request.entity';
 
 @Injectable()
 export class RequestService {
   constructor(
     @Inject('REQUEST_REPOSITORY')
     private requestRepo: Repository<Request>,
+    @Inject('WORKING_SHIFT_REPOSITORY')
+    private workingShiftRepo: Repository<WorkingShift>,
   ) {}
 
   async create(dto: CreateRequestDto) {
@@ -15,18 +18,91 @@ export class RequestService {
 
     const request = this.requestRepo.create({
       ...dto,
-      user: { id: dto.userId },
+      dateCreate: new Date(),
+      client: { id: dto.userId },
+      status: RequestStatuses.CREATED,
     });
 
     return await this.requestRepo.save(request);
   }
 
   async appointCar(carId: number, requestId: number) {
-    await this.requestRepo.save({ car: { id: carId }, id: requestId });
+    const shift = await this.workingShiftRepo.findOne({
+      where: { car: { id: carId } },
+    });
+
+    await this.requestRepo.update(requestId, {
+      // id: requestId,
+      car: { id: carId },
+      workingShift: { id: shift.id },
+      appointDate: new Date(),
+      status: RequestStatuses.APPOINTED,
+    });
 
     return this.requestRepo.findOne({
       where: { id: requestId },
-      relations: { car: true, user: true },
+      relations: { car: true, client: true, workingShift: true },
+    });
+  }
+
+  async startPerform(requestId: number) {
+    await this.requestRepo.save({
+      id: requestId,
+      factDateStart: new Date(),
+      status: RequestStatuses.PERFORMING,
+    });
+  }
+
+  async endPerform(requestId: number) {
+    await this.requestRepo.save({
+      id: requestId,
+      factDateEnd: new Date(),
+      status: RequestStatuses.COMPLETED,
+    });
+  }
+
+  async cancelRequest(requestId: number) {
+    await this.requestRepo.save({
+      id: requestId,
+      factDateEnd: new Date(),
+      status: RequestStatuses.CANCELLED,
+    });
+  }
+
+  async getAllByClient(id: number) {
+    return await this.requestRepo.find({
+      where: {
+        client: {
+          id,
+        },
+      },
+      relations: {
+        car: true,
+        client: true,
+      },
+    });
+  }
+
+  async getAllByCar(carId: number) {
+    // const shifts = await this.workingShiftRepo.find({
+    //   where: { car: { id: carId } },
+    //   relations: {
+    //     requests: true,
+    //   },
+    // });
+
+    // return shifts
+    //   .map((s) => s.requests)
+    //   .reduce((prev, cur) => prev.concat(cur), []);
+
+    return this.requestRepo.find({
+      where: {
+        car: { id: carId },
+      },
+      relations: {
+        car: true,
+        client: true,
+      },
     });
   }
 }
