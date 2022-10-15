@@ -36,14 +36,30 @@ const MyRequestsPage = () => {
       </div>
       <table className="table table-bordered request">
         <tbody>
-          <tr>
-            <td>
-              <p className="textRequest">Работа на точке</p> <p>Даты</p>{" "}
-            </td>
-            <td>Время</td>
-            <td>Точка</td>
-            <td>Исполнитель</td>
-          </tr>
+          {requests &&
+            requests?.map((row) => (
+              <tr className="bg-white " >
+                <td>
+                  <p className="textRequest">{row.type}</p> <p>Даты</p>{" "}
+                </td>
+                <td>{row.status} </td>
+                <td>{row.type}</td>
+                {row.plannedDateEnd == row.plannedDateStart ?
+                  <>
+                    <td>{row.plannedDateStart}</td>
+                    <td>Точка</td>
+                  </>
+                  :
+                  <>
+                    <td>{row.plannedDateStart} - {row.plannedDateEnd}</td>
+                    <td>Точка</td>
+                  </>
+                }
+                <td>
+                  {row.comment}
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
