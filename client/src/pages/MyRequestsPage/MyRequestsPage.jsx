@@ -23,32 +23,45 @@ const MyRequestsPage = () => {
   return (
     <div className="containerCustomer">
       <div className="row align-items-stretch d-flex">
-          <CalendarComp className="calendarDateSelect col-12" />
+        <CalendarComp className="calendarDateSelect col-12" />
       </div>
       <table className="table table-bordered request">
         <tbody>
           {requests &&
             requests?.map((row) => (
-              <tr className="bg-white " >
+              <tr className="bg-white ">
                 <td>
                   <p className="textRequest">{row.type}</p> <p>Даты</p>{" "}
                 </td>
                 <td>{row.status} </td>
                 <td>{row.type}</td>
-                {row.plannedDateEnd == row.plannedDateStart ?
+                {row.plannedDateEnd == row.plannedDateStart ? (
                   <>
-                    <td>{row.plannedDateStart}</td>
+                    <td>
+                      {row.plannedDateStart
+                        .split("T")
+                        .map((s) => s.split(".")[0])
+                        .join(" ")}
+                    </td>
                     <td>Точка</td>
                   </>
-                  :
+                ) : (
                   <>
-                    <td>{row.plannedDateStart} - {row.plannedDateEnd}</td>
+                    <td>
+                      {row.plannedDateStart
+                        .split("T")
+                        .map((s) => s.split(".")[0])
+                        .join(" ")}{" "}
+                      -{" "}
+                      {row.plannedDateEnd
+                        .split("T")
+                        .map((s) => s.split(".")[0])
+                        .join(" ")}
+                    </td>
                     <td>Точка</td>
                   </>
-                }
-                <td>
-                  {row.comment}
-                </td>
+                )}
+                <td>{row.comment}</td>
               </tr>
             ))}
         </tbody>
