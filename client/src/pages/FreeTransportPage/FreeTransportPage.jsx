@@ -9,20 +9,16 @@ import { useState } from "react";
 const FreeTransportPage = () => {
   React.useEffect(() => {
     window.ymaps.ready(function () {
+      console.log(132);
       // Указывается идентификатор HTML-элемента.
       var moscow_map = new window.ymaps.Map("first_map", {
         center: [55.76, 37.64],
         zoom: 10,
       });
-      // // Ссылка на элемент.
-      // var piter_map = new window.ymaps.Map(
-      //   document.getElementsByTagName("p")[2],
-      //   {
-      //     center: [59.94, 30.32],
-      //     zoom: 9,
-      //   }
-      // );
     });
+
+    dispatch(fetchUserById(1));
+    dispatch(fetchTransport());
   }, []);
 
   const location = useLocation();
@@ -33,11 +29,6 @@ const FreeTransportPage = () => {
   const dispatch = useDispatch();
   const [isRadio, setIsRadio] = useState("Специальная техника");
   console.log(isRadio);
-
-  React.useEffect(() => {
-    dispatch(fetchUserById(1));
-    dispatch(fetchTransport());
-  }, []);
 
   React.useEffect(() => {
     console.log(transport);
@@ -81,6 +72,7 @@ const FreeTransportPage = () => {
           <div
             id="first_map"
             style={{ width: "100%", borderRadius: "25px" }}
+            className="map"
           ></div>
         </div>
       </div>
