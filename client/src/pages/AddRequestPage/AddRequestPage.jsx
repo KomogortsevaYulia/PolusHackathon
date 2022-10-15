@@ -3,12 +3,15 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { createtwoPlacemark } from "../../utils/yamap";
 import "./AddRequestPage.style.css";
+import { useState } from "react";
+var myMap;
+
 
 const AddRequestPage = () => {
   React.useEffect(() => {
     window.ymaps.ready(function () {
       // Указывается идентификатор HTML-элемента.
-      var myMap;
+      
       myMap = new window.ymaps.Map("first_map", {
         center: [55.76, 37.64],
         zoom: 10,
@@ -40,21 +43,32 @@ const AddRequestPage = () => {
           }
         );
 
-      createtwoPlacemark(myMap);
+      var listPlacemark=createtwoPlacemark(myMap);
+      setPlacemark(listPlacemark.myPlacemark)
+      setPlacemark2(listPlacemark.myPlacemark2)
+      
       // createMultiRoute(myMap)
     });
   }, []);
 
   const [isRadio, setIsRadio] = useState("Работа на точке");
-
+  const [isSelect, setIsSelect] = useState();
+  const [myPlacemark, setPlacemark] = useState();
+  const [myPlacemark2, setPlacemark2] = useState();
   // HANDLE THE ONCHANGE HERE
 
   const handleChange = (e) => {
     setIsRadio(e.currentTarget.value);
-    console.log(isRadio)
+  };
+
+  const handleChangeselect = (e) => {
+    setIsSelect(e.currentTarget.value);
+
   };
 
   const onSubmit = async (e) => {
+    
+    console.log(myPlacemark)
     e.preventDefault()
 
     const typeRequest = document.getElementById("nidInput").value;
@@ -135,29 +149,28 @@ const AddRequestPage = () => {
                 <label for="exampleFormControlTextarea1" class="form-label">
                   Вид транспортного средства
                 </label>
-                <select
-                  class="form-select textForm"
-                  aria-label="Default select example"
-                >
-                  <option selected value="1">
-                    Автовышка
-                  </option>
-                  <option value="2">Погрузчик</option>
-                  <option value="3">Кран</option>
-                  <option value="4">Пассажирский</option>
-                  <option value="5">Грузовой</option>
-                </select>
+                {isRadio == "Работа на точке" ?
+                  <select class="form-select textForm" aria-label="Default select example" onChange={handleChangeselect} >
+                    <option selected={isSelect === "Автовышка"} value="Автовышка">Автовышка</option>
+                    <option selected={isSelect === "Погрузчик"} value="Погрузчик">Погрузчик</option>
+                    <option selected={isSelect === "Кран"} value="Кран">Кран</option></select>
+                  :
+                  <select class="form-select textForm" aria-label="Default select example" >
+                    <option selected={isSelect === "Пассажирский"} value="Пассажирский">Пассажирский</option>
+                    <option selected={isSelect === "Грузовой"} value="Грузовой">Грузовой</option></select>
+                }
               </div>
               <div className="row pb-5">
-                {typeRequest === "Перевозка" ? (
-                  <div className="textForm">
-                    Время к которому небходимо забрать груз
-                    <DatePicker
-                      selected={startDate}
-                      showTimeSelect
-                      onChange={(date) => setStartDate(date)}
-                      locale="ru"
-                    />
+                {isRadio === "Перевозка" ? (
+                  <div className="row textForm">
+                    <div className="col-auto textForm">Время</div>
+                    <div className="col-auto">
+                      <DatePicker
+                        selected={startDate}
+                        showTimeSelect
+                        onChange={(date) => setStartDate(date)}
+                      />
+                    </div>
                   </div>
                 ) : (
                   <div className="row">
@@ -169,7 +182,6 @@ const AddRequestPage = () => {
                         startDate={startDate}
                         endDate={endDate}
                         onChange={(date) => setStartDate(date)}
-                        locale="ru"
                         showTimeInput
                       />
                     </div>
@@ -181,7 +193,7 @@ const AddRequestPage = () => {
                         endDate={endDate}
                         minDate={startDate}
                         onChange={(date) => setEndDate(date)}
-                        locale="ru"
+
                         showTimeInput
                       />
                     </div>
@@ -202,6 +214,34 @@ const AddRequestPage = () => {
                   rows="3"
                 ></textarea>
               </div>
+              <div class="mb-3 row">
+                {isRadio === "Перевозка" ? (
+                  <div class="mb-3 row">
+                    <label
+                      for="exampleFormControlTextarea1"
+                      className="textForm form-label col"
+                    >
+                      Точка А
+                    </label>
+                    <label
+                      for="exampleFormControlTextarea1"
+                      className="textForm form-label col"
+                    >
+                      Точка Б
+                    </label></div>) : (<div class="mb-3 row">
+                      <label
+                        for="exampleFormControlTextarea1"
+                        className="textForm form-label col"
+                      >
+                        Место
+                      </label>
+                      <label for="exampleFormControlTextarea1" className="textForm form-label col" >
+                      {myPlacemark}
+                      </label>
+                    </div>
+                )}
+
+              </div>
             </div>
             <div className="col order-last d-flex h-100 d-inline-block">
               <div
@@ -211,7 +251,7 @@ const AddRequestPage = () => {
             </div>
           </div>
           <div className="row">
-            <div class="mt-3 row justify-content-md-center">
+            <div class="mt-3 row justify-content-md-center" onClick={onSubmit}>
               <span class="btnAdd textForm text-center">Создать</span>
             </div>
           </div>

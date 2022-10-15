@@ -82,6 +82,8 @@ export function createtwoPlacemark(myMap) {
       });
     });
   }
+
+  return({myPlacemark,myPlacemark2})
 }
 
 export function createMultiRoute(myMap, mark1, mark2) {
