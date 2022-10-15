@@ -6,7 +6,6 @@ import { fetchTransport } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
 import { useState } from "react";
 
-
 const FreeTransportPage = () => {
   React.useEffect(() => {
     window.ymaps.ready(function () {
@@ -32,6 +31,8 @@ const FreeTransportPage = () => {
   const { user } = useSelector((state) => state.user);
   const { transport } = useSelector((state) => state.transport);
   const dispatch = useDispatch();
+  const [isRadio, setIsRadio] = useState("Специальная техника");
+  console.log(isRadio)
 
   React.useEffect(() => {
     dispatch(fetchUserById(1));
@@ -42,12 +43,10 @@ const FreeTransportPage = () => {
     console.log(transport);
   }, [transport]);
 
-  const [selected, setSelected] = useState(true);
-
   return (
     <>
       <div className="row align-items-stretch containerCustomer d-flex ">
-        <div className="col transportSearchBox  boxWhite p-4">
+        <div className="col boxWhite p-4 transportSearchBox">
           <div className="row">
             <div
               className="btn-group"
@@ -56,12 +55,13 @@ const FreeTransportPage = () => {
             >
               <input
                 type="radio"
-                className= {selected? "btn-check selected" : "btn-check"}
+                className="btn-check"
                 name="btnradio"
                 id="btnradio1"
                 autoComplete="off"
-                onClick={() => setSelected(true)}
+                checked
               />
+
               <label className="btn btnYellow " htmlFor="btnradio1">
                 Специальная техника
               </label>
@@ -71,7 +71,6 @@ const FreeTransportPage = () => {
                 name="btnradio"
                 id="btnradio2"
                 autoComplete="off"
-                onClick={() => setSelected(false)}
               />
               <label className="btn btnYellow" htmlFor="btnradio2">
                 Грузопассажирский транспорт
@@ -79,26 +78,21 @@ const FreeTransportPage = () => {
             </div>
           </div>
         </div>
-        <div className="col order-last d-flex  transportSearchBox d-inline-block boxWhite">
+        <div className="col order-last d-flex d-inline-block boxWhite transportSearchBox">
           <div
             id="first_map"
             style={{ width: "100%", borderRadius: "25px" }}
           ></div>
         </div>
       </div>
-
-      
       <div
         className="row align-items-stretch containerCustomer d-flex justify-content-between mt-4"
         style={{ overflowX: "auto", flexWrap: "none" }}
       >
-        <div className="wrapper">
-
-        </div>
         {transport &&
           transport?.map((row) => (
             <div
-              className="card cardBoxWhite "
+              className="card cardBoxWhite transportSearchBox"
               style={{ width: "18rem" }}
               key={row.id}
             >
@@ -107,12 +101,10 @@ const FreeTransportPage = () => {
                 class="card-img-top"
                 alt="ТС"
               />
-              <div className="card-body p-4">
+              <div className="card-body">
                 <h5 className="card-title">{row.name}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">Имя</h6>
                 <p className="card-text">Описание</p>
-                <p className="card-text"></p>
-                <button className="btn btnRequest col-12"> Выбрать машину </button>
               </div>
             </div>
           ))}
