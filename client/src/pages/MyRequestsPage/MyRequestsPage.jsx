@@ -1,7 +1,5 @@
 import React from "react";
 import "./MyRequestsPage.style.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRequestByClientId } from "../../store/requestSlice/requestSlice";
@@ -21,11 +19,30 @@ const MyRequestsPage = () => {
   }, [requests]);
 
   return (
-    <div className="containerCustomer">
-      <div className="row align-items-stretch d-flex">
-        <CalendarComp className="calendarDateSelect col-12" />
+    <div className="container">
+      <div className="myRequestMenu row">
+        <div className="myRequestMenuItem col-2">
+          <p>Текущие</p>
+        </div>
+        <div className="myRequestMenuItem col-2">
+          <p>История заявок</p>
+        </div>
+        <div className="myRequestMenuItem col-2">
+          <p>Бронь</p>
+        </div>
+        <div className="myRequestMenuItem col-2">
+          <CalendarComp className="calendarDateSelect" />
+        </div>
+        <div className="myRequestMenuItem col-3">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Найти" aria-label="Recipient's username" aria-describedby="button-addon2" />
+            <button className="btn btn-outline-secondary col-2" type="button" id="button-addon2">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+          </div>
+        </div>
       </div>
-      <table className="table table-bordered request">
+      <table className="table table-bordered request mt-3">
         <tbody>
           {requests &&
             requests?.map((row) => (
@@ -35,7 +52,7 @@ const MyRequestsPage = () => {
                 </td>
                 <td>{row.status} </td>
                 <td>{row.type}</td>
-                {row.plannedDateEnd == row.plannedDateStart ? (
+                {row.plannedDateEnd === row.plannedDateStart ? (
                   <>
                     <td>
                       {row.plannedDateStart
@@ -67,6 +84,7 @@ const MyRequestsPage = () => {
         </tbody>
       </table>
     </div>
+    
   );
 };
 
