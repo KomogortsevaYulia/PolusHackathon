@@ -61,7 +61,7 @@ const PageWrapper = ({ children }) => {
                         </span>
                       </a>
                     </li>
-                    <li className="nav-item align-self-center col-6">
+                    <li className="nav-item align-self-center">
                       <a className="nav-link" href="#">
                         Время
                       </a>
