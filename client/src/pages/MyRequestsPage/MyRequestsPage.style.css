@@ -15,6 +15,31 @@
     font-size: 28px;
     color: #000000;
 }
+
 .searchBox{
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.requestMenu{
+    height: 5rem;
+}
+
+.myRequestMenu{
+    border: 1px solid #DADADA;
+    border-radius: 15px;
+    background-color: #fff;
+    height: 5rem;
+    text-align: center;
+}
+
+.myRequestMenuItem{
+    font-style: var(--font-nunito);
+    font-size: 20px;
+    cursor: pointer;
+    padding-top: 1.5rem ;
+}
+
+.request{
+    text-align: center;
+
 }
