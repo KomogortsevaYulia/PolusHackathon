@@ -12,10 +12,36 @@ const FreeTransportPage = () => {
     window.ymaps.ready(function () {
       console.log(132);
       // Указывается идентификатор HTML-элемента.
-      var moscow_map = new window.ymaps.Map("first_map", {
+      var myMap = new window.ymaps.Map("first_map", {
         center: [55.76, 37.64],
         zoom: 10,
       });
+
+      var location = window.ymaps.geolocation;
+
+      // Получение местоположения и автоматическое отображение его на карте.
+      location
+        .get({
+          mapStateAutoApply: true,
+        })
+        .then(
+          function (result) {
+            // Получение местоположения пользователя.
+            var userAddress = result.geoObjects.get(0).properties.get("text");
+            var userCoodinates = result.geoObjects
+              .get(0)
+              .geometry.getCoordinates();
+            // Пропишем полученный адрес в балуне.
+            result.geoObjects.get(0).properties.set({
+              balloonContentBody:
+                "Адрес: " + userAddress + "<br/>Координаты:" + userCoodinates,
+            });
+            myMap.geoObjects.add(result.geoObjects);
+          },
+          function (err) {
+            console.log("Ошибка: " + err);
+          }
+        );      
     });
 
     dispatch(fetchUserById(1));

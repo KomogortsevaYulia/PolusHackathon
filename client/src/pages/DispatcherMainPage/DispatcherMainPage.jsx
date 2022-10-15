@@ -12,16 +12,43 @@ import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
 import { fetchRequestAll } from "../../store/requestSlice/requestSlice";
 
+var myMap
+
 const DispatcherMainPage = () => {
   const [selectedMap, setSelectedMap] = useState(true);
   const [selectedRequest, setSelectedRequest] = useState(false);
 
+
   React.useEffect(() => {
-    if (!selectedMap)
-      var moscow_map = new window.ymaps.Map("first_map", {
+    if (!selectedMap){
+         myMap = new window.ymaps.Map("first_map", {
         center: [55.76, 37.64],
         zoom: 10,
       });
+
+      myMap.geoObjects
+      .add(new window.ymaps.Placemark([108, 52], {
+        balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
+      }, {
+        preset: 'islands#circleIcon',
+      }))
+      .add(new window.ymaps.Placemark([104, 52], {
+        balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
+      }, {
+        preset: 'islands#circleIcon',
+      }))
+      .add(new window.ymaps.Placemark([55.782392, 37.614924], {
+        balloonContent: 'КС-5363А - Кран 25 т.'
+      }, {
+        preset: 'islands#circleIcon',
+      }))
+      .add(new window.ymaps.Placemark([55.642063, 37.656123], {
+        balloonContent: 'Peter'
+      }, {
+        preset: 'islands#circleIcon'
+      }))
+    }
+
   }, [selectedMap]);
 
   const { user } = useSelector((state) => state.user);
@@ -153,6 +180,7 @@ const DispatcherMainPage = () => {
             </div>
           </div>
           <div className="requestTableContainer m-4">
+
             <input
               type="radio"
               className="btn-check"
@@ -192,11 +220,23 @@ const DispatcherMainPage = () => {
                     requests?.map((row) => (
                       <tr
                         className="requestTr"
-                        onClick={() => setSelectedRequest(!selectedRequest)}
+                        onClick={() => setSelectedRequest(row)}
                       >
                         {/* <th scope="row"></th> */}
                         <td>{row.type}</td>
-                        <td>{row.plannedDateStart}</td>
+                        <td>{row.type === "Перевозка" ?
+                          row.plannedDateStart.split("T")
+                            .map((s) => s.split(".")[0])
+                            .join(" ")
+                          :
+                          row.plannedDateStart.split("T")
+                            .map((s) => s.split(".")[0])
+                            .join(" ")
+                          -
+                          row.plannedDateEnd.split("T")
+                            .map((s) => s.split(".")[0])
+                            .join(" ")
+                        }</td>
                         <td>{row.status}</td>
                         <td>{row.firstPlace}</td>
                         <td>{row?.car?.id}</td>
@@ -240,31 +280,49 @@ const DispatcherMainPage = () => {
         {selectedRequest ? (
           <div className="requestCard col m-4 p-5">
             <div className="row mt-3">
-              <p className="requestTitle col-8">
-                Заявка на перевоз груза
-                <FontAwesomeIcon icon={faCheck} className="ms-2 requestCheck" />
+              <p className="requestTitle col">
+                Заявка на
+                {selectedRequest.type === "Перевозка" ? " перевоз" : " выполнение работы"}
+                {/* <FontAwesomeIcon icon={faCheck} className="ms-2 requestCheck" /> */}
               </p>
-              <p className="col text-end requestData">12.12.2309</p>
-            </div>
-            <div className="row rowCompany">
-              <p className="mt-4 requestCompanyTitle col-8">OOO "Газпром"</p>
-              <p className="mt-4 col-4 text-end requestData">10:10</p>
             </div>
             <div className="row mt-4">
               <div className="col">
-                <p className="boldCardText">Выбранный ТС</p>
-                <p>Фронтальный погрузчик</p>
-                <p className="customerNumber">+7 (923) 234-43-13</p>
-                <p>Заказчик</p>
-                <p>г.Иркутск ул. Гриюоедова 453553</p>
+                <div className="row">
+                  <p className="borderYellow " >Заказчик</p>
+                  <p>{selectedRequest.client.name}</p>
+                  <p className="customerNumber ">+7 (923) 234-43-13</p>
+                </div>
+
+                <div className="row">
+                  <p className="borderYellow" >Место</p>
+                  <p>{selectedRequest.firstPlace}</p>
+                  <p >{selectedRequest.secondPlace}</p>
+                </div>
+                <div className="row">
+                  <p className="borderYellow" >ТС</p>
+                  <p>{selectedRequest.car?.name}</p>
+                </div>
               </div>
               <div className="col">
-                <p className="text-end">OLEG</p>
-                <p className="text-end">+7 (923) 234-43-13</p>
-                <p className="text-end">
-                  <FontAwesomeIcon icon={faEnvelope} size="2x" />
-                </p>
-                <p className="text-end">г. Москва пр. Ленина 453553</p>
+                <div className="row">
+                  {selectedRequest.type === "Перевозка" ? <p className="mt-4 text-end  requestData">
+                    {selectedRequest.plannedDateStart.split("T")
+                      .map((s) => s.split(".")[0])
+                      .join(" ")}
+                  </p> : <><p className="mt-4  text-end requestData">
+                    {selectedRequest.plannedDateStart.split("T")
+                      .map((s) => s.split(".")[0])
+                      .join(" ")}
+                  </p>
+                    <p className="mt-4 text-end  requestData">
+                      {selectedRequest.plannedDateEnd.split("T")
+                        .map((s) => s.split(".")[0])
+                        .join(" ")}
+                    </p>
+                  </>
+                  }
+                </div>
               </div>
             </div>
           </div>
