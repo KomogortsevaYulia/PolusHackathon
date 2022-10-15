@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faCheck, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import CalendarComp from './CalendarComp.jsx'
+import CalendarComp from '../../components/Calendar/CalendarComp.jsx'
 
 
 const DispatcherMainPage = () => {
@@ -13,19 +13,10 @@ const DispatcherMainPage = () => {
 
   React.useEffect(() => {
     window.ymaps.ready(function () {
-      // Указывается идентификатор HTML-элемента.
       var moscow_map = new window.ymaps.Map("first_map", {
         center: [55.76, 37.64],
         zoom: 10,
       });
-      // Ссылка на элемент.
-      // var piter_map = new window.ymaps.Map(
-      //   document.getElementsByTagName("p")[2],
-      //   {
-      //     center: [59.94, 30.32],
-      //     zoom: 9,
-      //   }
-      // );
     });
   }, []);
 
@@ -38,7 +29,7 @@ const DispatcherMainPage = () => {
            <div className = "row justify-content-center">
               <div className = "col-3 m-4">
                 <div className = "dropdown">
-                  <CalendarComp className = "calendarDateSelect col-12"/>
+                  <CalendarComp className = "calendarDateSelect"/>
                 </div>
                 <div className = "dropdown mt-4">
                     <button className = "btn btn-filter btn-secondary dropdown-toggle col-12" type="button" data-bs-toggle="dropdown" aria-expanded="false">
