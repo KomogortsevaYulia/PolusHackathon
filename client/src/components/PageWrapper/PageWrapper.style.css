@@ -2,10 +2,10 @@
     font-style: var(--font-nunito);
     font-size: 20px;
     margin-right: 50px;
+    cursor: pointer;
 }
 
 .buttonNavActive {
-
    border-bottom-width:3px;
    border-bottom-color:var(--yellow-5);
    border-bottom-style: solid;
@@ -23,6 +23,7 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     font-size: 1.2rem;
     background-color: white;
+    color: var(--grey-500);
 }
 
 .container-fluid{
@@ -33,13 +34,13 @@
     border-right: 1px solid var(--fontColor-5);
 }
 
-.backgroundAdd{
-    /* height: 60vh;
-    width: 100vw;
-    background-size:cover ;
-    background-position: center;
-    background-repeat:no-repeat;
-    background-position: center center;
-    background-image:url("../../sourse/background.png") ; */
-    
+.exitItem2{
+    border-right: 1px solid var(--fontColor-5);
+    text-align: end;
+
+}
+
+
+.userChoise{
+    text-align: end;
 }

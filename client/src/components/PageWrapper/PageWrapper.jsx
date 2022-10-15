@@ -29,46 +29,37 @@ const PageWrapper = ({ children }) => {
       {user?.role?.id === 2 ? (
         <>
           <header>
-            <nav className="navbar navbar-expand-lg bg-light navStyles">
-              <div className="container-fluid">
-                <div
-                  className="collapse navbar-collapse col-6"
-                  id="navbarSupportedContent"
-                >
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item exitItem">
-                      <a className="nav-link" href="#">
-                        <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                        <span className="ms-3 me-3">Выход</span>
-                      </a>
-                    </li>
-                    <li className="nav-item ms-3">
-                      <a
-                        className="nav-link"
-                        href="#"
-                      >
-                        <FontAwesomeIcon icon={faListSquares} />
-                        <span className="ms-3" onClick={() => navigate("/dispatcherMainPage")}>
-                          Главная
-                        </span>
-                      </a>
-                    </li>
-                    <li className="nav-item ms-3">
-                      <a className="nav-link" href="#">
-                        <FontAwesomeIcon icon={faListCheck} />
-                        <span className="ms-3" onClick={() => navigate("/dispatcherReportPage")}>
-                          Отчеты
-                        </span>
-                      </a>
-                    </li>
-                    <li className="nav-item align-self-center">
-                      <a className="nav-link" href="#">
-                        Время
-                      </a>
-                    </li>
-                    <li className="nav-item dropdown">
-                      <span
-                        className=" nav-link dropdown-toggle buttonNav"
+            <div className="row navbarWhite justify-content-center">
+              <div className="row col-11">
+                <div className="col-2 p-3">
+                  <a className="nav-link exitItem" href="#">
+                    <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                    <span className="ms-3 me-3 ">Выход</span>
+                  </a>
+                </div>
+                <div className="col-2 p-3">
+                  <a
+                    className="nav-link"
+                    href="#"
+                  >
+                    <FontAwesomeIcon icon={faListSquares} />
+                    <span className="ms-3" onClick={() => navigate("/dispatcherMainPage")}>
+                      Главная
+                    </span>
+                  </a>
+                </div>
+                <div className="col-2 p-3 ">
+                  <a className="nav-link" href="#">
+                    <FontAwesomeIcon icon={faListCheck} />
+                    <span className="ms-3" onClick={() => navigate("/dispatcherReportPage")}>
+                      Отчеты
+                    </span>
+                  </a>
+                </div>
+                <div className="col-md-2 offset-md-2 p-3"></div>
+                <div className="col-2 p-3">
+                <span
+                        className=" nav-link dropdown-toggle buttonNav userChoise"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
@@ -93,17 +84,56 @@ const PageWrapper = ({ children }) => {
                           </button>
                         </li>
                       </ul>
-                    </li>
-                  </ul>
                 </div>
-              </div>
-            </nav>
+              </div>  
+            </div>
           </header>
         </>
       ) : (
         <>
           <header>
-            <nav className="navbar bg-white navbar-expand-lg bg-light navStyles">
+          <div className="row navbarWhite justify-content-center">
+              <div className="row col-11">
+                <div className="col-6 p-1">
+                  <img src={logo} style={{ height: '50px' }} alt="Логотип" />
+                </div>
+                <div className="col-md-2 offset-md-2 p-3">
+                  <a className="nav-link exitItem2" href="#">
+                    <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                    <span className="ms-3 me-3 ">Выход</span>
+                  </a>
+                </div>
+                <div className="col-2 p-3">
+                <span
+                        className=" nav-link dropdown-toggle buttonNav userChoise"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        {user.name}
+                      </span>
+                      <ul className="dropdown-menu ">
+                        <li>
+                          <button
+                            className="dropdown-item buttonNav"
+                            onClick={() => dispatch(fetchUserById(1))}
+                          >
+                            {users[0].name}
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            className="dropdown-item buttonNav"
+                            onClick={() => dispatch(fetchUserById(2))}
+                          >
+                            {users[1].name}
+                          </button>
+                        </li>
+                      </ul>
+                </div>
+              </div>  
+            </div>
+            {/* <nav className="navbar bg-white navbar-expand-lg bg-light navStyles">
               <div className="container-fluid ">
                 <div
                   className="collapse navbar-collapse "
@@ -151,6 +181,7 @@ const PageWrapper = ({ children }) => {
                 </div>
               </div>
             </nav>
+      */}
             <div className={`navCustomer`}>
               <nav>
                 <span
