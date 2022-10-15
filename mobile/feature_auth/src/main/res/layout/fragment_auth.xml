@@ -1,44 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bacground_cubes"
     android:orientation="vertical"
     tools:context=".api.AuthFragment">
 
-    <ImageView
-        android:id="@+id/iv_auth_main"
-        android:src="@drawable/img_main"
-        android:scaleType="fitXY"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"/>
-
     <include
         android:id="@+id/auth_input_phone"
-        android:layout_width="wrap_content"
+        layout="@layout/auth_input_phone"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginHorizontal="50dp"
-        layout="@layout/auth_input_phone"/>
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/auth_input_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <include
         android:id="@+id/auth_input_password"
-        android:layout_width="wrap_content"
+        layout="@layout/auth_input_password"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginHorizontal="50dp"
-        layout="@layout/auth_input_password"/>
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_auth_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_auth_login"
-        android:layout_width="match_parent"
-        android:text="Войти"
-        android:textSize="24sp"
-        android:textAllCaps="false"
-        android:background="@color/orange_light"
-        android:layout_marginHorizontal="48dp"
+        android:layout_width="0dp"
         android:layout_height="64dp"
-        android:layout_marginTop="100dp"
-        />
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginBottom="120dp"
+        android:background="@color/orange_light"
+        android:text="Войти"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/auth_background_blur"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/auth_input_phone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@ package ru.pochtifullstack.polusmobile.navigation
 
 import androidx.navigation.NavController
 
-abstract class BaseNavigation {
+class BaseNavigation {
 
     var navController: NavController? = null
 

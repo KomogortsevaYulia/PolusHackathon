@@ -1,11 +1,16 @@
 package ru.pochtifullstack.polusmobile.navigation
 
+import android.util.Log
 import ru.pochtifullstack.feature_auth.api.AuthNavigation
+import ru.pochtifullstack.polusmobile.R
 import javax.inject.Inject
 
-class AuthNavigationImpl @Inject constructor(): AuthNavigation, BaseNavigation() {
+class AuthNavigationImpl @Inject constructor(
+    private val baseNavigation: BaseNavigation
+): AuthNavigation {
 
     override fun openNextScreen() {
-
+        baseNavigation.navController?.navigate(R.id.action_authFragment_to_mainFragment)
+        Log.d("anime", "navigated")
     }
 }

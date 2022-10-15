@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feature_request_list_nav_graph"
+    app:startDestination="@id/startShiftFragment">
+
+    <fragment
+        android:id="@+id/startShiftFragment"
+        android:name="ru.pochtifullstack.feature_request_list.StartShiftFragment"
+        android:label="fragment_start_shift"
+        tools:layout="@layout/fragment_start_shift" />
+</navigation>

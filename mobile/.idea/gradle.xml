@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/core_style" />
             <option value="$PROJECT_DIR$/core_util" />
             <option value="$PROJECT_DIR$/feature_auth" />
+            <option value="$PROJECT_DIR$/feature_request_list" />
           </set>
         </option>
       </GradleProjectSettings>

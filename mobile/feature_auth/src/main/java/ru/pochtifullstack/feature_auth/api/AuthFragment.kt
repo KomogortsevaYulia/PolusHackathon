@@ -2,17 +2,23 @@ package ru.pochtifullstack.feature_auth.api
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import dagger.Lazy
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import dagger.Lazy
+import jp.wasabeef.blurry.Blurry
+import jp.wasabeef.glide.transformations.BlurTransformation
 import ru.pochtifullstack.feature_auth.R
 import ru.pochtifullstack.feature_auth.databinding.FragmentAuthBinding
+import ru.pochtifullstack.feature_auth.internal.AuthComponentViewModel
 import ru.pochtifullstack.feature_auth.internal.AuthViewModel
 import ru.pochtifullstack.feature_auth.internal.AuthViewModelFactory
-import ru.pochtifullstack.feature_auth.internal.di.AuthComponent
 import javax.inject.Inject
+import ru.pochtifullstack.core_style.R as styleModule
 
 
 class AuthFragment : Fragment(R.layout.fragment_auth) {
@@ -24,11 +30,11 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
     private val authViewModel: AuthViewModel by viewModels {
         authViewModelFactory.get()
     }
-    private val componentViewModel: AuthComponent by viewModels()
+    private val componentViewModel: AuthComponentViewModel by viewModels()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        componentViewModel.inject(this)
+        componentViewModel.authComponent.inject(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,8 +44,16 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
     }
 
     private fun init() {
-        binding.btnAuthLogin.setOnClickListener {
-            authViewModel.navigateFurther()
+        binding.apply {
+            btnAuthLogin.setOnClickListener {
+                Log.d("anime", "pressed")
+                authViewModel.navigateFurther()
+            }
+
+            Glide.with(this@AuthFragment)
+                .load(styleModule.drawable.background_white_30)
+                .apply(RequestOptions.bitmapTransform(BlurTransformation(50)))
+                .into(binding.authBackgroundBlur)
         }
     }
 }

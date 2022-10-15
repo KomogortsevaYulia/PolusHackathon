@@ -4,6 +4,8 @@ import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
 import ru.pochtifullstack.feature_auth.api.AuthDeps
+import ru.pochtifullstack.polusmobile.MainActivity
+import ru.pochtifullstack.polusmobile.MainFragment
 import javax.inject.Qualifier
 import javax.inject.Scope
 
@@ -24,6 +26,9 @@ interface AppComponent: AuthDeps {
             @BindsInstance @ApplicationContext context: Context
         ): AppComponent
     }
+
+    fun inject(mainActivity: MainActivity)
+    fun inject(mainFragment: MainFragment)
 }
 
 @Qualifier

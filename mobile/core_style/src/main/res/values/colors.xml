@@ -4,5 +4,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray_light">#9B9B9B</color>
     <color name="gray_light_2">#CCCCCC</color>
+    <color name="gray_light_3">#ECEBEB</color>
     <color name="orange_light">#FAB529</color>
+    <color name="black_light">#383836</color>
+    <color name="white_30">#48FFFFFF</color>
+    <color name="gray_dark">#272727</color>
 </resources>
