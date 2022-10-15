@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { fetchTransport } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
-import ReactCardSlider from "../../components/CardSlider/ReactCardSlider.jsx";
 
 
 const FreeTransportPage = () => {
@@ -87,7 +86,6 @@ const FreeTransportPage = () => {
         className="row align-items-stretch containerCustomer d-flex justify-content-between mt-4"
         style={{ overflowX: "auto", flexWrap: "none" }}
       >
-        <ReactCardSlider/>
         {transport &&
           transport?.map((row) => (
             <div
