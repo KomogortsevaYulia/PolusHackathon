@@ -22,7 +22,6 @@ const DispatcherMainPage = () => {
 
   const { user } = useSelector((state) => state.user);
   const { requests } = useSelector((state) => state.request);
-  const { transport } = useSelector((state) => state.transport);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -99,12 +98,11 @@ const DispatcherMainPage = () => {
               <table class="table table-striped mt-3">
                 <thead>
                   <tr>
+                    <th scope="col">Тип</th>
                     <th scope="col">Время</th>
                     <th scope="col">Статус</th>
                     <th scope="col">Адрес</th>
                     <th scope="col">ТС</th>
-                    <th scope="col">Тип</th>
-                    {/* <th scope="col">Бронирование</th> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -112,11 +110,11 @@ const DispatcherMainPage = () => {
                     requests?.map((row) => (
                       <tr className="requestTr" onClick={() => setSelectedRequest(!selectedRequest)}>
                         <th scope="row"></th>
+                        <td>{row.type}</td>
                         <td>{row.plannedDateStart}</td>
                         <td>{row.status}</td>
                         <td>{row.firstPlace}</td>
                         <td>{row?.car.id}</td>
-                        <td>{row.type}</td>
                       </tr>
                     ))}
                 </tbody>
@@ -128,7 +126,6 @@ const DispatcherMainPage = () => {
                 ></div>
               </div>
             }
-
           </div>
         </div>
       </div>
