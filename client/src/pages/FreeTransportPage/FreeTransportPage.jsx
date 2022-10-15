@@ -32,7 +32,7 @@ const FreeTransportPage = () => {
   const { transport } = useSelector((state) => state.transport);
   const dispatch = useDispatch();
   const [isRadio, setIsRadio] = useState("Специальная техника");
-  console.log(isRadio)
+  console.log(isRadio);
 
   React.useEffect(() => {
     dispatch(fetchUserById(1));
@@ -90,11 +90,11 @@ const FreeTransportPage = () => {
         style={{ overflowX: "auto", flexWrap: "none" }}
       >
         {transport &&
-          transport?.map((row) => (
+          Object.keys(transport)?.map((key) => (
             <div
               className="card cardBoxWhite transportSearchBox"
               style={{ width: "18rem" }}
-              key={row.id}
+              key={transport[key][0].id}
             >
               <img
                 src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg"
@@ -102,7 +102,7 @@ const FreeTransportPage = () => {
                 alt="ТС"
               />
               <div className="card-body">
-                <h5 className="card-title">{row.name}</h5>
+                <h5 className="card-title">{transport[key][0].name}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">Имя</h6>
                 <p className="card-text">Описание</p>
               </div>

@@ -13,6 +13,10 @@ import { addRequest } from "../../store/requestSlice/requestSlice";
 var myMap;
 
 const AddRequestPage = () => {
+  const [isRadio, setIsRadio] = useState("Работа на точке");
+  const [isSelect, setIsSelect] = useState("Погрузчик");
+  const [isCar, setIsCar] = useState();
+
   React.useEffect(() => {
     window.ymaps.ready(function () {
       // Указывается идентификатор HTML-элемента.
@@ -51,18 +55,15 @@ const AddRequestPage = () => {
       createtwoPlacemark(myMap, setPlacemark, setPlacemark2);
       // createMultiRoute(myMap)
     });
-  }, []);
 
-  const [isRadio, setIsRadio] = useState("Работа на точке");  
-  const [isSelect, setIsSelect] = useState();
-   const [isCar, setIsCar] = useState();
+    dispatch(fetchTransportName(isSelect));
+  }, []);
 
   const [myPlacemark, setPlacemark] = useState();
   const [firstPlace, setFirstPlace] = useState("");
 
   const [myPlacemark2, setPlacemark2] = useState();
   const [secondPlace, setSecondPlace] = useState("");
-
 
   const handleChangeCar = (e) => {
     setIsCar(e.currentTarget.value);
@@ -115,13 +116,7 @@ const AddRequestPage = () => {
   const { transport } = useSelector((state) => state.transport);
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    dispatch(fetchTransportName());
-  }, []);
-
-
   const handleChange = (e) => {
-    dispatch(fetchTransportName());
     setIsRadio(e.currentTarget.value);
   };
 
@@ -129,6 +124,9 @@ const AddRequestPage = () => {
     setIsSelect(e.currentTarget.value);
   };
 
+  React.useEffect(() => {
+    dispatch(fetchTransportName(isSelect));
+  }, [isSelect]);
 
   const [startDate, setStartDate] = React.useState(new Date());
   const [endDate, setEndDate] = React.useState(new Date());
@@ -137,46 +135,39 @@ const AddRequestPage = () => {
     console.log(myPlacemark);
     e.preventDefault();
 
-    const place1 = myPlacemark?.geometry.getCoordinates()
-    const place2 = myPlacemark?.geometry.getCoordinates()
+    const place1 = myPlacemark?.geometry.getCoordinates();
+    const place2 = myPlacemark?.geometry.getCoordinates();
 
-    isRadio == "Работа на точке" ?
-      dispatch(
-        addRequest(
-          {
-            "type": isRadio,
-            "subType": isSelect,
-            "requiredCarName":isCar,
-            "startLon": place1[0],
-            "startLat": place1[1],
-            "endLon": place1[0],
-            "endLat": place1[1],
-            "plannedDateStart": startDate,
-            "plannedDateEnd": endDate,
-            "userId": 1
-          }
+    isRadio == "Работа на точке"
+      ? dispatch(
+          addRequest({
+            type: isRadio,
+            subType: isSelect,
+            requiredCarName: isCar,
+            startLon: place1[0],
+            startLat: place1[1],
+            endLon: place1[0],
+            endLat: place1[1],
+            plannedDateStart: startDate,
+            plannedDateEnd: endDate,
+            userId: 1,
+          })
         )
-      )
-      :
-      dispatch(
-        addRequest(
-          {
-            "type": isRadio,
-            "subType": isSelect,
-            "requiredCarName":isCar,
-            "startLon": place1[0],
-            "startLat": place1[1],
-            "endLon": place2[0],
-            "endLat": place2[1],
-            "plannedDateStart": startDate,
-            "plannedDateEnd": startDate,
-            "userId": 1
-          }
-        )
-      );
-
+      : dispatch(
+          addRequest({
+            type: isRadio,
+            subType: isSelect,
+            requiredCarName: isCar,
+            startLon: place1[0],
+            startLat: place1[1],
+            endLon: place2[0],
+            endLat: place2[1],
+            plannedDateStart: startDate,
+            plannedDateEnd: startDate,
+            userId: 1,
+          })
+        );
   };
-
 
   const typeRequest = React.useState();
 
@@ -231,44 +222,46 @@ const AddRequestPage = () => {
                 <label for="exampleFormControlTextarea1" class="form-label">
                   Вид транспортного средства
                 </label>
-                {isRadio == "Работа на точке" ? (
-                  <select
-                    class="form-select textForm"
-                    aria-label="Default select example"
-                    onChange={handleChangeselect}
-                  >
-                    <option
-                      selected={isSelect === "Автовышка"}
-                      value="Автовышка"
-                    >
-                      Автовышка
-                    </option>
-                    <option
-                      selected={isSelect === "Погрузчик"}
-                      value="Погрузчик"
-                    >
-                      Погрузчик
-                    </option>
-                    <option selected={isSelect === "Кран"} value="Кран">
-                      Кран
-                    </option>
-                  </select>
-                ) : (
-                  <select
-                    class="form-select textForm"
-                    aria-label="Default select example"
-                  >
-                    <option
-                      selected={isSelect === "Пассажирский"}
-                      value="Пассажирский"
-                    >
-                      Пассажирский
-                    </option>
-                    <option selected={isSelect === "Грузовой"} value="Грузовой">
-                      Грузовой
-                    </option>
-                  </select>
-                )}
+                <select
+                  class="form-select textForm"
+                  aria-label="Default select example"
+                  onChange={handleChangeselect}
+                >
+                  {isRadio == "Работа на точке" ? (
+                    <>
+                      <option
+                        selected={isSelect === "Автовышка"}
+                        value="Автовышка"
+                      >
+                        Автовышка
+                      </option>
+                      <option
+                        selected={isSelect === "Погрузчик"}
+                        value="Погрузчик"
+                      >
+                        Погрузчик
+                      </option>
+                      <option selected={isSelect === "Кран"} value="Кран">
+                        Кран
+                      </option>
+                    </>
+                  ) : (
+                    <>
+                      <option
+                        selected={isSelect === "Пассажирский"}
+                        value="Пассажирский"
+                      >
+                        Пассажирский
+                      </option>
+                      <option
+                        selected={isSelect === "Грузовой"}
+                        value="Грузовой"
+                      >
+                        Грузовой
+                      </option>
+                    </>
+                  )}
+                </select>
               </div>
               <div className="row pb-5">
                 {isRadio === "Перевозка" ? (
@@ -324,12 +317,13 @@ const AddRequestPage = () => {
                 </label>
                 <select
                   class="form-select textForm"
-                  aria-label="Default select example" onChange={handleChangeCar}
+                  aria-label="Default select example"
+                  onChange={handleChangeCar}
                 >
                   {transport &&
-                    transport?.map((row) => (
-                      <option selected={isCar === row.name} value={row.name}>
-                        {row.name}
+                    Object.keys(transport)?.map((row) => (
+                      <option selected={isCar === row} value={row}>
+                        {row}
                       </option>
                     ))}
                 </select>
@@ -349,7 +343,6 @@ const AddRequestPage = () => {
                       className="textForm form-label col"
                     >
                       Точка Б : {secondPlace} (
-
                       {myPlacemark2?.geometry.getCoordinates().join(", ")})
                     </label>
                   </div>
@@ -359,9 +352,7 @@ const AddRequestPage = () => {
                       for="exampleFormControlTextarea1"
                       className="textForm form-label col"
                     >
-                      Место :
-                      {firstPlace}
-
+                      Место :{firstPlace}
                       {myPlacemark?.geometry.getCoordinates().join(", ")}
                     </label>
                   </div>
