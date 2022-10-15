@@ -154,8 +154,8 @@ const PageWrapper = ({ children }) => {
             <div className="navCustomer">
               <nav>
                 <span
-                  className={`buttonNav ${"/freeTrasport" === location.pathname ? 'buttonNavActive' : ''}`}
-                  onClick={() => navigate("/freeTrasport")}
+                  className={`buttonNav ${"/freeTransport" === location.pathname ? 'buttonNavActive' : ''}`}
+                  onClick={() => navigate("/freeTransport")}
                 >
                   Доступные ТС
                 </span>

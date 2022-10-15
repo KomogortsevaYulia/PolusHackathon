@@ -1,4 +1,3 @@
-import { WorkingShift } from '../../working-shift/entities/working-shift.entity';
 import {
   Entity,
   Column,
@@ -7,7 +6,9 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
+import { WorkingShift } from '../../working-shift/entities/working-shift.entity';
 import { Role } from './role.entity';
+import { Request } from '../../request/entities/request.entity';
 
 @Entity()
 export class User {
@@ -29,4 +30,7 @@ export class User {
 
   @OneToMany(() => WorkingShift, (workingShift) => workingShift.driver)
   workingShifts: WorkingShift[];
+
+  @OneToMany(() => Request, (request) => request.user)
+  requests: Request[];
 }

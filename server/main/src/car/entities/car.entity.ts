@@ -1,4 +1,3 @@
-import { WorkingShift } from '../../working-shift/entities/working-shift.entity';
 import {
   Entity,
   Column,
@@ -6,6 +5,8 @@ import {
   OneToMany,
   OneToOne,
 } from 'typeorm';
+import { WorkingShift } from '../../working-shift/entities/working-shift.entity';
+import { Request } from '../../request/entities/request.entity';
 
 export enum CarTypes {
   TRANSPORTATION = 'Перевозка',
@@ -50,6 +51,9 @@ export class Car {
   @Column({ type: 'enum', enum: CarSubTypes })
   subType: CarSubTypesValues;
 
-  @OneToOne(() => WorkingShift, (workingShift) => workingShift.car)
+  @OneToMany(() => WorkingShift, (workingShift) => workingShift.car)
   workingShifts: WorkingShift[];
+
+  @OneToMany(() => Request, (request) => request.car)
+  requests: Request[];
 }

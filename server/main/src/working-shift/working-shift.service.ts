@@ -23,6 +23,8 @@ export class WorkingShiftService {
   ) {}
 
   async startShift(userId: number, carId: number) {
+    // console.log(carId);
+
     const shift = await this.workingShiftRepo.save({
       dateStart: new Date(),
       driver: {
@@ -39,9 +41,9 @@ export class WorkingShiftService {
     });
   }
 
-  async endShift(userId: number) {
+  async endShift(carId: number) {
     const shift = await this.workingShiftRepo.findOne({
-      where: { driver: { id: userId }, dateEnd: IsNull() },
+      where: { car: { id: carId }, dateEnd: IsNull() },
       relations: {
         car: true,
         driver: true,
