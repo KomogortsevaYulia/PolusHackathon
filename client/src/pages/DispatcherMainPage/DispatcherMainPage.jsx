@@ -1,7 +1,7 @@
 import React from "react";
 import "./DispatcherMainStyle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faCheck, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 
 
 const DispatcherMainPage = () => {
@@ -38,7 +38,7 @@ const DispatcherMainPage = () => {
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </button>
                 </div>
-                <div className = "row">
+                <div className = "row justify-content-between">
                   <div className = "dropdown col-3">
                       <button className = "btn btn-filter btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Dropdown button
@@ -127,12 +127,49 @@ const DispatcherMainPage = () => {
           </div>
           <div className = "transportStatus col m-4">
             <div className="row d-flex justify-content-start align-items-center">
-              <p className="waitTransport col-auto ms-2">28</p>
+              <p className="waitTransport col-auto ms-4">28</p>
               <p className="col-auto p-2 ms-3">В ожидании</p>
             </div>
           </div>
-          <div className = "requestCard col m-4">
-
+          <div className = "requestCard col m-4 p-5">
+            <div className="row mt-3">
+                <p className = "requestTitle col-8">
+                    Заявка на перевоз груза
+                    <FontAwesomeIcon icon={faCheck} className = "ms-2 requestCheck" />
+                </p>
+                <p class="col text-end requestData">
+                    12.12.2309
+                </p>
+            </div>
+            <div className="row rowCompany">
+                <p className = "mt-4 requestCompanyTitle col-8">
+                    OOO "Газпром"
+                </p>
+                <p class="mt-4 col-4 text-end requestData">
+                    10:10
+                </p>
+            </div>
+            <div className="row mt-4">
+              <div className="col">
+                <p className="boldCardText">Выбранный ТС</p>
+                <p>Фронтальный погрузчик</p>
+                <p className="customerNumber">+7 (923) 234-43-13</p>
+                <p>Заказчик</p>
+                <p>г.Иркутск 
+                ул. Гриюоедова
+                453553</p>
+              </div>
+              <div className="col">
+                <p className="text-end">OLEG</p>
+                <p className="text-end">+7 (923) 234-43-13</p>
+                <p className="text-end">
+                  <FontAwesomeIcon icon={faEnvelope} size = "2x"/>
+                </p>  
+                <p className="text-end">г. Москва
+                пр. Ленина
+                453553</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

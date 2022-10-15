@@ -38,7 +38,6 @@ const PageWrapper = ({ children }) => {
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
                     <li className="nav-item exitItem">
                       <a className="nav-link" href="#">
-                        <FontAwesomeIcon icon={faArrowRightFromBracket} />
                         <span>Выход</span>
                       </a>
                     </li>
@@ -65,15 +64,15 @@ const PageWrapper = ({ children }) => {
                         Время
                       </a>
                     </li>
-                    <li className="buttonNav nav-item dropdown">
-                      <span
-                        className=" nav-link dropdown-toggle buttonNav"
+                    <li className="nav-item dropdown">
+                      <button
+                        className="nav-link dropdown-toggle buttonNav"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
                         {user.name}
-                      </span>
+                      </button>
                       <ul className="dropdown-menu">
                         <li>
                           <button
@@ -110,7 +109,7 @@ const PageWrapper = ({ children }) => {
                 >
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item d-flex justify-content-start">
-                      <IconEditWhite style={{ width: "10%" }} />
+                      <IconEditWhite style={{ width: "100%" }} />
                     </li>
                     <li className="nav-item d-flex justify-content-end">
                       <a
@@ -122,15 +121,15 @@ const PageWrapper = ({ children }) => {
                         Выход
                       </a>
                     </li>
-                    <li className="buttonNav nav-item dropdown d-flex justify-content-end">
-                      <span
+                    <li className="nav-item dropdown d-flex justify-content-end">
+                      <button
                         className="nav-link dropdown-toggle buttonNav"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
                         {user.name}
-                      </span>
+                      </button>
                       <ul className="dropdown-menu">
                         <li>
                           <button
