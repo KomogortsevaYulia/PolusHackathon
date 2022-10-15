@@ -24,7 +24,13 @@ export enum WorkCarTypes {
   LOADER = 'Погрузчик',
 }
 
-export const CarSubTypes = { ...WorkCarTypes, ...TransportationCarTypes };
+export enum CarSubTypes {
+  PASSENGER = 'Пассажирский',
+  CARGO = 'Грузовой',
+  TOWER = 'Автовышка',
+  CRANE = 'Кран',
+  LOADER = 'Погрузчик',
+}
 
 export type CarSubTypesValues = typeof CarSubTypes[keyof typeof CarSubTypes];
 
@@ -49,7 +55,7 @@ export class Car {
   type: CarTypes;
 
   @Column({ type: 'enum', enum: CarSubTypes })
-  subType: CarSubTypesValues;
+  subType: CarSubTypes;
 
   @OneToMany(() => WorkingShift, (workingShift) => workingShift.car)
   workingShifts: WorkingShift[];
