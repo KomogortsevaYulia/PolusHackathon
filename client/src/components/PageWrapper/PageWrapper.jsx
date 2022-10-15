@@ -144,7 +144,8 @@ const PageWrapper = ({ children }) => {
               <nav>
                 <span
                   className={`buttonNav ${
-                    "/freeTransport" === location.pathname
+                    "/freeTransport" === location.pathname ||
+                    location.pathname === "/"
                       ? "buttonNavActive"
                       : ""
                   }`}

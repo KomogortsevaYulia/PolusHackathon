@@ -6,6 +6,7 @@ import { fetchTransport } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
 import ReactCardSlider from "../../components/CardSlider/ReactCardSlider.jsx";
 
+
 const FreeTransportPage = () => {
   React.useEffect(() => {
     window.ymaps.ready(function () {
