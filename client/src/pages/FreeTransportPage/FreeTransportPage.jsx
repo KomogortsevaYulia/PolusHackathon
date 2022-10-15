@@ -1,5 +1,9 @@
 import React from "react";
 import "./FreeTransportPage.style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { fetchTransport } from "../../store/transportSlice/transportSlice";
 
 const FreeTransportPage = () => {
   React.useEffect(() => {
@@ -20,12 +24,27 @@ const FreeTransportPage = () => {
     });
   }, []);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const { user } = useSelector((state) => state.user);
+  const { transport } = useSelector((state) => state.transport);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(fetchTransport());
+  }, []);
+
+  React.useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   return (
     <>
       <div className="row align-items-stretch containerCustomer d-flex ">
-        <div className="col-auto boxWhite">
-          <div className="row">
-            <span className="text">Фильтры</span>
+        <div className="col boxWhite">
+          <div className="row"  >
+            <p className="text">Фильтры</p>
           </div>
           <div className="row">
             <div
@@ -62,14 +81,18 @@ const FreeTransportPage = () => {
         </div>
       </div>
       <div className="row align-items-stretch containerCustomer d-flex ">
-        <div className="card cardBoxWhite" style={{ width: "18rem" }}>
-          <img src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg" class="card-img-top" alt="ТС" />
-          <div className="card-body">
-            <h5 className="card-title">Погрузчик</h5>
-            <h6 className="card-subtitle mb-2 text-muted">Имя</h6>
-            <p className="card-text">Описание</p>
-          </div>
-        </div>
+        {transport &&
+          transport?.map((row) => (
+            <div className="card cardBoxWhite" style={{ width: "18rem" }}>
+              <img src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg" class="card-img-top" alt="ТС" />
+              <div className="card-body">
+                <h5 className="card-title">{row.name}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">Имя</h6>
+                <p className="card-text">Описание</p>
+              </div>
+            </div>
+          ))}
+
       </div>
     </>
   );

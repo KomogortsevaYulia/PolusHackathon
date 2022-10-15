@@ -32,7 +32,7 @@ const AppRouter = () => {
         {user?.role?.id === 2 ?         <Route path="/" element={<DispatcherMainPage/>} /> :        <Route path="/" element={<FreeTransportPage />} />  }
         <Route path="/dispatcherMainPage" element={<DispatcherMainPage />} />
         <Route path="/dispatcherReportPage" element={<DispatcherReportPage />} />
-        <Route path="/freeTrasport" element={<FreeTransportPage />} />
+        <Route path="/freeTransport" element={<FreeTransportPage />} />
         <Route path="/myRequests" element={<MyRequestsPage />} />
         <Route path="/addRequest" element={<AddRequestPage />} />
       </Route>
