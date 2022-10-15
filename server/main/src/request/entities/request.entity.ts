@@ -65,6 +65,9 @@ export class Request {
   @Column({ nullable: true })
   endLon: number;
 
+  @Column({ nullable: true })
+  comment: string;
+
   @Column()
   dateCreate: Date;
 
