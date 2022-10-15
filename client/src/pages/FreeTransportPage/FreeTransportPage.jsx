@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { fetchTransport } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
-import ReactCardSlider from "../../components/CardSlider/ReactCardSlider.jsx";
 
 
 const FreeTransportPage = () => {
