@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { fetchTransport } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
-import HorizontalScroll from 'react-scroll-horizontal'
+import HorizontalScroll from "react-scroll-horizontal";
 
 const FreeTransportPage = () => {
   React.useEffect(() => {
@@ -85,27 +85,28 @@ const FreeTransportPage = () => {
           ></div>
         </div>
       </div>
-      <div className="row align-items-stretch containerCustomer d-flex ">
-      <HorizontalScroll>
-            {transport &&
-              transport?.map((row) => (
-                <div className="card cardBoxWhite" style={{ width: "18rem" }}>
-                  <img
-                    src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg"
-                    class="card-img-top"
-                    alt="ТС"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{row.name}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">Имя</h6>
-                    <p className="card-text">Описание</p>
-                  </div>
-                </div>
-              ))}
-           </HorizontalScroll>
-          </div>
-          </>
-        );
+      <div
+        className="row align-items-stretch containerCustomer d-flex "
+        style={{ overflowX: "auto", flexWrap: "none" }}
+      >
+        {transport &&
+          transport?.map((row) => (
+            <div className="card cardBoxWhite" style={{ width: "18rem" }}>
+              <img
+                src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg"
+                class="card-img-top"
+                alt="ТС"
+              />
+              <div className="card-body">
+                <h5 className="card-title">{row.name}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">Имя</h6>
+                <p className="card-text">Описание</p>
+              </div>
+            </div>
+          ))}
+      </div>
+    </>
+  );
 };
 
-        export default FreeTransportPage;
+export default FreeTransportPage;

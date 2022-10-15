@@ -1,35 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500&family=Roboto+Flex:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500&family=Roboto+Flex:wght@300;400;500&display=swap");
 
-:root{
+:root {
   /*Палитра*/
-  --white-0: #FFFFFF;
-  --grey-5: #F6F7F8;
-  --grey-50: #A7B6C5;
+  --white-0: #ffffff;
+  --grey-5: #f6f7f8;
+  --grey-50: #a7b6c5;
   --grey-500: #383836;
 
-  --yellow-5: #FAB529;
-  --yellow-50: #FABB05;
+  --yellow-5: #fab529;
+  --yellow-50: #fabb05;
 
-  --orange-5: #ED6B06;
-  --orange-50: #EA4335;
+  --orange-5: #ed6b06;
+  --orange-50: #ea4335;
 
-  --blue-5: #0096EB;
-  --blue-50: #1A73E8;
-  --blue-500: #5041BC;
+  --blue-5: #0096eb;
+  --blue-50: #1a73e8;
+  --blue-500: #5041bc;
 
-  --fontColor-5: #CBCBCB;
-  --fontColor-50: #ACACAC;
+  --fontColor-5: #cbcbcb;
+  --fontColor-50: #acacac;
   --fontColor-500: #969696;
-  --fontColor-5000: #7C7C7C;
+  --fontColor-5000: #7c7c7c;
   --fontColor-50000: #414141;
 
-  --app-bgc: #ECF0F1;
+  --app-bgc: #ecf0f1;
 
   /*Шрифты*/
-  --font-robotoFlex: 'Roboto Flex', sans-serif;
-  --font-nunito: 'Nunito', sans-serif;
+  --font-robotoFlex: "Roboto Flex", sans-serif;
+  --font-nunito: "Nunito", sans-serif;
 }
 
-body{
+body {
   background-color: var(--app-bgc);
+}
+
+* {
+  box-sizing: border-box;
 }
