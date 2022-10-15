@@ -8,6 +8,12 @@ import {
   WorkCarTypes,
 } from './entities/car.entity';
 
+export enum CarStatus {
+  FREE = 'free',
+  BUSY = 'busy',
+  UNAVAILABLE = 'unavailable',
+}
+
 @Injectable()
 export class CarService {
   constructor(
@@ -20,17 +26,30 @@ export class CarService {
     subType?: WorkCarTypes | TransportationCarTypes,
   ) {
     if (!type && !subType) {
-      return this.carRepo.find();
+      return this.carRepo.find({
+        relations: {
+          workingShifts: true,
+          requests: true,
+        },
+      });
     } else if (!subType) {
       return this.carRepo.find({
         where: {
           type,
+        },
+        relations: {
+          workingShifts: true,
+          requests: true,
         },
       });
     } else if (!type) {
       return this.carRepo.find({
         where: {
           subType: subType,
+        },
+        relations: {
+          workingShifts: true,
+          requests: true,
         },
       });
     }
@@ -39,6 +58,10 @@ export class CarService {
       where: {
         type,
         subType,
+      },
+      relations: {
+        workingShifts: true,
+        requests: true,
       },
     });
   }
@@ -63,5 +86,41 @@ export class CarService {
       ...car,
       broken: false,
     });
+  }
+
+  async getCarsWithStatuses(
+    type?: CarTypes,
+    subType?: WorkCarTypes | TransportationCarTypes,
+    status?: CarStatus,
+  ) {
+    const cars = await this.getAll(type, subType);
+
+    const carsCallback = (car: Car) => {
+      if (
+        car.broken ||
+        car.workingShifts.every((shift) => shift.dateEnd !== null)
+      ) {
+        return {
+          ...car,
+          status: CarStatus.UNAVAILABLE,
+        };
+      }
+
+      if (car.requests.some((r) => r.factDateEnd !== null)) {
+        return {
+          ...car,
+          status: CarStatus.BUSY,
+        };
+      }
+
+      return {
+        ...car,
+        status: CarStatus.FREE,
+      };
+    };
+
+    const mappedCars = cars.map(carsCallback);
+
+    return status ? mappedCars.filter((c) => c.status === status) : mappedCars;
   }
 }
