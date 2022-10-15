@@ -2,9 +2,10 @@
     margin-left: 100px;
     margin-right: 100px;
 }
-.request {
-border: 1px solid #DADADA;
-border-radius: 15px;
+
+.request{
+    border: 1px solid #DADADA;
+    border-radius: 15px;
 }
 
 .textRequest{

@@ -59,7 +59,6 @@
 
 .btnAdd {
     background: linear-gradient(180deg, #FAB529 0%, #FAE529 100%);
-    box-shadow: -4px -4px 4px rgba(255, 255, 255, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     width: 25%;
     padding: 10px;

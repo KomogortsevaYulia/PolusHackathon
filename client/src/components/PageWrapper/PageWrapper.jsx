@@ -11,6 +11,7 @@ import {
   faArrowRightFromBracket,
   faListSquares,
   faListCheck,
+  faChartColumn
 } from "@fortawesome/free-solid-svg-icons";
 
 const PageWrapper = ({ children }) => {
@@ -63,7 +64,18 @@ const PageWrapper = ({ children }) => {
                     </span>
                   </a>
                 </div>
-                <div className="col-md-2 offset-md-2 p-3"></div>
+                <div className="col-2 p-3 ">
+                  <a className="nav-link" href="#">
+                    <FontAwesomeIcon icon={faChartColumn} />
+                    <span
+                      className="ms-3"
+                      onClick={() => navigate("/dispatcherReportPage")}
+                    >
+                      Аналитика
+                    </span>
+                  </a>
+                </div>
+                <div className="col-md-2 p-3"></div>
                 <div className="col-2 p-3">
                   <span
                     className=" nav-link dropdown-toggle buttonNav userChoise"
