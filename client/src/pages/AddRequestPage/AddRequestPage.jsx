@@ -42,10 +42,7 @@ const AddRequestPage = () => {
           }
         );
 
-      var listPlacemark=createtwoPlacemark(myMap);
-      setPlacemark(listPlacemark.myPlacemark)
-      setPlacemark2(listPlacemark.myPlacemark2)
-      
+      createtwoPlacemark(myMap, setPlacemark, setPlacemark2);
       // createMultiRoute(myMap)
     });
   }, []);
@@ -328,7 +325,6 @@ const AddRequestPage = () => {
                 style={{ width: "100%", height: "50vh", borderRadius: "25px" }}
               ></div>
             </div>
-          
           </div>
           <div className="row">
             <div class="mt-3 row justify-content-md-center" onClick={onSubmit}>
