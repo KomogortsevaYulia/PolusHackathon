@@ -1,13 +1,23 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { UserApi } from "../../api/requestApi";
+import { RequestApi } from "../../api/requestApi";
+
 
 export const fetchRequestByUserId = createAsyncThunk(
-  "counter/fetchRequestByUserId",
+  "request/fetchRequestByUserId",
   async (request) => {
-    const response = await UserApi.fetchRequestByUserId(request);
+    const response = await RequestApi.fetchRequestByUserId(request);
     return response;
   }
 );
+
+export const addRequest = createAsyncThunk(
+  "request/addRequest",
+  async (data) => {
+    return RequestApi.addRequest(data);
+  }
+);
+
 
 const initialState = {
   request: null,

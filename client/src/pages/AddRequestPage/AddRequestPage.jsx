@@ -1,9 +1,15 @@
 import React from "react";
 import DatePicker from "react-datepicker";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useLocation } from "react-router-dom";
+import { fetchTransportName } from "../../store/transportSlice/transportSlice";
 import "react-datepicker/dist/react-datepicker.css";
 import { createtwoPlacemark } from "../../utils/yamap";
 import "./AddRequestPage.style.css";
 import { useState } from "react";
+
+import { addRequest } from "../../store/requestSlice/requestSlice";
+
 var myMap;
 
 const AddRequestPage = () => {
@@ -47,15 +53,20 @@ const AddRequestPage = () => {
     });
   }, []);
 
-  const [isRadio, setIsRadio] = useState("Работа на точке");
+  const [isRadio, setIsRadio] = useState("Работа на точке");  
   const [isSelect, setIsSelect] = useState();
+   const [isCar, setIsCar] = useState();
 
   const [myPlacemark, setPlacemark] = useState();
   const [firstPlace, setFirstPlace] = useState("");
 
   const [myPlacemark2, setPlacemark2] = useState();
   const [secondPlace, setSecondPlace] = useState("");
-  // HANDLE THE ONCHANGE HERE
+
+
+  const handleChangeCar = (e) => {
+    setIsCar(e.currentTarget.value);
+  };
 
   React.useEffect(() => {
     if (!myPlacemark) return;
@@ -101,7 +112,16 @@ const AddRequestPage = () => {
       });
   }, [myPlacemark2]);
 
+  const { transport } = useSelector((state) => state.transport);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(fetchTransportName());
+  }, []);
+
+
   const handleChange = (e) => {
+    dispatch(fetchTransportName());
     setIsRadio(e.currentTarget.value);
   };
 
@@ -109,34 +129,54 @@ const AddRequestPage = () => {
     setIsSelect(e.currentTarget.value);
   };
 
+
+  const [startDate, setStartDate] = React.useState(new Date());
+  const [endDate, setEndDate] = React.useState(new Date());
+
   const onSubmit = async (e) => {
     console.log(myPlacemark);
     e.preventDefault();
 
-    const typeRequest = document.getElementById("nidInput").value;
-    const udInput = document.getElementById("udInput").value;
-    const startDateTime = document.getElementById("sdInput").value;
-    const odInput = document.getElementById("odInput").value;
-    const ktdInput = document.getElementById("ktdInput").value;
+    const place1 = myPlacemark?.geometry.getCoordinates()
+    const place2 = myPlacemark?.geometry.getCoordinates()
 
-    // const dataSettings = new FormData();
-    // dataSettings.append("nidInput", nidInput)
-    // dataSettings.append("udInput", udInput)
-    // dataSettings.append("sdInput", sdInput)
-    // dataSettings.append("odInput", odInput)
-    // dataSettings.append("ktdInput", ktdInput)
+    isRadio == "Работа на точке" ?
+      dispatch(
+        addRequest(
+          {
+            "type": isRadio,
+            "subType": isSelect,
+            "requiredCarName":isCar,
+            "startLon": place1[0],
+            "startLat": place1[1],
+            "endLon": place1[0],
+            "endLat": place1[1],
+            "plannedDateStart": startDate,
+            "plannedDateEnd": endDate,
+            "userId": 1
+          }
+        )
+      )
+      :
+      dispatch(
+        addRequest(
+          {
+            "type": isRadio,
+            "subType": isSelect,
+            "requiredCarName":isCar,
+            "startLon": place1[0],
+            "startLat": place1[1],
+            "endLon": place2[0],
+            "endLat": place2[1],
+            "plannedDateStart": startDate,
+            "plannedDateEnd": startDate,
+            "userId": 1
+          }
+        )
+      );
 
-    // await axios.put(`http://localhost:8080/api/ratingCount`, dataSettings)
-    //   .then(() => {
-    //     console.log("Success!");
-    //   })
-    //   .catch((e) => {
-    //     console.error('Error!', e);
-    //   })
   };
 
-  const [startDate, setStartDate] = React.useState(new Date());
-  const [endDate, setEndDate] = React.useState(new Date());
 
   const typeRequest = React.useState();
 
@@ -236,8 +276,11 @@ const AddRequestPage = () => {
                     <div className="col-auto textForm">Время</div>
                     <div className="col-auto">
                       <DatePicker
+                        id="startDateTime"
                         selected={startDate}
                         showTimeSelect
+                        locale="ru"
+                        dateFormat="MMMM d, yyyy h:mm aa"
                         onChange={(date) => setStartDate(date)}
                       />
                     </div>
@@ -247,10 +290,13 @@ const AddRequestPage = () => {
                     <div className="col-auto textForm">Время работы</div>
                     <div className="col-auto">
                       <DatePicker
+                        id="startDateTime"
                         selected={startDate}
+                        locale="ru"
                         selectsStart
                         startDate={startDate}
                         endDate={endDate}
+                        dateFormat="MMMM d, yyyy h:mm aa"
                         onChange={(date) => setStartDate(date)}
                         showTimeInput
                       />
@@ -259,13 +305,65 @@ const AddRequestPage = () => {
                       <DatePicker
                         selected={endDate}
                         selectsEnd
+                        locale="ru"
+                        id="endDateTime"
                         startDate={startDate}
                         endDate={endDate}
+                        dateFormat="MMMM d, yyyy h:mm aa"
                         minDate={startDate}
                         onChange={(date) => setEndDate(date)}
                         showTimeInput
                       />
                     </div>
+                  </div>
+                )}
+              </div>
+              <div className="row pb-5">
+                <label for="exampleFormControlTextarea1" class="form-label">
+                  Модель ТС
+                </label>
+                <select
+                  class="form-select textForm"
+                  aria-label="Default select example" onChange={handleChangeCar}
+                >
+                  {transport &&
+                    transport?.map((row) => (
+                      <option selected={isCar === row.name} value={row.name}>
+                        {row.name}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              <div class="mb-3 row">
+                {isRadio === "Перевозка" ? (
+                  <div class="mb-3 row">
+                    <label
+                      for="exampleFormControlTextarea1"
+                      className="textForm form-label col"
+                    >
+                      Точка А : {firstPlace} (
+                      {myPlacemark?.geometry.getCoordinates().join(", ")})
+                    </label>
+                    <label
+                      for="exampleFormControlTextarea1"
+                      className="textForm form-label col"
+                    >
+                      Точка Б : {secondPlace} (
+
+                      {myPlacemark2?.geometry.getCoordinates().join(", ")})
+                    </label>
+                  </div>
+                ) : (
+                  <div class="mb-3 row">
+                    <label
+                      for="exampleFormControlTextarea1"
+                      className="textForm form-label col"
+                    >
+                      Место :
+                      {firstPlace}
+
+                      {myPlacemark?.geometry.getCoordinates().join(", ")}
+                    </label>
                   </div>
                 )}
               </div>
@@ -280,43 +378,8 @@ const AddRequestPage = () => {
                 <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
-                  rows="3"
+                  rows="1"
                 ></textarea>
-              </div>
-              <div class="mb-3 row">
-                {isRadio === "Перевозка" ? (
-                  <div class="mb-3 row">
-                    <label
-                      for="exampleFormControlTextarea1"
-                      className="textForm form-label col"
-                    >
-                      Точка А = {firstPlace} (
-                      {myPlacemark?.geometry.getCoordinates().join(", ")})
-                    </label>
-                    <label
-                      for="exampleFormControlTextarea1"
-                      className="textForm form-label col"
-                    >
-                      Точка Б = {secondPlace} (
-                      {myPlacemark2?.geometry.getCoordinates().join(", ")})
-                    </label>
-                  </div>
-                ) : (
-                  <div class="mb-3 row">
-                    <label
-                      for="exampleFormControlTextarea1"
-                      className="textForm form-label col"
-                    >
-                      Место
-                    </label>
-                    <label
-                      for="exampleFormControlTextarea1"
-                      className="textForm form-label col"
-                    >
-                      {myPlacemark?.geometry.getCoordinates().join(", ")}
-                    </label>
-                  </div>
-                )}
               </div>
             </div>
             <div className="col order-last d-flex h-100 d-inline-block">
