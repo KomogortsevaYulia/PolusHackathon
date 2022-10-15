@@ -1,0 +1,16 @@
+.main-slider-container{
+    height: 20rem;
+    background-color: #000;
+    display: flex;
+    position: relative;
+}
+
+.left-slider-icon{
+    position: absolute;
+    left: 0;
+}
+
+.right-slider-icon{
+    position: absolute;
+    right: 0;
+}
