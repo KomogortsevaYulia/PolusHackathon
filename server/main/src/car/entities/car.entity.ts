@@ -43,9 +43,6 @@ export class Car {
   name: string;
 
   @Column()
-  description: string;
-
-  @Column()
   number: string;
 
   @Column({ default: false })

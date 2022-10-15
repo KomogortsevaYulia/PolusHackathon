@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { fetchTransport } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
-
+import { useState } from "react";
 
 const FreeTransportPage = () => {
   React.useEffect(() => {
@@ -31,6 +31,8 @@ const FreeTransportPage = () => {
   const { user } = useSelector((state) => state.user);
   const { transport } = useSelector((state) => state.transport);
   const dispatch = useDispatch();
+  const [isRadio, setIsRadio] = useState("Специальная техника");
+  console.log(isRadio)
 
   React.useEffect(() => {
     dispatch(fetchUserById(1));
@@ -44,7 +46,7 @@ const FreeTransportPage = () => {
   return (
     <>
       <div className="row align-items-stretch containerCustomer d-flex ">
-        <div className="col boxWhite p-4">
+        <div className="col boxWhite p-4 transportSearchBox">
           <div className="row">
             <div
               className="btn-group"
@@ -59,6 +61,7 @@ const FreeTransportPage = () => {
                 autoComplete="off"
                 checked
               />
+
               <label className="btn btnYellow " htmlFor="btnradio1">
                 Специальная техника
               </label>
@@ -75,10 +78,10 @@ const FreeTransportPage = () => {
             </div>
           </div>
         </div>
-        <div className="col order-last d-flex h-100 d-inline-block boxWhite">
+        <div className="col order-last d-flex d-inline-block boxWhite transportSearchBox">
           <div
             id="first_map"
-            style={{ width: "100%", height: "50vh", borderRadius: "25px" }}
+            style={{ width: "100%", borderRadius: "25px" }}
           ></div>
         </div>
       </div>
@@ -89,7 +92,7 @@ const FreeTransportPage = () => {
         {transport &&
           transport?.map((row) => (
             <div
-              className="card cardBoxWhite"
+              className="card cardBoxWhite transportSearchBox"
               style={{ width: "18rem" }}
               key={row.id}
             >
