@@ -2,7 +2,7 @@ import React from "react";
 import "./FreeTransportPage.style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fetchTransportName } from "../../store/transportSlice/transportSlice";
+import { fetchTransportName,fetchTransport } from "../../store/transportSlice/transportSlice";
 import { fetchUserById } from "../../store/userSlice/userSlice";
 import { useState } from "react";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +19,7 @@ const FreeTransportPage = () => {
     });
 
     dispatch(fetchUserById(1));
-    dispatch(fetchTransport());
+    dispatch(fetchTransportName());
   }, []);
 
   const [isRadio, setIsRadio] = useState("Работа на точке");

@@ -22,7 +22,6 @@ const DispatcherMainPage = () => {
 
   const { user } = useSelector((state) => state.user);
   const { requests } = useSelector((state) => state.request);
-  const { transport } = useSelector((state) => state.transport);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
