@@ -43,10 +43,7 @@ const FreeTransportPage = () => {
   return (
     <>
       <div className="row align-items-stretch containerCustomer d-flex ">
-        <div className="col boxWhite">
-          <div className="row">
-            <p className="text">Фильтры</p>
-          </div>
+        <div className="col boxWhite p-4">
           <div className="row">
             <div
               className="btn-group"
@@ -85,7 +82,7 @@ const FreeTransportPage = () => {
         </div>
       </div>
       <div
-        className="row align-items-stretch containerCustomer d-flex "
+        className="row align-items-stretch containerCustomer d-flex justify-content-between mt-4"
         style={{ overflowX: "auto", flexWrap: "none" }}
       >
         {transport &&

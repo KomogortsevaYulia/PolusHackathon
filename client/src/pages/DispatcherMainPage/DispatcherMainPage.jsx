@@ -38,24 +38,16 @@ const DispatcherMainPage = () => {
            <div className = "row justify-content-center">
               <div className = "col-3 m-4">
                 <div className = "dropdown">
-                  <CalendarComp className = "calendarDateSelect"/>
-                    {/* <button className = "btn btn-calendar btn-secondary dropdown-toggle col-12" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown button
-                    </button>
-                    <ul className="dropdown-menu">
-                      <li><a className = "dropdown-item" href="#">Action</a></li>
-                      <li><a className = "dropdown-item" href="#">Another action</a></li>
-                      <li><a className = "dropdown-item" href="#">Something else here</a></li>
-                    </ul> */}
+                  <CalendarComp className = "calendarDateSelect col-12"/>
                 </div>
                 <div className = "dropdown mt-4">
                     <button className = "btn btn-filter btn-secondary dropdown-toggle col-12" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Фильтр 1
+                      Статус заказа
                     </button>
                     <ul className = "dropdown-menu">
-                      <li><a className = "dropdown-item" href="#">Action</a></li>
-                      <li><a className = "dropdown-item" href="#">Another action</a></li>
-                      <li><a className = "dropdown-item" href="#">Something else here</a></li>
+                      <li><a className = "dropdown-item" href="#">Выполняется</a></li>
+                      <li><a className = "dropdown-item" href="#">Выполнен</a></li>
+                      <li><a className = "dropdown-item" href="#">Ожидает выполнения</a></li>
                     </ul>
                 </div>
               </div>
