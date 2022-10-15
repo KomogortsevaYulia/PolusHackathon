@@ -2,6 +2,7 @@ package ru.pochtifullstack.polusmobile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.navigation.findNavController
@@ -33,5 +34,12 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         val navController = navHostFragment.navController
         baseNavigation.bind(navController)
+
+        Log.d("anime", "${navController.currentDestination}")
+    }
+
+    override fun onDestroy() {
+        baseNavigation.unbind()
+        super.onDestroy()
     }
 }

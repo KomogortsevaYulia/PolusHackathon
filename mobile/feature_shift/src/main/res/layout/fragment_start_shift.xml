@@ -1,0 +1,48 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_light"
+    tools:context="ru.pochtifullstack.feature_shift.api.StartShiftFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_triangle"/>
+
+    <TextView
+        android:id="@+id/tv_start_shift_greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="36dp"
+        android:text="Добро\nпожаловать,\nОлег"/>
+
+    <TextView
+        android:id="@+id/btn_shift_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="Выйти"
+        android:textSize="20sp"
+        android:drawableStart="@drawable/ic_back"
+        android:drawableTint="@color/orange_light"
+        android:drawablePadding="16dp"
+        android:layout_margin="36dp"
+        android:textColor="@color/orange_light"
+        />
+
+    <Button
+        android:id="@+id/btn_start_shift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Начать смену"
+        android:layout_marginBottom="24dp"
+        android:paddingHorizontal="48dp"
+        android:background="@color/gray_dark"
+        android:textColor="@color/white"
+        android:layout_gravity="bottom|center"/>
+
+</FrameLayout>

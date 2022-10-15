@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
+
+apply from: "$rootDir/dependencies.gradle"
 
 android {
     compileSdk 32
@@ -30,6 +33,14 @@ android {
 }
 
 dependencies {
+    implementation okhttpDependencies.okhttp
+    implementation okhttpDependencies.okhttp_logging_interceptor
+
+    implementation retrofitDependencies.retrofit
+    implementation retrofitDependencies.retrofit_converter_gson
+
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.dagger_compiler
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'

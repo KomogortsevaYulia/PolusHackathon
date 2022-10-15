@@ -18,6 +18,9 @@ class MainFragment: Fragment(R.layout.fragment_main) {
 
     private val binding by viewBinding(FragmentMainBinding::bind)
 
+    @Inject
+    lateinit var baseNavigation: BaseNavigation
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
@@ -35,6 +38,9 @@ class MainFragment: Fragment(R.layout.fragment_main) {
     private fun setupNavigation() {
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fragment_container_main) as NavHostFragment
         val navController = navHostFragment.navController
+        baseNavigation.bind(navController)
         binding.bottomNavigationView.setupWithNavController(navController)
+
+        Log.d("anime", "${navController.currentDestination}")
     }
 }
