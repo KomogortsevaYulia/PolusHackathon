@@ -1,5 +1,6 @@
 package ru.pochtifullstack.polusmobile.navigation
 
+import android.os.Bundle
 import android.util.Log
 import ru.pochtifullstack.feature_shift.api.ApproveVehicleFragmentDirections
 import ru.pochtifullstack.feature_shift.api.ShiftNavigation
@@ -28,5 +29,9 @@ class ShiftNavigationImpl @Inject constructor(
 
     override fun moveBackToAuth() {
         baseNavigation.navController?.navigate(R.id.action_startShiftFragment_to_authFragment)
+    }
+
+    override fun moveToMap(bundle: Bundle) {
+        baseNavigation.navController?.navigate(R.id.action_requestListFragment_to_mapFragment, bundle)
     }
 }

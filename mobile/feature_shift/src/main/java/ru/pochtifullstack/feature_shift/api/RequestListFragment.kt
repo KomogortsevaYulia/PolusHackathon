@@ -2,12 +2,18 @@ package ru.pochtifullstack.feature_shift.api
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.yandex.mapkit.geometry.Point
 import dagger.Lazy
+import ru.pochtifullstack.core_domain.domain.Client
+import ru.pochtifullstack.core_domain.domain.Request
 import ru.pochtifullstack.feature_shift.R
 import ru.pochtifullstack.feature_shift.databinding.FragmentApproveVehicleBinding
 import ru.pochtifullstack.feature_shift.databinding.FragmentRequestListBinding
@@ -32,8 +38,22 @@ class RequestListFragment : Fragment(R.layout.fragment_request_list) {
 
     private var adapter = RequestListAdapter(object : OnRequestItemClickListener {
 
-        override fun onRequestItemClicked() {
-            TODO("Not yet implemented")
+        override fun onRequestItemClicked(request: Request) {
+            val bundle = Bundle()
+            val gson = Gson()
+            val point1 = Point(request.startLon.toDouble(), request.startLat.toDouble())
+            val point2 = Point(request.endLon.toDouble(), request.endLat.toDouble())
+            val type = object : TypeToken<Point>() {}.type
+
+            Log.d("anime", "prev1 = ${point1.latitude} ${point1.longitude}")
+            Log.d("anime", "prev2 = ${point2.latitude} ${point2.longitude}")
+
+            bundle.apply {
+                putSerializable("point1", gson.toJson(point1, type))
+                putSerializable("point2", gson.toJson(point2, type))
+            }
+
+            shiftViewModel.moveToMap(bundle)
         }
     })
 
@@ -45,6 +65,12 @@ class RequestListFragment : Fragment(R.layout.fragment_request_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         init()
     }

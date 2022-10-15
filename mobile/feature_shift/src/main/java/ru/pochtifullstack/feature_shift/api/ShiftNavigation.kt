@@ -1,5 +1,7 @@
 package ru.pochtifullstack.feature_shift.api
 
+import android.os.Bundle
+
 interface ShiftNavigation {
 
     fun moveToScaner()
@@ -11,4 +13,6 @@ interface ShiftNavigation {
     fun moveBackToShift()
 
     fun moveBackToAuth()
+
+    fun moveToMap(bundle: Bundle)
 }

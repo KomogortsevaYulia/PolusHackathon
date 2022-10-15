@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+apply from: "$rootDir/dependencies.gradle"
+
 android {
     compileSdk 32
 
@@ -27,9 +29,19 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
+    implementation project(':core_style')
+
+    implementation yandexMapDependencies.yandexMap
+
+    implementation viewBindingDependencies.viewBinding
+
+    implementation gsonDependencies.gson
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'

@@ -10,7 +10,7 @@ import ru.pochtifullstack.feature_shift.databinding.RequestItemBinding
 
 interface OnRequestItemClickListener {
 
-    fun onRequestItemClicked()
+    fun onRequestItemClicked(request: Request)
 }
 
 internal class RequestListAdapter(
@@ -50,7 +50,7 @@ internal class RequestListViewHolder(
             //tvRequestTo.text = request.to
 
             binding.root.setOnClickListener {
-                onRequestItemClickListener.onRequestItemClicked()
+                onRequestItemClickListener.onRequestItemClicked(request)
             }
         }
     }

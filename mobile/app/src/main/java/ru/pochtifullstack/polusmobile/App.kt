@@ -1,6 +1,7 @@
 package ru.pochtifullstack.polusmobile
 
 import android.app.Application
+import com.yandex.mapkit.MapKitFactory
 import ru.pochtifullstack.feature_auth.api.AuthDeps
 import ru.pochtifullstack.feature_auth.api.AuthDepsProvider
 import ru.pochtifullstack.feature_scaner.api.ScanerDeps
@@ -32,5 +33,6 @@ class App: Application(), AuthDepsProvider, ShiftDepsProvider, ScanerDepsProvide
     override fun onCreate() {
         super.onCreate()
         INSTANCE = this
+        MapKitFactory.setApiKey("47293adf-d377-4145-8282-36cbaa6bfa56")
     }
 }

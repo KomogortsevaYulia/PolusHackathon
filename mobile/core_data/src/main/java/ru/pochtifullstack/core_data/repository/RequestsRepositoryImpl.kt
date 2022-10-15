@@ -19,7 +19,9 @@ class RequestsRepositoryImpl @Inject constructor(
 
     override suspend fun loadRequests() {
         withContext(Dispatchers.IO) {
-            driverDao.addRequests(driverApi.getRequestsByCar(vehicleSharedPref.getVehicleId().toInt()))
+            val requests = driverApi.getRequestsByCar(vehicleSharedPref.getVehicleId().toInt())
+            driverDao.removeAllRequests()
+            driverDao.addRequests(requests)
         }
     }
 

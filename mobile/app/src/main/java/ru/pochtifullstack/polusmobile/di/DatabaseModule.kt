@@ -20,7 +20,8 @@ interface DatabaseModule {
                 App.INSTANCE.applicationContext,
                 DriverDB::class.java,
                 "driver_database"
-            ).build()
+            ).fallbackToDestructiveMigration()
+                .build()
         }
 
         @AppScope

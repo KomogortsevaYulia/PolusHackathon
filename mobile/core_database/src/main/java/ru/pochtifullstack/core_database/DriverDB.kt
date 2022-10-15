@@ -10,7 +10,7 @@ import ru.pochtifullstack.core_domain.domain.Request
     CarInfoTypeConverter::class,
     ClientTypeConverter::class
 )
-@Database(entities = [Request::class], version = 1)
+@Database(entities = [Request::class], version = 2)
 abstract class DriverDB: RoomDatabase() {
 
     abstract fun getDriverDao(): DriverDao

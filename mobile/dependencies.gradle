@@ -16,7 +16,8 @@ ext.versions = [
         room                : "2.4.3",
         retrofit            : "2.9.0",
         blurry              : "4.0.1",
-        qrScaner            : "2.3.2"
+        qrScaner            : "2.3.2",
+        yandexMap           : "4.2.1-lite"
 ]
 
 ext.versions.androidx = [
@@ -86,4 +87,8 @@ ext.qrScaner = [
 
 ext.gsonDependencies = [
         gson: "com.google.code.gson:gson:${versions.gson}"
+]
+
+ext.yandexMapDependencies = [
+        yandexMap: "com.yandex.android:maps.mobile:${versions.yandexMap}"
 ]

@@ -18,4 +18,7 @@ interface DriverDao {
 
     @Query("SELECT * FROM request")
     fun getRequests(): LiveData<List<Request>>
+
+    @Query("DELETE FROM request")
+    suspend fun removeAllRequests()
 }

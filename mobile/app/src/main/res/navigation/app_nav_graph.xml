@@ -59,6 +59,13 @@
         <action
             android:id="@+id/action_requestListFragment_to_startShiftFragment"
             app:destination="@id/startShiftFragment" />
+        <action
+            android:id="@+id/action_requestListFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="ru.pochtifullstack.feature_map.MapFragment"
+        android:label="MapFragment" />
 
 </navigation>

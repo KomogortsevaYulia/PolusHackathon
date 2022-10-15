@@ -1,5 +1,6 @@
 package ru.pochtifullstack.feature_shift.internal
 
+import android.os.Bundle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,6 +13,7 @@ import ru.pochtifullstack.core_domain.repository.RequestsRepository
 import ru.pochtifullstack.core_domain.repository.VehicleRepository
 import ru.pochtifullstack.core_network.api.DriverApi
 import ru.pochtifullstack.feature_shift.api.ShiftNavigation
+import java.lang.Exception
 import javax.inject.Inject
 
 class ShiftViewModel @Inject constructor(
@@ -42,9 +44,15 @@ class ShiftViewModel @Inject constructor(
         shiftNavigation.moveBackToAuth()
     }
 
+    fun moveToMap(bundle: Bundle) {
+        shiftNavigation.moveToMap(bundle)
+    }
+
     fun loadVehicleRequests() {
         viewModelScope.launch {
-            requestsRepository.loadRequests()
+            try {
+                requestsRepository.loadRequests()
+            } catch (e: Exception) {}
         }
     }
 

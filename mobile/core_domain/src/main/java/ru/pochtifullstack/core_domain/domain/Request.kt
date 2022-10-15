@@ -14,6 +14,8 @@ data class Request(
     var startLat: Int,
     var endLat: Int,
     var endLon: Int,
+    var firstPlace: String,
+    var secondPlace: String,
     var comment: String?,
     var dateCreate: String,
     var plannedDateStart: String,

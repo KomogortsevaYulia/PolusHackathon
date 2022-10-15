@@ -8,6 +8,7 @@
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/app/src/main/res/menu/bottom_nav_menu.xml" value="0.30427350427350425" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/core_domain/src/main/res/layout/fragment_blank.xml" value="0.371875" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/core_network/src/main/res/layout/fragment_blank.xml" value="0.371875" />
+        <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/core_style/src/main/res/drawable/background_map_details.xml" value="0.2755" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/core_style/src/main/res/drawable/background_white_30.xml" value="0.1405" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/core_style/src/main/res/drawable/ic_password.xml" value="0.2465" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/core_style/src/main/res/drawable/ic_phone.xml" value="0.2465" />
@@ -17,11 +18,14 @@
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_auth/src/main/res/layout/auth_input_password.xml" value="0.371875" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_auth/src/main/res/layout/auth_input_phone.xml" value="0.371875" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_auth/src/main/res/layout/fragment_auth.xml" value="0.33" />
+        <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_map/src/main/res/layout/fragment_map.xml" value="0.371875" />
+        <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_map/src/main/res/layout/fragment_request_details.xml" value="0.371875" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_request_list/src/main/res/drawable/item_background.xml" value="0.275" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_request_list/src/main/res/layout/fragment_request_list.xml" value="0.371875" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_request_list/src/main/res/layout/fragment_start_shift.xml" value="0.371875" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_request_list/src/main/res/layout/request_item.xml" value="0.37083333333333335" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_scaner/src/main/res/layout/fragment_scaner.xml" value="0.36615384615384616" />
+        <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_shift/src/main/res/drawable/item_background.xml" value="0.2755" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_shift/src/main/res/layout/fragment_approve_vehicle.xml" value="0.371875" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_shift/src/main/res/layout/fragment_request_list.xml" value="0.371875" />
         <entry key="..\:/PROJECTS/Android/PolusHackathon/mobile/feature_shift/src/main/res/layout/fragment_start_shift.xml" value="0.2869791666666667" />
