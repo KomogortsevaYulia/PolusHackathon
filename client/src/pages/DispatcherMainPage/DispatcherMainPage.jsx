@@ -22,31 +22,35 @@ const DispatcherMainPage = () => {
   React.useEffect(() => {
     if (!selectedMap) {
       myMap = new window.ymaps.Map("first_map", {
-        center: [55.76, 37.64],
-        zoom: 10,
+        center: [52, 108],
+        zoom: 5,
       });
 
-      myMap.geoObjects
-        .add(new window.ymaps.Placemark([108, 52], {
-          balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
-        }, {
-          preset: 'islands#circleIcon',
-        }))
-        .add(new window.ymaps.Placemark([104, 52], {
-          balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
-        }, {
-          preset: 'islands#circleIcon',
-        }))
-        .add(new window.ymaps.Placemark([55.782392, 37.614924], {
-          balloonContent: 'КС-5363А - Кран 25 т.'
-        }, {
-          preset: 'islands#circleIcon',
-        }))
-        .add(new window.ymaps.Placemark([55.642063, 37.656123], {
-          balloonContent: 'Peter'
-        }, {
-          preset: 'islands#circleIcon'
-        }))
+      var location = window.ymaps.geolocation;
+
+      // Получение местоположения и автоматическое отображение его на карте.
+      location
+        .get({
+          mapStateAutoApply: true,
+        })
+        .then(
+          function (result) {
+            myMap.geoObjects
+              .add(new window.ymaps.Placemark([52, 108], {
+                balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
+              }, {
+                preset: 'islands#circleIcon',
+              }))
+              .add(new window.ymaps.Placemark([52, 104], {
+                balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
+              }, {
+                preset: 'islands#circleIcon',
+              }))
+          },
+          function (err) {
+            console.log("Ошибка: " + err);
+          }
+        );
     }
 
   }, [selectedMap]);

@@ -62,6 +62,16 @@
     color: #F3F3F3;
 }
 
+.textEcharts {
+    font-family: var(--font-stem);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #000000;
+}
+
 .numberCenter {
     
     font-family: var(--font-stem);
@@ -80,4 +90,15 @@
     border-bottom-width:1px;
     border-bottom-color:var(--yellow-5);
     border-bottom-style: solid;
+ }
+
+ .cardProblem{
+    background: #F74545;
+box-shadow: 0px 4px 30px rgba(255, 0, 0, 0.6);
+border-radius: 10px;
+ }
+ .cardOk{
+    background: #74BCF0;
+box-shadow: 0px 4px 30px rgba(116, 188, 240, 0.6);
+border-radius: 10px;
  }
