@@ -152,6 +152,14 @@ tr:hover{
     border-color: var(--yellow-5);
  }
 
+ .btnBlue {
+    color:var(--blue-5);
+    font-size: 20px;
+    border-color: var(--blue-5);
+    padding: auto;
+ }
+
+
 .card-img-top{
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;

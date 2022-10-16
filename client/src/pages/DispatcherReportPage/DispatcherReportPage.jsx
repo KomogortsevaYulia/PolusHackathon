@@ -64,10 +64,20 @@ const DispatcherReportPage = () => {
           </div>
           <div className="col">
             <div className="row boxWhite">
-
+              <div className="card-body m-2">
+                <div className="row">
+                  <div className="col numCard p-2 d-flex">6</div>
+                  <div className="col textCard p-2 d-flex text-end">Проблем</div>
+                </div>
+              </div>
             </div>
             <div className="row boxWhite">
-
+              <div className="card-body m-2">
+                <div className="row">
+                  <div className="col numCard p-2 d-flex">15</div>
+                  <div className="col textCard p-2 d-flex text-end">Закрытых заявок</div>
+                </div>
+               </div>
             </div>
           </div>
         </div>

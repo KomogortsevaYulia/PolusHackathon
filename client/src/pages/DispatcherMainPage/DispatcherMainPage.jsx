@@ -17,36 +17,36 @@ var myMap
 const DispatcherMainPage = () => {
   const [selectedMap, setSelectedMap] = useState(true);
   const [selectedRequest, setSelectedRequest] = useState(false);
-
+  const [selectedModalEdit, setSelectedModalEdit] = useState(true);
 
   React.useEffect(() => {
-    if (!selectedMap){
-         myMap = new window.ymaps.Map("first_map", {
+    if (!selectedMap) {
+      myMap = new window.ymaps.Map("first_map", {
         center: [55.76, 37.64],
         zoom: 10,
       });
 
       myMap.geoObjects
-      .add(new window.ymaps.Placemark([108, 52], {
-        balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
-      }, {
-        preset: 'islands#circleIcon',
-      }))
-      .add(new window.ymaps.Placemark([104, 52], {
-        balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
-      }, {
-        preset: 'islands#circleIcon',
-      }))
-      .add(new window.ymaps.Placemark([55.782392, 37.614924], {
-        balloonContent: 'КС-5363А - Кран 25 т.'
-      }, {
-        preset: 'islands#circleIcon',
-      }))
-      .add(new window.ymaps.Placemark([55.642063, 37.656123], {
-        balloonContent: 'Peter'
-      }, {
-        preset: 'islands#circleIcon'
-      }))
+        .add(new window.ymaps.Placemark([108, 52], {
+          balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
+        }, {
+          preset: 'islands#circleIcon',
+        }))
+        .add(new window.ymaps.Placemark([104, 52], {
+          balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
+        }, {
+          preset: 'islands#circleIcon',
+        }))
+        .add(new window.ymaps.Placemark([55.782392, 37.614924], {
+          balloonContent: 'КС-5363А - Кран 25 т.'
+        }, {
+          preset: 'islands#circleIcon',
+        }))
+        .add(new window.ymaps.Placemark([55.642063, 37.656123], {
+          balloonContent: 'Peter'
+        }, {
+          preset: 'islands#circleIcon'
+        }))
     }
 
   }, [selectedMap]);
@@ -278,7 +278,7 @@ const DispatcherMainPage = () => {
         </div>
 
         {selectedRequest ? (
-          <div className="requestCard col m-4 p-5">
+          <div className="requestCard col m-3 p-5">
             <div className="row mt-3">
               <p className="requestTitle col">
                 Заявка на
@@ -286,7 +286,7 @@ const DispatcherMainPage = () => {
                 {/* <FontAwesomeIcon icon={faCheck} className="ms-2 requestCheck" /> */}
               </p>
             </div>
-            <div className="row mt-4">
+            <div className="row mt-3">
               <div className="col">
                 <div className="row">
                   <p className="borderYellow " >Заказчик</p>
@@ -324,13 +324,29 @@ const DispatcherMainPage = () => {
                   }
                 </div>
               </div>
+              <div className="row text-center btnBlue" style={{ height: "100%" }}>
+                <span className="col"  >
+                  Назначить заявку
+                </span>
+                <span className="col" onClick={() => setSelectedModalEdit(selectedModalEdit)} >
+                  Редактировать
+                </span>
+              </div>
             </div>
           </div>
         ) : (
           <></>
         )}
       </div>
-    </div>
+      {
+        selectedModalEdit ?
+          (<>
+            <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              Редактирование заявки
+            </div>
+
+          </>) : (<></>)
+      } </div>
   );
 };
 
