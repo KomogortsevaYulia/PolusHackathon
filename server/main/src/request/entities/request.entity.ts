@@ -56,16 +56,16 @@ export class Request {
   @Column()
   requiredCarName: string;
 
-  @Column()
+  @Column({ type: 'float' })
   startLon: number;
 
-  @Column()
+  @Column({ type: 'float' })
   startLat: number;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'float' })
   endLat: number;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'float' })
   endLon: number;
 
   @Column({ nullable: true })

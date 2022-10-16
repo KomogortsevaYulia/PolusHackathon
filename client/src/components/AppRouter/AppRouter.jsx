@@ -10,11 +10,9 @@ import MyRequestsPage from "../../pages/MyRequestsPage/MyRequestsPage";
 import DispatcherMainPage from "../../pages/DispatcherMainPage/DispatcherMainPage";
 import DispatcherReportPage from "../../pages/DispatcherReportPage/DispatcherReportPage";
 import PageWrapper from "../PageWrapper/PageWrapper";
-
+import DispatcherAnalitycPage from "../../pages/DispatcherAnalitycPage/DispatcherAnalitycPage";
 
 const AppRouter = () => {
-
-
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -29,9 +27,20 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route element={<PageWrapper />}>
-        {user?.role?.id === 2 ?         <Route path="/" element={<DispatcherMainPage/>} /> :        <Route path="/" element={<FreeTransportPage />} />  }
+        {user?.role?.id === 2 ? (
+          <Route path="/" element={<DispatcherMainPage />} />
+        ) : (
+          <Route path="/" element={<FreeTransportPage />} />
+        )}
         <Route path="/dispatcherMainPage" element={<DispatcherMainPage />} />
-        <Route path="/dispatcherReportPage" element={<DispatcherReportPage />} />
+        <Route
+          path="/dispatcherReportPage"
+          element={<DispatcherReportPage />}
+        />
+        <Route
+          path="/dispatcherAnalitycPage"
+          element={<DispatcherAnalitycPage />}
+        />
         <Route path="/freeTransport" element={<FreeTransportPage />} />
         <Route path="/myRequests" element={<MyRequestsPage />} />
         <Route path="/addRequest" element={<AddRequestPage />} />
