@@ -46,11 +46,12 @@ export class RequestService {
   }
 
   async startPerform(requestId: number) {
-    await this.requestRepo.save({
-      id: requestId,
+    const response = await this.requestRepo.update(requestId, {
       factDateStart: new Date(),
       status: RequestStatuses.PERFORMING,
     });
+
+    console.log(response);
 
     return this.requestRepo.findOne({
       where: { id: requestId },
@@ -59,8 +60,7 @@ export class RequestService {
   }
 
   async endPerform(requestId: number) {
-    await this.requestRepo.save({
-      id: requestId,
+    await this.requestRepo.update(requestId, {
       factDateEnd: new Date(),
       status: RequestStatuses.COMPLETED,
     });

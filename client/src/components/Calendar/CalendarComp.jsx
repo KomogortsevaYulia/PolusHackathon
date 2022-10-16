@@ -35,9 +35,9 @@ const CalendarComp = () => {
     }
 
     return(
-        <div className = "calendarWrap col">
+        <div className = "calendarWrap col-12">
             <button 
-                className = "btn btn-calendar btn-secondary dropdown-toggle"
+                className = "btn btn-calendar btn-secondary dropdown-toggle col-12"
                 type="button" 
                 data-bs-toggle="dropdown" 
                 aria-expanded="false"
