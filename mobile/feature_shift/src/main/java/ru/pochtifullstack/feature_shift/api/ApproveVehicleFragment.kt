@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.Lazy
 import ru.pochtifullstack.feature_shift.R
 import ru.pochtifullstack.feature_shift.databinding.FragmentApproveVehicleBinding
@@ -50,6 +51,11 @@ class ApproveVehicleFragment: Fragment(R.layout.fragment_approve_vehicle) {
             Log.d("anime", "get $it")
             binding.tvVehicleName.text = it.subType
             binding.tvVehicleCode.text = it.name
+            binding.ivVehicle.visibility = View.VISIBLE
+        }
+
+        shiftViewModel.errorLiveData.observe(viewLifecycleOwner) {
+            Snackbar.make(binding.root, "Нет доступа к интернету", Snackbar.LENGTH_SHORT).show()
         }
 
         shiftViewModel.getCarInfo()

@@ -9,11 +9,10 @@ data class Request(
     var status: String,
     var type: String,
     var subType: String,
-    var requiredCarName: String,
-    var startLon: Int,
-    var startLat: Int,
-    var endLat: Int,
-    var endLon: Int,
+    var startLon: Float,
+    var startLat: Float,
+    var endLat: Float,
+    var endLon: Float,
     var firstPlace: String,
     var secondPlace: String,
     var comment: String?,
@@ -22,7 +21,6 @@ data class Request(
     var plannedDateEnd: String,
     var factDateStart: String?,
     var factDateEnd: String?,
-    var appointDate: String,
     var car: CarInfo,
     var client: Client
 )

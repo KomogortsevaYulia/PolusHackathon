@@ -46,6 +46,8 @@ android {
 
 dependencies {
     implementation project(':core_domain')
+    implementation project(':core_util')
+    implementation project(':core_style')
 
     implementation qrScaner.scaner
 

@@ -4,7 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapFragment">
+    tools:context=".api.MapFragment">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_back"
+        android:id="@+id/fab_back"
+        app:tint="@color/white"
+        android:backgroundTint="@color/orange_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <com.yandex.mapkit.mapview.MapView
         android:id="@+id/mapview"

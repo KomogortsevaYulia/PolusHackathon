@@ -26,4 +26,14 @@ interface DriverApi {
     suspend fun getCarInfo(
         @Path("id") id: Int
     ): CarInfo
+
+    @PATCH("request/startPerform/{id}")
+    suspend fun startPerform(
+        @Path("id") id: Int
+    ): Request
+
+    @PATCH("request/endPerform/{id}")
+    suspend fun endPerform(
+        @Path("id") id: Int
+    ): Request
 }

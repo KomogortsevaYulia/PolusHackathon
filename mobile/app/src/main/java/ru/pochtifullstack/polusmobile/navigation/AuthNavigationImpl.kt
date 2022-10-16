@@ -13,4 +13,8 @@ class AuthNavigationImpl @Inject constructor(
         baseNavigation.navController?.navigate(R.id.action_authFragment_to_startShiftFragment)
         Log.d("anime", "navigated")
     }
+
+    override fun openRequestList() {
+        baseNavigation.navController?.navigate(R.id.action_authFragment_to_requestListFragment)
+    }
 }

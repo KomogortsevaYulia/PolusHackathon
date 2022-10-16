@@ -13,6 +13,10 @@
             android:id="@+id/action_authFragment_to_startShiftFragment"
             app:destination="@id/startShiftFragment"
             app:popUpTo="@id/app_nav_graph" />
+        <action
+            android:id="@+id/action_authFragment_to_requestListFragment"
+            app:destination="@id/requestListFragment"
+            app:popUpTo="@id/app_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/startShiftFragment"
@@ -65,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
-        android:name="ru.pochtifullstack.feature_map.MapFragment"
+        android:name="ru.pochtifullstack.feature_map.api.MapFragment"
         android:label="MapFragment" />
 
 </navigation>

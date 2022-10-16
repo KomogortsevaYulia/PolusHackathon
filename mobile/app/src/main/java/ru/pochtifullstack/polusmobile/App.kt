@@ -4,6 +4,8 @@ import android.app.Application
 import com.yandex.mapkit.MapKitFactory
 import ru.pochtifullstack.feature_auth.api.AuthDeps
 import ru.pochtifullstack.feature_auth.api.AuthDepsProvider
+import ru.pochtifullstack.feature_map.api.MapDeps
+import ru.pochtifullstack.feature_map.api.MapDepsProvider
 import ru.pochtifullstack.feature_scaner.api.ScanerDeps
 import ru.pochtifullstack.feature_scaner.api.ScanerDepsProvider
 import ru.pochtifullstack.feature_shift.api.ShiftDeps
@@ -12,7 +14,7 @@ import ru.pochtifullstack.polusmobile.di.AppComponent
 import ru.pochtifullstack.polusmobile.di.DaggerAppComponent
 import java.util.concurrent.TimeUnit
 
-class App: Application(), AuthDepsProvider, ShiftDepsProvider, ScanerDepsProvider {
+class App: Application(), AuthDepsProvider, ShiftDepsProvider, ScanerDepsProvider, MapDepsProvider {
 
     companion object {
         internal lateinit var INSTANCE: App
@@ -29,6 +31,7 @@ class App: Application(), AuthDepsProvider, ShiftDepsProvider, ScanerDepsProvide
     override val authDeps: AuthDeps = appComponent
     override val shiftDeps: ShiftDeps = appComponent
     override val scanerDeps: ScanerDeps = appComponent
+    override val mapDeps: MapDeps = appComponent
 
     override fun onCreate() {
         super.onCreate()

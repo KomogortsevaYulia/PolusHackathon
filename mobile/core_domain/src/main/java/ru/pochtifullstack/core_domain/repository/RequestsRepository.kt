@@ -9,5 +9,7 @@ interface RequestsRepository {
 
     suspend fun loadRequests()
 
-    suspend fun approveRequest(request: Request)
+    suspend fun approveRequest(requestId: Int): Request
+
+    suspend fun endRequest(requestId: Int): Request
 }

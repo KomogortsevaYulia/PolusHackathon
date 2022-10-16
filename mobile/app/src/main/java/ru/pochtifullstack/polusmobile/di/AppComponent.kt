@@ -4,6 +4,8 @@ import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
 import ru.pochtifullstack.feature_auth.api.AuthDeps
+import ru.pochtifullstack.feature_map.api.MapDeps
+import ru.pochtifullstack.feature_map.api.MapDepsProvider
 import ru.pochtifullstack.feature_scaner.api.ScanerDeps
 import ru.pochtifullstack.feature_shift.api.ShiftDeps
 import ru.pochtifullstack.polusmobile.MainActivity
@@ -21,7 +23,7 @@ annotation class AppScope
         DataComponent::class
     ]
 )]
-interface AppComponent : AuthDeps, ShiftDeps, ScanerDeps {
+interface AppComponent : AuthDeps, ShiftDeps, ScanerDeps, MapDeps {
 
     @Component.Factory
     interface Factory {

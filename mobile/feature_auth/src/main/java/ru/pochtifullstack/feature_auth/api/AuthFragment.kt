@@ -40,6 +40,13 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (authViewModel.getLoginState()) {
+            authViewModel.navigateToRequestList()
+            return
+        }
+
+        authViewModel.setLogout()
+
         init()
     }
 

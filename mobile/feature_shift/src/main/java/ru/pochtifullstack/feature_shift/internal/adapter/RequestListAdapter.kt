@@ -46,6 +46,7 @@ internal class RequestListViewHolder(
             tvRequestCustomer.text = request.client.name
             //tvRequestTime.text = request.
             //tvRequestDate.text = request.date
+            tvStatus.text = request.status
             tvRequestFrom.text = request.firstPlace
             tvRequestTo.text = request.secondPlace
 

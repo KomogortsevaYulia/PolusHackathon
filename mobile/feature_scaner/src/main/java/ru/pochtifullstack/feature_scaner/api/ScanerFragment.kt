@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.budiyev.android.codescanner.*
+import com.google.android.material.snackbar.Snackbar
+import ru.pochtifullstack.core_util.isInternetAvailable
 import ru.pochtifullstack.feature_scaner.R
 import ru.pochtifullstack.feature_scaner.databinding.FragmentScanerBinding
 import ru.pochtifullstack.feature_scaner.internal.ScanerComponentViewModel
@@ -43,11 +45,6 @@ class ScanerFragment : Fragment(R.layout.fragment_scaner) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (checkPermission()) {
-            initScanner()
-        } else {
-            requestPermission();
-        }
     }
 
     private fun initScanner() {
@@ -66,25 +63,42 @@ class ScanerFragment : Fragment(R.layout.fragment_scaner) {
             codeScanner.stopPreview()
             codeScanner.releaseResources()
             requireActivity().runOnUiThread {
-                scanerViewModel.moveFurther(it.text)
+                scanerViewModel.moveFurther(it.text, binding.root)
             }
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
-            Log.d("anime", "$it")
+            requireActivity().runOnUiThread {
+                if (!isInternetAvailable(requireContext())) {
+                    Snackbar.make(binding.root, "Нет доступа к интернету", Snackbar.LENGTH_SHORT).show()
+                }
+            }
         }
-        Log.d("anime", "started")
-        binding.scannerView.setOnClickListener {
+
+        binding.refreshInternet.setOnClickListener {
+            codeScanner.startPreview()
+        }
+
+        scanerViewModel.errorLiveData.observe(viewLifecycleOwner) {
             codeScanner.startPreview()
         }
     }
 
     override fun onResume() {
         super.onResume()
-        codeScanner.startPreview()
+        if (checkPermission()) {
+            initScanner()
+            codeScanner.startPreview()
+        } else {
+            requestPermission();
+        }
     }
 
     override fun onPause() {
-        codeScanner.releaseResources()
+        if (checkPermission()) {
+            codeScanner.releaseResources()
+        } else {
+            requestPermission();
+        }
         super.onPause()
     }
 

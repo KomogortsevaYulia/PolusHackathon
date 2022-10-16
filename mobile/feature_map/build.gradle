@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 apply from: "$rootDir/dependencies.gradle"
@@ -36,12 +37,21 @@ android {
 
 dependencies {
     implementation project(':core_style')
+    implementation project(':core_domain')
+    implementation project(':core_util')
 
     implementation yandexMapDependencies.yandexMap
 
     implementation viewBindingDependencies.viewBinding
 
     implementation gsonDependencies.gson
+
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.dagger_compiler
+    implementation annotationDependencies.annotation
+
+    implementation androidxNavigationDependencies.navigation_fragment
+    implementation androidxNavigationDependencies.navigation_ui
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'

@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import ru.pochtifullstack.core_domain.repository.AppRepository
 import ru.pochtifullstack.feature_auth.api.AuthFragment
 import ru.pochtifullstack.polusmobile.databinding.ActivityMainBinding
 import ru.pochtifullstack.polusmobile.navigation.BaseNavigation

@@ -54,6 +54,7 @@
     <TextView
         android:id="@+id/tv_request_from_title"
         android:layout_width="wrap_content"
+        android:textStyle="bold"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="@+id/tv_request_customer"
@@ -73,6 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_request_customer"
         app:layout_constraintTop_toBottomOf="@+id/tv_request_from"
         android:text="Куда" />
@@ -82,9 +84,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_request_customer"
         app:layout_constraintTop_toBottomOf="@+id/tv_request_to_title"
         tools:text="г. Новосибирск, нанпыгаушаи" />
+
+    <TextView
+        android:id="@+id/tv_status_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_request_customer"
+        app:layout_constraintTop_toBottomOf="@+id/tv_request_to"
+        android:text="Статус" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_request_customer"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_title"
+        tools:text="В работе" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

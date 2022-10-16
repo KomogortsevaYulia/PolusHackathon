@@ -29,6 +29,24 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TextView
+            android:id="@+id/tv_status_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="Статус"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            tools:text="Начата"
+            android:textColor="@color/black"/>
+
+        <TextView
             android:id="@+id/tv_request_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,16 +106,27 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btn_change_request_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Взять заказ"
+        android:backgroundTint="@color/orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_first_point" />
+
     <LinearLayout
         android:id="@+id/layout_manage_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginVertical="16dp"
+        android:orientation="horizontal"
         android:weightSum="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_first_point">
+        app:layout_constraintTop_toBottomOf="@+id/btn_change_request_status">
 
         <Button
             android:id="@+id/btn_dispatcher"

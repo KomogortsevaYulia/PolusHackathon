@@ -1,6 +1,7 @@
 package ru.pochtifullstack.feature_shift.internal
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ru.pochtifullstack.core_domain.domain.CarInfo
 import ru.pochtifullstack.core_domain.domain.Request
+import ru.pochtifullstack.core_domain.repository.AppRepository
 import ru.pochtifullstack.core_domain.repository.DriverRepository
 import ru.pochtifullstack.core_domain.repository.RequestsRepository
 import ru.pochtifullstack.core_domain.repository.VehicleRepository
@@ -20,11 +22,15 @@ class ShiftViewModel @Inject constructor(
     private val shiftNavigation: ShiftNavigation,
     private val vehicleRepository: VehicleRepository,
     private val driverRepository: DriverRepository,
-    private val requestsRepository: RequestsRepository
+    private val requestsRepository: RequestsRepository,
+    private val appRepository: AppRepository
 ): ViewModel() {
 
     private val _carInfoLiveData = MutableLiveData<CarInfo>()
     val carInfoLiveData: LiveData<CarInfo> = _carInfoLiveData
+
+    private val _errorLiveData = MutableLiveData<Boolean>()
+    val errorLiveData: LiveData<Boolean> = _errorLiveData
 
     fun moveToScaner() {
         shiftNavigation.moveToScaner()
@@ -51,6 +57,7 @@ class ShiftViewModel @Inject constructor(
     fun loadVehicleRequests() {
         viewModelScope.launch {
             try {
+                Log.d("anime", "pidaras")
                 requestsRepository.loadRequests()
             } catch (e: Exception) {}
         }
@@ -68,8 +75,12 @@ class ShiftViewModel @Inject constructor(
 
     fun startShift() {
         viewModelScope.launch {
-            driverRepository.startShift(3, vehicleRepository.getVehicleId().toInt())
-            shiftNavigation.moveToRequestList()
+            try {
+                driverRepository.startShift(3, vehicleRepository.getVehicleId().toInt())
+                shiftNavigation.moveToRequestList()
+            } catch (e: Exception) {
+                _errorLiveData.postValue(true)
+            }
         }
     }
 
@@ -77,5 +88,13 @@ class ShiftViewModel @Inject constructor(
         viewModelScope.launch {
             driverRepository.endShift(vehicleRepository.getVehicleId().toInt())
         }
+    }
+
+    fun setLogin() {
+        appRepository.login()
+    }
+
+    fun setLogout() {
+        appRepository.logout()
     }
 }
