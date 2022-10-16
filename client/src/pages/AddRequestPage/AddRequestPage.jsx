@@ -185,7 +185,7 @@ const AddRequestPage = () => {
 
   return (
     <div className="row justify-content-center">
-    <div className="col-10">
+    <div className="col-11">
       <form action="#" id="#" method="put" onSubmit={onSubmit}>
         <div className="row align-items-stretch containerCustomer d-flex boxWhite p-5 ">
           <div className="row">

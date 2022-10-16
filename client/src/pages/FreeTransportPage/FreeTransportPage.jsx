@@ -83,8 +83,8 @@ const FreeTransportPage = () => {
   return (
     <>
       <div className="row align-items-stretch containerCustomer d-flex ">
-        <div className="col boxWhite p-4 ">
-          <div className="row  pb-5">
+        <div className="col boxWhite p-5">
+          <div className="row pb-5">
             <div className="col textForm choiseTransportType ">
               {" "}
               Тип услуги
@@ -174,7 +174,7 @@ const FreeTransportPage = () => {
             </select>
           </div>
         </div>
-        <div className="col order-last d-flex d-inline-block boxWhite transportSearchBox">
+        <div className="col d-inline-block boxWhite ">
           <div
             id="first_map"
             style={{ width: "100%", borderRadius: "25px" }}
