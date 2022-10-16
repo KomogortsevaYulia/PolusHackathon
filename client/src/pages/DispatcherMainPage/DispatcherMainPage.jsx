@@ -430,7 +430,7 @@ const DispatcherMainPage = () => {
                 )}
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  className="btn btn-primary col-6"
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 >
