@@ -192,3 +192,9 @@ tr:hover {
 .despatcherRequests{
   background-color: var(--grey-5);
 }
+
+.text {
+    font-family: 'Stem';
+    font-size: 30px;
+    color: #000000;
+}
