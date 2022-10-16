@@ -190,11 +190,7 @@ const PageWrapper = ({ children }) => {
           </header>
         </>
       )}
-      <main
-        className={`  ${
-          "/addRequest" === location.pathname ? "backgroundAdd" : ""
-        }`}
-      >
+      <main      >
         {children || <Outlet />}
       </main>
     </>
