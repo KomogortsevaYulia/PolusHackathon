@@ -339,14 +339,16 @@ const DispatcherMainPage = () => {
                 className="row text-center btnBlue"
                 style={{ height: "100%" }}
               >
-                <span
-                  className="col"
-                  style={{ cursor: "pointer" }}
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop2"
-                >
-                  Назначить заявку
-                </span>
+                {!selectedRequest.car && (
+                  <span
+                    className="col"
+                    style={{ cursor: "pointer" }}
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop2"
+                  >
+                    Назначить заявку
+                  </span>
+                )}
                 <button
                   type="button"
                   class="btn btn-primary"
@@ -418,19 +420,45 @@ const DispatcherMainPage = () => {
                     ></button>
                   </div>
                   <div class="modal-body">
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "16px",
+                        marginBottom: "16px",
+                      }}
+                    >
+                      Свободный транспорт вида
+                      <div>{selectedRequest.requiredCarName} </div>
+                      на даты
+                      <div>
+                        {selectedRequest.plannedDateStart
+                          .split("T")
+                          .map((s) => s.split(".")[0])
+                          .join(" ")}
+                      </div>
+                      -
+                      <div>
+                        {selectedRequest.plannedDateEnd
+                          ?.split("T")
+                          .map((s) => s.split(".")[0])
+                          .join(" ")}
+                      </div>
+                    </div>
                     <select
                       class="form-select textForm"
                       aria-label="Default select example"
                       onChange={handleChangeSelect}
                     >
-                      {arrayOfTransportByName?.map((t) => (
-                        <option
-                          selected={selectedCar === t.name}
-                          value={t.name}
-                        >
-                          {t.number}
-                        </option>
-                      ))}
+                      {Array.isArray(arrayOfTransportByName) &&
+                        arrayOfTransportByName?.map((t) => (
+                          <option
+                            selected={selectedCar === t.name}
+                            value={t.name}
+                          >
+                            {t.number}
+                          </option>
+                        ))}
                     </select>
                   </div>
                   <div class="modal-footer">
