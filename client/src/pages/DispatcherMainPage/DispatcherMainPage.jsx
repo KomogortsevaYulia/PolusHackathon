@@ -10,6 +10,7 @@ import {
   faTruckFast,
   faClock,
   faUserCheck,
+  faEnvelopeOpen
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
