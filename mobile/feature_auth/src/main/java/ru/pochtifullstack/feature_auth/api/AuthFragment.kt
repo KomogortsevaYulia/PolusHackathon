@@ -53,7 +53,6 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
     private fun init() {
         binding.apply {
             btnAuthLogin.setOnClickListener {
-                Log.d("anime", "pressed")
                 authViewModel.navigateFurther()
             }
 

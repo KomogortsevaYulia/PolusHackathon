@@ -11,7 +11,6 @@ class AuthNavigationImpl @Inject constructor(
 
     override fun openNextScreen() {
         baseNavigation.navController?.navigate(R.id.action_authFragment_to_startShiftFragment)
-        Log.d("anime", "navigated")
     }
 
     override fun openRequestList() {

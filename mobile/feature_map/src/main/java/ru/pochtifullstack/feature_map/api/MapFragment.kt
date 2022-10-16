@@ -53,9 +53,6 @@ class MapFragment : Fragment(R.layout.fragment_map) {
 
         MapKitFactory.initialize(requireContext())
 
-
-        Log.d("anime", "${arguments}")
-
         val gson = Gson()
         val type = object : TypeToken<Point>() {}.type
         val point1 =

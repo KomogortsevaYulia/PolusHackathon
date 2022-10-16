@@ -23,8 +23,6 @@ class RequestsRepositoryImpl @Inject constructor(
             val requests =
                 driverApi.getRequestsByCar(vehicleSharedPref.getVehicleId().toInt())
 
-            Log.d("anime", "lol")
-            Log.d("anime", "${requests}")
             driverDao.removeAllRequests()
             driverDao.addRequests(requests)
         }

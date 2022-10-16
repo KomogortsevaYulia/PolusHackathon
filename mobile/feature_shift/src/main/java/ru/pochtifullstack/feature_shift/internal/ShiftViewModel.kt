@@ -57,7 +57,6 @@ class ShiftViewModel @Inject constructor(
     fun loadVehicleRequests() {
         viewModelScope.launch {
             try {
-                Log.d("anime", "pidaras")
                 requestsRepository.loadRequests()
             } catch (e: Exception) {}
         }

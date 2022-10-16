@@ -48,7 +48,6 @@ class ApproveVehicleFragment: Fragment(R.layout.fragment_approve_vehicle) {
         }
 
         shiftViewModel.carInfoLiveData.observe(viewLifecycleOwner) {
-            Log.d("anime", "get $it")
             binding.tvVehicleName.text = it.subType
             binding.tvVehicleCode.text = it.name
             binding.ivVehicle.visibility = View.VISIBLE

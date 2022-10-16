@@ -8,7 +8,6 @@ class BaseNavigation {
     var navController: NavController? = null
 
     fun bind(navController: NavController) {
-        Log.d("anime", "inited ${navController.currentDestination}")
         this.navController = navController
     }
 

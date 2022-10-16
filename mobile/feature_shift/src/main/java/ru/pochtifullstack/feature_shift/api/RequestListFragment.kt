@@ -110,7 +110,6 @@ class RequestListFragment : Fragment(R.layout.fragment_request_list) {
             shiftViewModel.moveBackToShift()
         }
 
-        Log.d("anime", "ya huesos")
         shiftViewModel.loadVehicleRequests()
     }
 
