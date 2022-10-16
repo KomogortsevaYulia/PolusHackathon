@@ -11,6 +11,7 @@ import {
 import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
 import { fetchRequestAll } from "../../store/requestSlice/requestSlice";
+import { fetchTransportByName } from "../../store/transportSlice/transportSlice";
 
 var myMap;
 
@@ -67,6 +68,7 @@ const DispatcherMainPage = () => {
 
   const { user } = useSelector((state) => state.user);
   const { requests } = useSelector((state) => state.request);
+  const { arrayOfTransportByName } = useSelector((state) => state.transport);
   const dispatch = useDispatch();
 
   const [selectedCar, setSelectedCar] = React.useState("");
@@ -212,7 +214,10 @@ const DispatcherMainPage = () => {
                     requests?.map((row) => (
                       <tr
                         className="requestTr"
-                        onClick={() => setSelectedRequest(row)}
+                        onClick={() => {
+                          setSelectedRequest(row);
+                          dispatch(fetchTransportByName(row.requiredCarName));
+                        }}
                       >
                         {/* <th scope="row"></th> */}
                         <td>{row.type}</td>
@@ -403,7 +408,7 @@ const DispatcherMainPage = () => {
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">
-                      Назначить заявку
+                      Назначить заявку на транспорт
                     </h5>
                     <button
                       type="button"
@@ -413,27 +418,19 @@ const DispatcherMainPage = () => {
                     ></button>
                   </div>
                   <div class="modal-body">
-                    ...
                     <select
                       class="form-select textForm"
                       aria-label="Default select example"
                       onChange={handleChangeSelect}
                     >
-                      {/* <option
-                        selected={isSelect === "Автовышка"}
-                        value="Автовышка"
-                      >
-                        Автовышка
-                      </option>
-                      <option
-                        selected={isSelect === "Погрузчик"}
-                        value="Погрузчик"
-                      >
-                        Погрузчик
-                      </option>
-                      <option selected={isSelect === "Кран"} value="Кран">
-                        Кран
-                      </option> */}
+                      {arrayOfTransportByName?.map((t) => (
+                        <option
+                          selected={selectedCar === t.name}
+                          value={t.name}
+                        >
+                          {t.number}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div class="modal-footer">

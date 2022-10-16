@@ -129,7 +129,7 @@ export class CarService {
 
     // return status ? mappedCars.filter((c) => c.status === status) : mappedCars;
     return name
-      ? Object.fromEntries(carsMap)[name].filter((c) => c.status === status)
+      ? Object.fromEntries(carsMap)[name]
       : Object.fromEntries(carsMap);
   }
 }
