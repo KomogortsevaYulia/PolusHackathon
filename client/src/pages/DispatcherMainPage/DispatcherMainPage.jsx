@@ -6,7 +6,7 @@ import {
   faMagnifyingGlass,
   faCheck,
   faCheckDouble,
-  faEllipsisVertical 
+  faEllipsisVertical,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
@@ -15,8 +15,33 @@ import {
   fetchRequestAll,
 } from "../../store/requestSlice/requestSlice";
 import { fetchTransportByName } from "../../store/transportSlice/transportSlice";
+import id from "date-fns/esm/locale/id/index.js";
 
 var myMap;
+
+function getRandomColor() {
+  var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function addToMap(obj, coords, name) {
+  obj.add(
+    new window.ymaps.Placemark(
+      coords,
+      {
+        balloonContent: name,
+      },
+      {
+        preset: "islands#circleIcon",
+        iconColor: getRandomColor(),
+      }
+    )
+  );
+}
 
 const DispatcherMainPage = () => {
   const [selectedMap, setSelectedMap] = useState(true);
@@ -25,42 +50,29 @@ const DispatcherMainPage = () => {
   React.useEffect(() => {
     if (!selectedMap) {
       myMap = new window.ymaps.Map("first_map", {
-        center: [52, 108],
-        zoom: 5,
+        center: [52, 104],
+        zoom: 7,
       });
+    }
+  }, [selectedMap]);
 
+  React.useEffect(() => {
+    if (!selectedMap) {
       var location = window.ymaps.geolocation;
 
-      // Получение местоположения и автоматическое отображение его на карте.
       location
         .get({
           mapStateAutoApply: true,
         })
         .then(
           function (result) {
-            myMap.geoObjects
-              .add(
-                new window.ymaps.Placemark(
-                  [52, 108],
-                  {
-                    balloonContent: "KOMATSU FD50AYT-10 - Погрузчик_Вилочный",
-                  },
-                  {
-                    preset: "islands#circleIcon",
-                  }
-                )
-              )
-              .add(
-                new window.ymaps.Placemark(
-                  [52, 104],
-                  {
-                    balloonContent: "KOMATSU FD50AYT-10 - Погрузчик_Вилочный",
-                  },
-                  {
-                    preset: "islands#circleIcon",
-                  }
-                )
+            for (let req of requests) {
+              addToMap(
+                myMap.geoObjects,
+                [req.startLon, req.startLat],
+                req.requiredCarName
               );
+            }
           },
           function (err) {
             console.log("Ошибка: " + err);
@@ -178,8 +190,12 @@ const DispatcherMainPage = () => {
             </div>
           </div>
           <div className="requestTableContainer m-4">
-          <div class="btn-group" role="group" aria-label="Basic outlined example">
-          <input
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="Basic outlined example"
+            >
+              <input
                 type="radio"
                 className="btn-check"
                 name="options"
@@ -189,7 +205,7 @@ const DispatcherMainPage = () => {
                 onClick={() => setSelectedMap(true)}
               />
               <label className="btn btnYellow " htmlFor="option1">
-              Таблица
+                Таблица
               </label>
               <input
                 type="radio"
@@ -203,121 +219,86 @@ const DispatcherMainPage = () => {
               <label className="btn btnYellow" htmlFor="option2">
                 Карта
               </label>
-</div>          
-              
+            </div>
+
             {selectedMap ? (
               <div className="col mt-4">
-      {requests &&
-            requests?.map((row) => (
-              <>
-              <div className="row requestTable d-flex mt-3 despatcherRequests"
-                onClick={() => {
-                              setSelectedRequest(row);
-                              dispatch(fetchTransportByName(row.requiredCarName));
-                }}>
-                <div className="col-2 borderItem pt-4">
-                  { row.status === "Создана" ? (
-                    <FontAwesomeIcon icon={faCheck} size = "2x" color="#1A73E8"/>
-                  )
-                  :(
-                    <FontAwesomeIcon icon={faCheckDouble} size = "2x" color="#11BE56"/>
-                  )
-                  }
-                  <p className="mt-2">{row.status}</p>
-                </div>
-                <div   className="col-3 pt-4 borderItem">
-                  <p className="requestType">{row.type}</p>
-                  {row.plannedDateEnd === row.plannedDateStart ? (
-                    <p>
-                    {row.plannedDateStart
-                      .split("T")
-                      .map((s) => s.split(".")[0])
-                      .join(" ")}
-                    </p>
-                  ) : (
-                    <p>
-                    {row.plannedDateStart
-                      .split("T")
-                      .map((s) => s.split(".")[0])
-                      .join(" ")}{" "}
-                    -{" "}
-                    {row.plannedDateEnd
-                      .split("T")
-                      .map((s) => s.split(".")[0])
-                      .join(" ")}
-                  </p>
-                  )}
-                </div>
-                {row.type === "Работа на точке" ? (
-                  <>
-                    <div className="col-6 borderItem pt-4">{row.firstPlace}</div>
-                  </>
-                ) : (
-                  <>
-                    <div className="col-3 borderItem pt-4">{row.firstPlace}</div>
-                    <div className="col-3 borderItem pt-4">{row.firstPlace}</div>
-                  </>
-                )}
-                  <div className="col-1 pt-5">
-                    <FontAwesomeIcon icon={faEllipsisVertical} size = "2x" color="#7c7c7c"/>
-                  </div>
+                {requests &&
+                  requests?.map((row) => (
+                    <>
+                      <div
+                        className="row requestTable d-flex mt-3 despatcherRequests"
+                        onClick={() => {
+                          setSelectedRequest(row);
+                          dispatch(fetchTransportByName(row.requiredCarName));
+                        }}
+                      >
+                        <div className="col-2 borderItem pt-4">
+                          {row.status === "Создана" ? (
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              size="2x"
+                              color="#1A73E8"
+                            />
+                          ) : (
+                            <FontAwesomeIcon
+                              icon={faCheckDouble}
+                              size="2x"
+                              color="#11BE56"
+                            />
+                          )}
+                          <p className="mt-2">{row.status}</p>
+                        </div>
+                        <div className="col-3 pt-4 borderItem">
+                          <p className="requestType">{row.type}</p>
+                          {row.plannedDateEnd === row.plannedDateStart ? (
+                            <p>
+                              {row.plannedDateStart
+                                .split("T")
+                                .map((s) => s.split(".")[0])
+                                .join(" ")}
+                            </p>
+                          ) : (
+                            <p>
+                              {row.plannedDateStart
+                                .split("T")
+                                .map((s) => s.split(".")[0])
+                                .join(" ")}{" "}
+                              -{" "}
+                              {row.plannedDateEnd
+                                .split("T")
+                                .map((s) => s.split(".")[0])
+                                .join(" ")}
+                            </p>
+                          )}
+                        </div>
+                        {row.type === "Работа на точке" ? (
+                          <>
+                            <div className="col-6 borderItem pt-4">
+                              {row.firstPlace}
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="col-3 borderItem pt-4">
+                              {row.firstPlace}
+                            </div>
+                            <div className="col-3 borderItem pt-4">
+                              {row.firstPlace}
+                            </div>
+                          </>
+                        )}
+                        <div className="col-1 pt-5">
+                          <FontAwesomeIcon
+                            icon={faEllipsisVertical}
+                            size="2x"
+                            color="#7c7c7c"
+                          />
+                        </div>
+                      </div>
+                    </>
+                  ))}
               </div>
-              </>
-            ))}
-          </div>
-              // <table class="table table-striped mt-3">
-              //   <thead>
-              //     <tr>
-              //       <th scope="col">Тип</th>
-              //       <th scope="col">Время</th>
-              //       <th scope="col">Статус</th>
-              //       <th scope="col">Адрес</th>
-              //       <th scope="col">ТС</th>
-              //     </tr>
-              //   </thead>
-              //   <tbody>
-              //     {requests &&
-              //       requests?.map((row) => (
-              //         <tr
-              //           className="requestTr"
-              //           onClick={() => {
-              //             setSelectedRequest(row);
-              //             dispatch(fetchTransportByName(row.requiredCarName));
-              //           }}
-              //         >
-              //           {/* <th scope="row"></th> */}
-              //           <td>{row.type}</td>
-              //           <td>
-              //             {row.type === "Перевозка" ? (
-              //               row.plannedDateStart
-              //                 .split("T")
-              //                 .map((s) => s.split(".")[0])
-              //                 .join(" ")
-              //             ) : (
-              //               <>
-              //                 <div>
-              //                   {row.plannedDateStart
-              //                     .split("T")
-              //                     .map((s) => s.split(".")[0])
-              //                     .join(" ")}{" "}
-              //                   -
-              //                 </div>
-              //                 <div>
-              //                   {row.plannedDateEnd
-              //                     .split("T")
-              //                     .map((s) => s.split(".")[0])
-              //                     .join(" ")}
-              //                 </div>
-              //               </>
-              //             )}
-              //           </td>
-              //           <td>{row.status}</td>
-              //           <td>{row.firstPlace}</td>
-              //           <td>{row?.car?.id}</td>
-              //         </tr>
-              //       ))}
-              //   </tbody>
-              // </table>
             ) : (
               <div className="col order-last d-flex d-inline-block">
                 <div
