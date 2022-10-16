@@ -419,7 +419,7 @@ const DispatcherMainPage = () => {
                       aria-label="Default select example"
                       onChange={handleChangeSelect}
                     >
-                      <option
+                      {/* <option
                         selected={isSelect === "Автовышка"}
                         value="Автовышка"
                       >
@@ -433,7 +433,7 @@ const DispatcherMainPage = () => {
                       </option>
                       <option selected={isSelect === "Кран"} value="Кран">
                         Кран
-                      </option>
+                      </option> */}
                     </select>
                   </div>
                   <div class="modal-footer">
