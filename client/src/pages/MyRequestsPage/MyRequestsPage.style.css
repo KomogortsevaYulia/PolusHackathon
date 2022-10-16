@@ -30,6 +30,7 @@
     background-color: #fff;
     height: 5rem;
     text-align: center;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .myRequestMenuItem{
@@ -48,10 +49,11 @@
     text-align: center;
     background: white;
     border-radius: 15px;
+    font-family: var(--font-nunito);
 }
 
 .requestTable:hover{
-    background: var(--grey-5);
+    background: #FDFFE7;
     cursor: pointer;
 }
 
