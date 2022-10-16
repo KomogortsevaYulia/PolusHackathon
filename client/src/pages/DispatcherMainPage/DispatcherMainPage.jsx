@@ -7,9 +7,9 @@ import {
   faCheck,
   faCheckDouble,
   faEllipsisVertical,
-  fatruckTow,
-  faTimer,
-  faUserCheck
+  faTruckFast,
+  faClock,
+  faUserCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
@@ -237,13 +237,28 @@ const DispatcherMainPage = () => {
                         }}
                       >
                         <div className="col-2 borderItem pt-4">
-                          {row.status === "Создана" ? (
+                          {row.status === "Создана" && (
                             <FontAwesomeIcon
-                              icon={faCheck}
+                              icon={faClock}
+                              size="2x"
+                              color="grey"
+                            />
+                          )}
+                          {row.status === "Назначена" && (
+                            <FontAwesomeIcon
+                              icon={faUserCheck}
+                              size="2x"
+                              color="#FABB05"
+                            />
+                          )}
+                          {row.status === "Выполняется" && (
+                            <FontAwesomeIcon
+                              icon={faTruckFast}
                               size="2x"
                               color="#1A73E8"
                             />
-                          ) : (
+                          )}
+                          {row.status === "Выполнена" && (
                             <FontAwesomeIcon
                               icon={faCheckDouble}
                               size="2x"
@@ -431,15 +446,14 @@ const DispatcherMainPage = () => {
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div className="modal-body">
-                    ...
-                  </div>
+                  <div className="modal-body">...</div>
                   <div className="modal-footer">
                     <button
                       type="button"
                       className="btn btn-secondary"
                       data-bs-dismiss="modal"
-                    >Отмена 
+                    >
+                      Отмена
                     </button>
                     <button type="button" className="btn btn-primary">
                       Сохранить
@@ -471,7 +485,8 @@ const DispatcherMainPage = () => {
                     ></button>
                   </div>
                   <div className="modal-body">
-                    <div className="row p-2"
+                    <div
+                      className="row p-2"
                       style={{
                         display: "flex",
                         flexDirection: "column",
@@ -479,9 +494,7 @@ const DispatcherMainPage = () => {
                         marginBottom: "16px",
                       }}
                     >
-                      <div className="row">
-                        Свободный транспорт вида
-                      </div>
+                      <div className="row">Свободный транспорт вида</div>
                       <div className="row">
                         <div>{selectedRequest.requiredCarName} </div>
                       </div>
@@ -490,7 +503,6 @@ const DispatcherMainPage = () => {
                       </div>
                       <div className="row">
                         <div className="col">
-
                           {selectedRequest.plannedDateStart
                             .split("T")
                             .map((s) => s.split(".")[0])
