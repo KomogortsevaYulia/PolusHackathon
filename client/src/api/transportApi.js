@@ -2,7 +2,7 @@ import axios from "axios";
 const apiUrl = "/api";
 
 export class TransportApi {
-  static async fetchTransport() {
+  static async fetchTransport(type, status) {
     return axios
       .get(`${apiUrl}/car`)
       .then((response) => response.data)

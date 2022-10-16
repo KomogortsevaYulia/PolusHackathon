@@ -12,48 +12,68 @@ import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
 import { fetchRequestAll } from "../../store/requestSlice/requestSlice";
 
-var myMap
+var myMap;
 
 const DispatcherMainPage = () => {
   const [selectedMap, setSelectedMap] = useState(true);
   const [selectedRequest, setSelectedRequest] = useState(false);
-  const [selectedModalEdit, setSelectedModalEdit] = useState(true);
 
   React.useEffect(() => {
     if (!selectedMap) {
       myMap = new window.ymaps.Map("first_map", {
-        center: [55.76, 37.64],
-        zoom: 10,
+        center: [52, 108],
+        zoom: 5,
       });
 
-      myMap.geoObjects
-        .add(new window.ymaps.Placemark([108, 52], {
-          balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
-        }, {
-          preset: 'islands#circleIcon',
-        }))
-        .add(new window.ymaps.Placemark([104, 52], {
-          balloonContent: 'KOMATSU FD50AYT-10 - Погрузчик_Вилочный'
-        }, {
-          preset: 'islands#circleIcon',
-        }))
-        .add(new window.ymaps.Placemark([55.782392, 37.614924], {
-          balloonContent: 'КС-5363А - Кран 25 т.'
-        }, {
-          preset: 'islands#circleIcon',
-        }))
-        .add(new window.ymaps.Placemark([55.642063, 37.656123], {
-          balloonContent: 'Peter'
-        }, {
-          preset: 'islands#circleIcon'
-        }))
-    }
+      var location = window.ymaps.geolocation;
 
+      // Получение местоположения и автоматическое отображение его на карте.
+      location
+        .get({
+          mapStateAutoApply: true,
+        })
+        .then(
+          function (result) {
+            myMap.geoObjects
+              .add(
+                new window.ymaps.Placemark(
+                  [52, 108],
+                  {
+                    balloonContent: "KOMATSU FD50AYT-10 - Погрузчик_Вилочный",
+                  },
+                  {
+                    preset: "islands#circleIcon",
+                  }
+                )
+              )
+              .add(
+                new window.ymaps.Placemark(
+                  [52, 104],
+                  {
+                    balloonContent: "KOMATSU FD50AYT-10 - Погрузчик_Вилочный",
+                  },
+                  {
+                    preset: "islands#circleIcon",
+                  }
+                )
+              );
+          },
+          function (err) {
+            console.log("Ошибка: " + err);
+          }
+        );
+    }
   }, [selectedMap]);
 
   const { user } = useSelector((state) => state.user);
   const { requests } = useSelector((state) => state.request);
   const dispatch = useDispatch();
+
+  const [selectedCar, setSelectedCar] = React.useState("");
+
+  const handleChangeSelect = (e) => {
+    setSelectedCar(e.currentTarget.value);
+  };
 
   React.useEffect(() => {
     dispatch(fetchRequestAll());
@@ -117,33 +137,6 @@ const DispatcherMainPage = () => {
               </button>
             </div>
             <div className="row justify-content-between">
-              <div className="dropdown col-4">
-                <button
-                  className="btn btn-filter btn-secondary dropdown-toggle col-12"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Фильтр 2
-                </button>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </div>
               <div className="form-check col-3 pt-2">
                 <input
                   className="form-check-input"
@@ -180,7 +173,6 @@ const DispatcherMainPage = () => {
             </div>
           </div>
           <div className="requestTableContainer m-4">
-
             <input
               type="radio"
               className="btn-check"
@@ -224,19 +216,30 @@ const DispatcherMainPage = () => {
                       >
                         {/* <th scope="row"></th> */}
                         <td>{row.type}</td>
-                        <td>{row.type === "Перевозка" ?
-                          row.plannedDateStart.split("T")
-                            .map((s) => s.split(".")[0])
-                            .join(" ")
-                          :
-                          row.plannedDateStart.split("T")
-                            .map((s) => s.split(".")[0])
-                            .join(" ")
-                          -
-                          row.plannedDateEnd.split("T")
-                            .map((s) => s.split(".")[0])
-                            .join(" ")
-                        }</td>
+                        <td>
+                          {row.type === "Перевозка" ? (
+                            row.plannedDateStart
+                              .split("T")
+                              .map((s) => s.split(".")[0])
+                              .join(" ")
+                          ) : (
+                            <>
+                              <div>
+                                {row.plannedDateStart
+                                  .split("T")
+                                  .map((s) => s.split(".")[0])
+                                  .join(" ")}{" "}
+                                -
+                              </div>
+                              <div>
+                                {row.plannedDateEnd
+                                  .split("T")
+                                  .map((s) => s.split(".")[0])
+                                  .join(" ")}
+                              </div>
+                            </>
+                          )}
+                        </td>
                         <td>{row.status}</td>
                         <td>{row.firstPlace}</td>
                         <td>{row?.car?.id}</td>
@@ -270,92 +273,190 @@ const DispatcherMainPage = () => {
             <p className="col-auto">Сломан</p>
           </div>
         </div>
-        <div className="transportStatus col m-4">
-          <div className="row d-flex justify-content-start align-items-center">
-            <p className="waitTransport col-auto ms-2">28</p>
-            <p className="col-auto p-2 ms-3">В ожидании</p>
-          </div>
-        </div>
 
         {selectedRequest ? (
           <div className="requestCard col m-3 p-5">
             <div className="row mt-3">
               <p className="requestTitle col">
                 Заявка на
-                {selectedRequest.type === "Перевозка" ? " перевоз" : " выполнение работы"}
+                {selectedRequest.type === "Перевозка"
+                  ? " перевоз"
+                  : " выполнение работы"}
                 {/* <FontAwesomeIcon icon={faCheck} className="ms-2 requestCheck" /> */}
               </p>
             </div>
             <div className="row mt-3">
               <div className="col">
                 <div className="row">
-                  <p className="borderYellow " >Заказчик</p>
+                  <p className="borderYellow ">Заказчик</p>
                   <p>{selectedRequest.client.name}</p>
                   <p className="customerNumber ">+7 (923) 234-43-13</p>
                 </div>
 
                 <div className="row">
-                  <p className="borderYellow" >Место</p>
+                  <p className="borderYellow">Место</p>
                   <p>{selectedRequest.firstPlace}</p>
-                  <p >{selectedRequest.secondPlace}</p>
+                  <p>{selectedRequest.secondPlace}</p>
                 </div>
                 <div className="row">
-                  <p className="borderYellow" >ТС</p>
+                  <p className="borderYellow">ТС</p>
                   <p>{selectedRequest.car?.name}</p>
                 </div>
               </div>
               <div className="col">
                 <div className="row">
-                  {selectedRequest.type === "Перевозка" ? <p className="mt-4 text-end  requestData">
-                    {selectedRequest.plannedDateStart.split("T")
-                      .map((s) => s.split(".")[0])
-                      .join(" ")}
-                  </p> : <><p className="mt-4  text-end requestData">
-                    {selectedRequest.plannedDateStart.split("T")
-                      .map((s) => s.split(".")[0])
-                      .join(" ")}
-                  </p>
+                  {selectedRequest.type === "Перевозка" ? (
                     <p className="mt-4 text-end  requestData">
-                      {selectedRequest.plannedDateEnd.split("T")
+                      {selectedRequest.plannedDateStart
+                        .split("T")
                         .map((s) => s.split(".")[0])
                         .join(" ")}
                     </p>
-                  </>
-                  }
+                  ) : (
+                    <>
+                      <p className="mt-4  text-end requestData">
+                        {selectedRequest.plannedDateStart
+                          .split("T")
+                          .map((s) => s.split(".")[0])
+                          .join(" ")}
+                      </p>
+                      <p className="mt-4 text-end  requestData">
+                        {selectedRequest.plannedDateEnd
+                          .split("T")
+                          .map((s) => s.split(".")[0])
+                          .join(" ")}
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
-              <div className="row text-center btnBlue" style={{ height: "100%" }}>
-                <span className="col"  >
+              <div
+                className="row text-center btnBlue"
+                style={{ height: "100%" }}
+              >
+                <span
+                  className="col"
+                  style={{ cursor: "pointer" }}
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop2"
+                >
                   Назначить заявку
                 </span>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
                   Редактировать
-                  </button>
+                </button>
               </div>
             </div>
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div
+              class="modal fade"
+              id="staticBackdrop"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
               <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Understood</button>
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                      Modal title
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">...</div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      Understood
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+            <div
+              class="modal fade"
+              id="staticBackdrop2"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                      Назначить заявку
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                    <select
+                      class="form-select textForm"
+                      aria-label="Default select example"
+                      onChange={handleChangeSelect}
+                    >
+                      {/* <option
+                        selected={isSelect === "Автовышка"}
+                        value="Автовышка"
+                      >
+                        Автовышка
+                      </option>
+                      <option
+                        selected={isSelect === "Погрузчик"}
+                        value="Погрузчик"
+                      >
+                        Погрузчик
+                      </option>
+                      <option selected={isSelect === "Кран"} value="Кран">
+                        Кран
+                      </option> */}
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Отмена
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      Назначить
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         ) : (
           <></>
         )}
       </div>
-</div>
+    </div>
   );
 };
 

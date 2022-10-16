@@ -11,10 +11,9 @@ import {
   faArrowRightFromBracket,
   faListSquares,
   faListCheck,
-  faChartColumn
+  faChartColumn,
 } from "@fortawesome/free-solid-svg-icons";
 import Moment from "react-moment";
-
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -71,14 +70,14 @@ const PageWrapper = ({ children }) => {
                     <FontAwesomeIcon icon={faChartColumn} />
                     <span
                       className="ms-3"
-                      onClick={() => navigate("/dispatcherReportPage")}
+                      onClick={() => navigate("/dispatcherAnalitycPage")}
                     >
                       Аналитика
                     </span>
                   </a>
                 </div>
                 <div className="col-md-2 p-3">
-                    <Moment format="YYYY-MM-DD HH:mm" interval={1000} />
+                  <Moment format="YYYY-MM-DD HH:mm" interval={1000} />
                 </div>
                 <div className="col-2 p-3">
                   <span
