@@ -346,67 +346,80 @@ const DispatcherMainPage = () => {
 
         {selectedRequest ? (
           <div className="requestCard col m-3 p-5">
-            <div className="row mt-3">
-              <p className="requestTitle col">
-                Заявка на
-                {selectedRequest.type === "Перевозка"
-                  ? " перевоз"
-                  : " выполнение работы"}
-                {/* <FontAwesomeIcon icon={faCheck} className="ms-2 requestCheck" /> */}
-              </p>
+            <div className="row">
+              <div className="col-9">
+                <p className="requestTitle">
+                  Заявка на
+                  {selectedRequest.type === "Перевозка"
+                    ? " перевоз"
+                    : " выполнение работы"}
+                </p>
+              </div>
+              <div className="col-1">
+                <FontAwesomeIcon
+                  icon={faCheck}
+                  className="ms-2 requestCheck"
+                  size="2x"
+                />
+              </div>
+              <div className="col-1">01.01.2022</div>
             </div>
             <div className="row mt-3">
               <div className="col">
-                <div className="row">
-                  <p className="borderYellow ">Заказчик</p>
-                  <p>{selectedRequest.client.name}</p>
-                  <p className="customerNumber ">+7 (923) 234-43-13</p>
+                <div className="row mt-4 customerRequestTitle">
+                  <p className="col-6 customerRequestName">
+                    {selectedRequest.client.name}
+                  </p>
+                  <p className="col-6 text-end requestData">
+                    {selectedRequest.plannedDateStart
+                      .split("T")
+                      .map((s) => s.split(".")[0])
+                      .join(" ")}
+                  </p>
                 </div>
 
-                <div className="row">
-                  <p className="borderYellow">Место</p>
-                  <p>{selectedRequest.firstPlace}</p>
-                  <p>{selectedRequest.secondPlace}</p>
+                <div className="row mt-5">
+                  <p className="customerText col-5">+7 (923) 234-43-13</p>
+                  <div className="col-4 borderSlicer"></div>
+                  <FontAwesomeIcon
+                    icon={faEnvelopeOpen}
+                    className="col-2"
+                    size="2x"
+                  />
                 </div>
-                <div className="row">
-                  <p className="borderYellow">ТС</p>
-                  <p>{selectedRequest.car?.name}</p>
+
+                <div className="col mt-4">
+                  <p className="customerText">Транспортное средство</p>
+                  <p className="customerSubText">{selectedRequest.car?.name}</p>
                 </div>
-              </div>
-              <div className="col">
-                <div className="row">
-                  {selectedRequest.type === "Перевозка" ? (
-                    <p className="mt-4 text-end  requestData">
-                      {selectedRequest.plannedDateStart
-                        .split("T")
-                        .map((s) => s.split(".")[0])
-                        .join(" ")}
-                    </p>
+
+                <div className="col">
+                  {selectedRequest.secondPlace ? (
+                    <>
+                      <p className="mt-4 customerText">
+                        {selectedRequest.firstPlace}
+                      </p>
+                      <p className="mt-4 requestData">
+                        {selectedRequest.secondPlace}
+                      </p>
+                    </>
                   ) : (
                     <>
-                      <p className="mt-4  text-end requestData">
-                        {selectedRequest.plannedDateStart
-                          .split("T")
-                          .map((s) => s.split(".")[0])
-                          .join(" ")}
-                      </p>
-                      <p className="mt-4 text-end  requestData">
-                        {selectedRequest.plannedDateEnd
-                          .split("T")
-                          .map((s) => s.split(".")[0])
-                          .join(" ")}
+                      <p className="mt-4 customerText">
+                        {selectedRequest.firstPlace}
                       </p>
                     </>
                   )}
                 </div>
               </div>
+
               <div
-                className="row text-center btnBlue"
+                className="row text-center btnBlue mt-3"
                 style={{ height: "100%" }}
               >
                 {!selectedRequest.car && (
                   <span
-                    className="col"
+                    className="col-6"
                     style={{ cursor: "pointer" }}
                     data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop2"
@@ -416,7 +429,7 @@ const DispatcherMainPage = () => {
                 )}
                 <button
                   type="button"
-                  className="btn btn-primary"
+                  class="btn btn-primary"
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 >
