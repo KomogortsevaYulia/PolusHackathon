@@ -51,6 +51,11 @@ export class RequestService {
       factDateStart: new Date(),
       status: RequestStatuses.PERFORMING,
     });
+
+    return this.requestRepo.findOne({
+      where: { id: requestId },
+      relations: { car: true, client: true, workingShift: true },
+    });
   }
 
   async endPerform(requestId: number) {
@@ -58,6 +63,11 @@ export class RequestService {
       id: requestId,
       factDateEnd: new Date(),
       status: RequestStatuses.COMPLETED,
+    });
+
+    return this.requestRepo.findOne({
+      where: { id: requestId },
+      relations: { car: true, client: true, workingShift: true },
     });
   }
 

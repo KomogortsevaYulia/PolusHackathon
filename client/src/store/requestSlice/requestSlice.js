@@ -16,6 +16,13 @@ export const addRequest = createAsyncThunk(
   }
 );
 
+export const appointCar = createAsyncThunk(
+  "request/appointCar",
+  async (data) => {
+    return RequestApi.appointRequest(data.requestId, data.carId);
+  }
+);
+
 export const fetchRequestAll = createAsyncThunk(
   "request/fetchRequestAll",
   async (data) => {
@@ -45,6 +52,11 @@ export const requestSlice = createSlice({
       })
       .addCase(fetchRequestAll.fulfilled, (state, action) => {
         state.requests = action.payload;
+      })
+      .addCase(appointCar.fulfilled, (state, action) => {
+        state.requests = state.requests.map((r) =>
+          r.id === action.payload.id ? action.payload : r
+        );
       });
   },
 });

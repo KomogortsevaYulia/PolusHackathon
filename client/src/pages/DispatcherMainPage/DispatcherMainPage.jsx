@@ -10,7 +10,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
-import { fetchRequestAll } from "../../store/requestSlice/requestSlice";
+import {
+  appointCar,
+  fetchRequestAll,
+} from "../../store/requestSlice/requestSlice";
 import { fetchTransportByName } from "../../store/transportSlice/transportSlice";
 
 var myMap;
@@ -74,7 +77,7 @@ const DispatcherMainPage = () => {
   const [selectedCar, setSelectedCar] = React.useState("");
 
   const handleChangeSelect = (e) => {
-    setSelectedCar(e.currentTarget.value);
+    setSelectedCar(+e.currentTarget.value);
   };
 
   React.useEffect(() => {
@@ -509,12 +512,12 @@ const DispatcherMainPage = () => {
                       aria-label="Default select example"
                       onChange={handleChangeSelect}
                     >
+                      <option value={0} selected disabled>
+                        Вибирите машину
+                      </option>
                       {Array.isArray(arrayOfTransportByName) &&
                         arrayOfTransportByName?.map((t) => (
-                          <option
-                            selected={selectedCar === t.name}
-                            value={t.name}
-                          >
+                          <option selected={selectedCar === t.id} value={t.id}>
                             {t.number}
                           </option>
                         ))}
@@ -528,7 +531,19 @@ const DispatcherMainPage = () => {
                     >
                       Отмена
                     </button>
-                    <button type="button" class="btn btn-primary">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-bs-dismiss="modal"
+                      onClick={() =>
+                        dispatch(
+                          appointCar({
+                            requestId: selectedRequest.id,
+                            carId: selectedCar,
+                          })
+                        )
+                      }
+                    >
                       Назначить
                     </button>
                   </div>
