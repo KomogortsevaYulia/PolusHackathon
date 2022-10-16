@@ -35,41 +35,54 @@ const PageWrapper = ({ children }) => {
       {user?.role?.id === 2 ? (
         <>
           <header>
-            <div className="row navbarWhite justify-content-center">
-              <div className="row col-11">
-                <div className="col-2 p-3">
+            <div className="row navbarWhite d-flex">
+              <div className="row d-flex ">
+                <div className="col-auto ms-3 p-3">
                   <a className="nav-link exitItem" href="#">
                     <FontAwesomeIcon icon={faArrowRightFromBracket} />
                     <span className="ms-3 me-3 ">Выход</span>
                   </a>
                 </div>
-                <div className="col-2 p-3">
+                <div className="col-auto p-3">
                   <a className="nav-link" href="#">
                     <FontAwesomeIcon icon={faListSquares} />
                     <span
-                      className="ms-3"
+                      className={`ms-3 ${
+                        "/dispatcherReportPage" === location.pathname ||
+                        location.pathname === "/"
+                          ? "buttonNavActiveTop"
+                          : ""
+                      }`}
                       onClick={() => navigate("/dispatcherReportPage")}
                     >
                       Главная
                     </span>
                   </a>
                 </div>
-                <div className="col-2 p-3 ">
+                <div className="col-auto p-3 ">
                   <a className="nav-link" href="#">
                     <FontAwesomeIcon icon={faListCheck} />
                     <span
-                      className="ms-3"
+                      className={`ms-3 ${
+                        "/dispatcherMainPage" === location.pathname 
+                          ? "buttonNavActiveTop"
+                          : ""
+                      }`}
                       onClick={() => navigate("/dispatcherMainPage")}
                     >
                       Заявки
                     </span>
                   </a>
                 </div>
-                <div className="col-2 p-3 ">
+                <div className="col-auto p-3 ">
                   <a className="nav-link" href="#">
                     <FontAwesomeIcon icon={faChartColumn} />
                     <span
-                      className="ms-3"
+                       className={`ms-3 ${
+                        "/dispatcherAnalitycPage" === location.pathname 
+                          ? "buttonNavActiveTop"
+                          : ""
+                      }`}
                       onClick={() => navigate("/dispatcherAnalitycPage")}
                     >
                       Отчет
@@ -77,10 +90,14 @@ const PageWrapper = ({ children }) => {
                   </a>
                 </div>
 
-                <div className="col-md-2 p-3">
-                  <Moment format="YYYY-MM-DD HH:mm" interval={1000} />
+                <div className="col flex-grow-1 ms-10 me-10 text-center align-self-center">
+                  
+                  <Moment format="HH:mm " className="time exitItem" interval={1000} />
+                  <Moment format="YYYY-MM-DD" className="timemin "  interval={1000} />
                 </div>
-                <div className="col-2 p-3">
+
+                
+                <div className="col-2 p-3 ms-auto">
                   <span
                     className=" nav-link dropdown-toggle buttonNav userChoise"
                     role="button"

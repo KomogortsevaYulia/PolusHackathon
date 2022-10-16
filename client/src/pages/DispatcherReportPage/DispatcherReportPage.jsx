@@ -146,7 +146,7 @@ const DispatcherReportPage = () => {
             </div>
           </div>
           <div className="col-3">
-            <div className="row boxWhite " >
+            <div className="row boxWhite m-4" >
               <div className="row  d-flex" >
                 <div className="row textEcharts p-3" >
                   Заявок выполнено за день
@@ -165,7 +165,7 @@ const DispatcherReportPage = () => {
               </div>
             </div>
 
-            <div className="row boxWhite">
+            <div className="row boxWhite m-4">
               <div className="card-body m-2">
                 <div className="col textEcharts p-3 d-flex">
                   <span className="text-center">Загруженность</span> </div>
@@ -174,7 +174,7 @@ const DispatcherReportPage = () => {
             </div>
           </div>
           <div className="col-6">
-            <div className="row boxWhite cardProblem">
+            <div className="row m-4 boxWhite cardProblem">
               <div className="card-body m-4 ">
                 <div className="row">
                   <div className="col numCard p-2 ps-5 d-flex">6</div>
@@ -187,7 +187,7 @@ const DispatcherReportPage = () => {
                 </div>
               </div>
             </div>
-            <div className="row boxWhite cardOk">
+            <div className="row boxWhite cardOk m-4">
               <div className="card-body m-4">
                 <div className="row text-end">
                   <div className="col numCard p-2 ps-5 d-flex ">15</div>
@@ -200,7 +200,7 @@ const DispatcherReportPage = () => {
                 </div>
               </div>
             </div>
-            <div className="row boxWhite">
+            <div className="row boxWhite m-4">
             <div className="card-body m-4">
                 <div className="col textEcharts p-3 d-flex">
                   <span className="text-center">Количество выполненных заявок по часам</span> </div>

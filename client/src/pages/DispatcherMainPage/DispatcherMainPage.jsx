@@ -161,7 +161,7 @@ const DispatcherMainPage = () => {
                   id="flexCheckDefault"
                 />
                 <label className="form-check-label" for="flexCheckDefault">
-                  Накладка ТС
+                  Накладки
                 </label>
               </div>
               <div className="form-check col-2 pt-2">
