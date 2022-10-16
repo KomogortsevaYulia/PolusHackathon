@@ -7,6 +7,9 @@ import {
   faCheck,
   faCheckDouble,
   faEllipsisVertical,
+  fatruckTow,
+  faTimer,
+  faUserCheck
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
@@ -419,7 +422,7 @@ const DispatcherMainPage = () => {
                 <div className="modal-content">
                   <div className="modal-header">
                     <h5 className="modal-title" id="staticBackdropLabel">
-                      Modal title
+                      Редактивание заявки
                     </h5>
                     <button
                       type="button"
@@ -428,17 +431,18 @@ const DispatcherMainPage = () => {
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div className="modal-body">...</div>
+                  <div className="modal-body">
+                    ...
+                  </div>
                   <div className="modal-footer">
                     <button
                       type="button"
                       className="btn btn-secondary"
                       data-bs-dismiss="modal"
-                    >
-                      Close
+                    >Отмена 
                     </button>
                     <button type="button" className="btn btn-primary">
-                      Understood
+                      Сохранить
                     </button>
                   </div>
                 </div>
