@@ -21,8 +21,12 @@ export class RequestApi {
   }
 
   static async fetchRequestAll() {
+    return axios.get(`${apiUrl}/request`).then((response) => response.data);
+  }
+
+  static async appointRequest(requestId, carId) {
     return axios
-      .get(`${apiUrl}/request`)
+      .patch(`${apiUrl}/request/appoint/${requestId}`, { carId })
       .then((response) => response.data);
   }
 }
