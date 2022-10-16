@@ -46,10 +46,12 @@ export class RequestService {
   }
 
   async startPerform(requestId: number) {
-    await this.requestRepo.update(requestId, {
+    const response = await this.requestRepo.update(requestId, {
       factDateStart: new Date(),
       status: RequestStatuses.PERFORMING,
     });
+
+    console.log(response);
 
     return this.requestRepo.findOne({
       where: { id: requestId },
