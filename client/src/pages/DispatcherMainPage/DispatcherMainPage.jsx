@@ -355,15 +355,7 @@ const DispatcherMainPage = () => {
           <></>
         )}
       </div>
-      {
-        selectedModalEdit ?
-          (<>
-            <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              Редактирование заявки
-            </div>
-
-          </>) : (<></>)
-      } </div>
+</div>
   );
 };
 
