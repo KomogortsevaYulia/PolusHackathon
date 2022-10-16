@@ -50,18 +50,16 @@ const DispatcherReportPage = () => {
                 </div>
               </div>
             </div>
+
             <div className="card colorCardRed m-3">
-              <div className="card-body m-2">
-                <div className="row ">
+              <div className="card-body">
+                <div className="row m-2">
                   <div className="col numCard p-2 d-flex">4</div>
                   <div className="col textCard p-2 d-flex text-end">Сломаны</div>
                 </div>
-                <div className="row">
-                  <div className="progress">
-                    <div className="progress-bar" role="progressbar" aria-label="Basic example" style={{ width: "50%" }} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                <div className="progress">
+                  <div className="progress-bar" role="progressbar" aria-label="Basic example" style={{ width: "50%" }} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-
               </div>
             </div>
             <div className="card colorCardBlue m-3">
