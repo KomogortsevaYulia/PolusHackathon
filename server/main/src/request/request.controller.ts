@@ -39,4 +39,14 @@ export class RequestController {
   ) {
     return this.requestService.appointCar(dto.carId, requestId);
   }
+
+  @Patch('/startPerform/:requestId')
+  async startPerform(@Param('requestId') requestId: number) {
+    return this.requestService.startPerform(requestId);
+  }
+
+  @Patch('/endPerform/:requestId')
+  async endPerform(@Param('requestId') requestId: number) {
+    return this.requestService.endPerform(requestId);
+  }
 }
