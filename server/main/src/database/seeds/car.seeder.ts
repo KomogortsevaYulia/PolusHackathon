@@ -6,8 +6,6 @@ import { readFile } from 'fs/promises';
 
 import { Car } from '../../car/entities/car.entity';
 
-// import * as data from '../../../data.json';
-
 export default class GroupSeeder implements Seeder {
   public async run(
     dataSource: DataSource,
@@ -19,20 +17,12 @@ export default class GroupSeeder implements Seeder {
 
     if (carsCount === 0) {
       const data = await readFile(
-        resolve(__dirname, '..', '..', '..', 'data.json'),
+        resolve(__dirname, '..', '..', '..', 'data2.json'),
       );
 
       const cars = JSON.parse(data.toString());
 
-      await repositoryCar.insert(
-        cars.map((car) => ({
-          id: +faker.phone.number('#######'),
-          name: car['Наименование ТС'],
-          number: car['Номер ТС'],
-          description: car['описание характеристики'],
-          type: car['Парк техники'],
-        })),
-      );
+      await repositoryCar.insert(cars);
     }
   }
 }

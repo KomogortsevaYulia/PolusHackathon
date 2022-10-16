@@ -1,0 +1,62 @@
+.containerCustomer {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.request{
+    border: 1px solid #DADADA;
+    border-radius: 15px;
+}
+
+.textRequest{
+    font-family: var(--font-nunito);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    color: #000000;
+}
+
+.searchBox{
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.requestMenu{
+    height: 5rem;
+}
+
+.myRequestMenu{
+    border: 1px solid #DADADA;
+    border-radius: 15px;
+    background-color: #fff;
+    height: 5rem;
+    text-align: center;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.myRequestMenuItem{
+    font-style: var(--font-nunito);
+    font-size: 20px;
+    cursor: pointer;
+    padding-top: 1.5rem ;
+}
+
+.request{
+    text-align: center;
+}
+
+.requestTable{
+    height: 8rem;
+    text-align: center;
+    background: white;
+    border-radius: 15px;
+    font-family: var(--font-nunito);
+}
+
+.requestTable:hover{
+    background: #FDFFE7;
+    cursor: pointer;
+}
+
+.borderItem{
+    border-right: 1px solid var(--fontColor-5);
+}

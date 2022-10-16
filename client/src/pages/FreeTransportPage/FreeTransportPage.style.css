@@ -1,0 +1,74 @@
+.map .ymaps-2-1-79-map {
+  display: none;
+}
+
+.map .ymaps-2-1-79-map:first-child {
+  display: block;
+}
+
+.containerCustomer {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.text {
+  position: absolute;
+
+  font-family: var(--font-nunito);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+
+  color: #000000;
+}
+
+.boxWhite {
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+  background: #ffffff;
+}
+
+.transportSearchBox {
+  height: 17rem;
+}
+
+.btnYellow {
+  color: var(--yellow-5);
+  border-color: var(--yellow-5);
+}
+
+.card-img-top {
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+
+.cardBoxWhite {
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  margin: 10px;
+  padding: 0;
+  background: #ffffff;
+}
+
+.btnRequest {
+  background-color: var(--yellow-5);
+  color: white;
+}
+
+.wrapper {
+  overflow-x: auto;
+  display: flex;
+}
+
+.btn-check {
+  background-color: #000;
+}
+
+.btnTransport {
+  background-color: var(--yellow-5);
+  border: none;
+  border-radius: none;
+}

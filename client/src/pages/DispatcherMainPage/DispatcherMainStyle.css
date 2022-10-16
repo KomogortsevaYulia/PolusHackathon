@@ -1,0 +1,221 @@
+.subMenu {
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  height: 9rem;
+  background: #ffffff;
+}
+
+.transportStatus {
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  height: 6rem;
+  background: #ffffff;
+  padding: 1.5rem;
+}
+
+.requestCard {
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  /* height: 35rem; */
+  background: #ffffff;
+  font-family: var(--font-robotoFlex);
+}
+
+.waitTransport {
+  color: var(--blue-5);
+  font-size: 2rem;
+  border-right: 1px solid var(--fontColor-5);
+}
+
+.requestTransport {
+  color: var(--yellow-50);
+  font-size: 2rem;
+  border-right: 1px solid var(--fontColor-5);
+}
+
+.brokenTransport {
+  color: var(--orange-50);
+  font-size: 2rem;
+  border-right: 1px solid var(--fontColor-5);
+}
+
+.requestTableContainer {
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  /* height: 40rem; */
+  background: #ffffff;
+  padding: 3rem;
+}
+
+.btn-calendar {
+  background-color: var(--yellow-5);
+  border: 0;
+  border-radius: 20px;
+}
+
+.btn-filter {
+  background-color: var(--white-0);
+  border: 1px solid rgba(192, 192, 192, 0.5);
+  border-radius: 20px;
+  color: var(--fontColor-5000);
+}
+
+.table {
+  color: var(--fontColor-50);
+  font-family: var(--font-robotoFlex);
+  font: 300;
+  text-align: center;
+  padding: auto;
+  border-collapse: collapse;
+}
+
+.requestTr {
+  background: #fafafc;
+  border-radius: 15px;
+}
+
+.polusIcon {
+  width: 100px;
+}
+
+.requestTitle {
+  font-size: 1.6rem;
+  color: var(--yellow-50);
+}
+
+.requestData {
+  font-size: 1.2rem;
+  color: var(--fontColor-500);
+}
+
+.requestCheck {
+  color: var(--blue-5);
+}
+
+.rowCompany {
+  border-bottom: 1px solid var(--fontColor-5);
+}
+
+.boldCardText {
+  font: 500;
+}
+
+span:hover {
+  color: var(--yellow-50);
+}
+
+.btn-secondary .checkMap {
+  background-color: black;
+}
+
+tr:hover {
+  background-color: var(--grey-5);
+  cursor: pointer;
+}
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map1 {
+  height: 50vh;
+}
+
+.containerCustomer {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.text {
+  font-family: var(--font-nunito);
+  font-size: 20px;
+  color: #000000;
+}
+
+.boxWhite {
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+  background: #ffffff;
+}
+
+.transportSearchBox {
+  height: 20rem;
+}
+
+.btnYellow {
+  color: var(--yellow-5);
+  border-color: var(--yellow-5);
+}
+
+.btnBlue {
+  color: var(--blue-5);
+  font-size: 20px;
+  border-color: var(--blue-5);
+  padding: auto;
+}
+
+.card-img-top {
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+
+.cardBoxWhite {
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  margin: 10px;
+  padding: 0;
+  background: #ffffff;
+}
+
+.btnRequest {
+  background-color: var(--yellow-5);
+  color: white;
+}
+
+.wrapper {
+  overflow-x: auto;
+  display: flex;
+}
+
+.btn-check {
+  background-color: #000;
+}
+
+.btnTransport {
+  background-color: var(--yellow-5);
+  border: none;
+  border-radius: none;
+}
+
+.despatcherRequests{
+  background-color: var(--grey-5);
+}
+
+.customerRequestTitle{
+  border-bottom: 2px solid var(--grey-50);
+}
+
+.customerRequestName{
+  font-size: 1.2rem;
+}
+
+.borderSlicer{
+  border-right: 2px solid var(--grey-50);
+}
+
+.customerText{
+  font-size: 1.2rem;
+}
+
+.customerSubText{
+  font-size: 1.2rem;
+  color: var(--grey-50);
+}
+
+.text {
+    font-family: 'Stem';
+    font-size: 30px;
+    color: #000000;
+}

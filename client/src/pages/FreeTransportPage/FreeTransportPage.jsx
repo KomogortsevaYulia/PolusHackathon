@@ -1,56 +1,208 @@
 import React from "react";
-
-window.ymaps.ready(function () {
-  // Указывается идентификатор HTML-элемента.
-  var moscow_map = new window.ymaps.Map("first_map", {
-    center: [55.76, 37.64],
-    zoom: 10,
-  });
-  // Ссылка на элемент.
-  var piter_map = new window.ymaps.Map(document.getElementsByTagName("p")[2], {
-    center: [59.94, 30.32],
-    zoom: 9,
-  });
-});
+import "./FreeTransportPage.style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fetchTransportName,fetchTransport } from "../../store/transportSlice/transportSlice";
+import { fetchUserById } from "../../store/userSlice/userSlice";
+import { useState } from "react";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const FreeTransportPage = () => {
+  React.useEffect(() => {
+    window.ymaps.ready(function () {
+      console.log(132);
+      // Указывается идентификатор HTML-элемента.
+      var myMap = new window.ymaps.Map("first_map", {
+        center: [55.76, 37.64],
+        zoom: 10,
+      });
+
+      var location = window.ymaps.geolocation;
+
+      // Получение местоположения и автоматическое отображение его на карте.
+      location
+        .get({
+          mapStateAutoApply: true,
+        })
+        .then(
+          function (result) {
+            // Получение местоположения пользователя.
+            var userAddress = result.geoObjects.get(0).properties.get("text");
+            var userCoodinates = result.geoObjects
+              .get(0)
+              .geometry.getCoordinates();
+            // Пропишем полученный адрес в балуне.
+            result.geoObjects.get(0).properties.set({
+              balloonContentBody:
+                "Адрес: " + userAddress + "<br/>Координаты:" + userCoodinates,
+            });
+            myMap.geoObjects.add(result.geoObjects);
+          },
+          function (err) {
+            console.log("Ошибка: " + err);
+          }
+        );      
+    });
+
+    dispatch(fetchUserById(1));
+    dispatch(fetchTransportName());
+  }, []);
+
+  const [isRadio, setIsRadio] = useState("Работа на точке");
+  const [isSelect, setIsSelect] = useState("Погрузчик");
+  const [isCar, setIsCar] = useState("");
+
+  const { transport } = useSelector((state) => state.transport);
+  const dispatch = useDispatch();
+  console.log(isRadio);
+
+  React.useEffect(() => {
+    dispatch(fetchUserById(1));
+  }, []);
+
+  React.useEffect(() => {
+    dispatch(fetchTransportName(isSelect));
+  }, [isSelect]);
+
+  React.useEffect(() => {
+    console.log(transport);
+  }, [transport]);
+
+  const handleChangeCar = (e) => {
+    setIsCar(e.currentTarget.value);
+  };
+
+  const handleChange = (e) => {
+    setIsRadio(e.currentTarget.value);
+  };
+
+  const handleChangeselect = (e) => {
+    setIsSelect(e.currentTarget.value);
+  };
+
   return (
     <>
-      <div className="row">
-        <div className="col-auto">
-          <div
-            className="btn-group"
-            role="group"
-            aria-label="Basic radio toggle button group"
-          >
-            <input
-              type="radio"
-              className="btn-check"
-              name="btnradio"
-              id="btnradio1"
-              autoComplete="off"
-              checked
-            />
-            <label className="btn btn-outline-primary" htmlFor="btnradio1">
-              Специальная техника
-            </label>
-            <input
-              type="radio"
-              className="btn-check"
-              name="btnradio"
-              id="btnradio2"
-              autoComplete="off"
-            />
-            <label className="btn btn-outline-primary" htmlFor="btnradio2">
-              Грузопассажирский транспорт
-            </label>
+      <div className="row align-items-stretch containerCustomer d-flex ">
+        <div className="col boxWhite p-5">
+          <div className="row pb-5">
+            <div className="col textForm choiseTransportType ">
+              {" "}
+              Тип услуги
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                  value="Перевозка"
+                  onChange={handleChange}
+                  checked={isRadio === "Перевозка"}
+                />
+                <label
+                  className="form-check-label textForm"
+                  for="flexRadioDefault1"
+                >
+                  Перевозка
+                </label>
+              </div>
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  value="Работа на точке"
+                  onChange={handleChange}
+                  checked={isRadio === "Работа на точке"}
+                />
+                <label
+                  className="form-check-label textForm"
+                  for="flexRadioDefault2"
+                >
+                  Работа на точке
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="row pb-2 choiseTransportType ps-3 col-8">
+            Вид транспортного средства
+            <select
+              class="form-select textForm"
+              aria-label="Default select example"
+              onChange={handleChangeselect}
+            >
+              {isRadio === "Работа на точке" ? (
+                <>
+                  <option selected={isSelect === "Автовышка"} value="Автовышка">
+                    Автовышка
+                  </option>
+                  <option selected={isSelect === "Погрузчик"} value="Погрузчик">
+                    Погрузчик
+                  </option>
+                  <option selected={isSelect === "Кран"} value="Кран">
+                    Кран
+                  </option>
+                </>
+              ) : (
+                <>
+                  <option
+                    selected={isSelect === "Пассажирский"}
+                    value="Пассажирский"
+                  >
+                    Пассажирский
+                  </option>
+                  <option selected={isSelect === "Грузовой"} value="Грузовой">
+                    Грузовой
+                  </option>
+                </>
+              )}
+            </select>
+          </div>
+          <div className="row mt-5 choiseTransportType ps-3 col-8">
+            Модель ТС
+            <select
+              class="form-select textForm"
+              aria-label="Default select example"
+              onChange={handleChangeCar}
+            >
+              {transport &&
+                Object.keys(transport)?.map((row) => (
+                  <option selected={isCar === row} value={row}>
+                    {row}
+                  </option>
+                ))}
+            </select>
           </div>
         </div>
-        <div className="col-5">
-          <div id="first_map" style={{ width: "400px", height: "300px" }}></div>
-          <p>Карта Санкт-Петербурга</p>
-          <p style={{ width: "400px", height: "200px" }}></p>
+        <div className="col d-inline-block boxWhite ">
+          <div
+            id="first_map"
+            style={{ width: "100%", borderRadius: "25px" }}
+            className="map"
+          ></div>
         </div>
+      </div>
+      <div
+        className="row align-items-stretch containerCustomer d-flex justify-content-between mt-4"
+        style={{ overflowX: "auto", flexWrap: "none" }}
+      >
+        {transport &&
+          Object.keys(transport)?.map((key) => (
+            <div
+              className="card cardBoxWhite transportSearchBox"
+              style={{ width: "18rem" }}
+              key={transport[key][0].id}
+            >
+              <img
+                src="https://drikus.club/uploads/posts/2022-01/1641903077_69-drikus-club-p-karernii-samosval-volvo-tekhnika-krasivo-f-76.jpg"
+                class="card-img-top"
+                alt="ТС"
+              />
+              <div className="card-body">
+                <h5 className="card-title">{transport[key][0].name}</h5>
+              </div>
+            </div>
+          ))}
       </div>
     </>
   );
