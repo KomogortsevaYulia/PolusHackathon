@@ -39,7 +39,7 @@ const DispatcherReportPage = () => {
       <div className="row align-items-stretch containerCustomer d-flex ">
         <div className="row">
           <div className="col-auto">
-            <div className="card colorCardOrange m-3">
+            <div className="card colorCardOrange m-5">
               <div className="card-body m-2">
                 <div className="row ">
                   <div className="col numCard p-2 d-flex">15</div>
@@ -51,7 +51,7 @@ const DispatcherReportPage = () => {
               </div>
             </div>
 
-            <div className="card colorCardRed m-3">
+            <div className="card colorCardRed m-5">
               <div className="card-body">
                 <div className="row m-2">
                   <div className="col numCard p-2 d-flex">4</div>
@@ -62,7 +62,7 @@ const DispatcherReportPage = () => {
                 </div>
               </div>
             </div>
-            <div className="card colorCardBlue m-3">
+            <div className="card colorCardBlue m-5">
               <div className="card-body">
                 <div className="row m-2">
                   <div className="col numCard p-2 d-flex">10</div>
@@ -73,7 +73,7 @@ const DispatcherReportPage = () => {
                 </div>
               </div>
             </div>
-            <div className="card colorCardGreen m-3">
+            <div className="card colorCardGreen m-5">
               <div className="card-body">
                 <div className="row m-2">
                   <div className="col numCard p-2 d-flex">25</div>
@@ -87,9 +87,28 @@ const DispatcherReportPage = () => {
           </div>
           <div className="col">
             <div className="row boxWhite numberCenter" >
-              22/25
+              <div className="row" >
+                <div className="row" >
+                  Заявок выполнено за день
+                </div>
+                <div className="row" >
+                  22/25
+                </div>
+              </div>
+              <div className="row" >
+                <div className="col" >
+                  18/19
+                </div>
+                <div className="col" >
+                  Вчера
+                </div>
+                <div className="col" >
+                  В среднем за сутки выполняется заявок
+                </div>
+              </div>
             </div>
             <div className="row boxWhite">
+
             </div>
           </div>
           <div className="col">
