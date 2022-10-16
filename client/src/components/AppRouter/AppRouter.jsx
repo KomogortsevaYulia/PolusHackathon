@@ -28,7 +28,7 @@ const AppRouter = () => {
     <Routes>
       <Route element={<PageWrapper />}>
         {user?.role?.id === 2 ? (
-          <Route path="/" element={<DispatcherMainPage />} />
+          <Route path="/" element={<DispatcherReportPage />} />
         ) : (
           <Route path="/" element={<FreeTransportPage />} />
         )}

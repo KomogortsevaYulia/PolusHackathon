@@ -178,29 +178,33 @@ const DispatcherMainPage = () => {
             </div>
           </div>
           <div className="requestTableContainer m-4">
-            <input
-              type="radio"
-              className="btn-check"
-              name="options"
-              onClick={() => setSelectedMap(true)}
-              id="option1"
-              autocomplete="off"
-              checked
-            />
-            <label class="btn btn-secondary" for="option1">
+          <div class="btn-group" role="group" aria-label="Basic outlined example">
+          <input
+                type="radio"
+                className="btn-check"
+                name="options"
+                id="option1"
+                autoComplete="off"
+                checked={selectedMap}
+                onClick={() => setSelectedMap(true)}
+              />
+              <label className="btn btnYellow " htmlFor="option1">
               Таблица
-            </label>
-            <input
-              type="radio"
-              className="btn-check"
-              name="options"
-              onClick={() => setSelectedMap(false)}
-              id="option2"
-              autocomplete="off"
-            />
-            <label class="btn btn-secondary" for="option2">
-              Карта
-            </label>
+              </label>
+              <input
+                type="radio"
+                className="btn-check"
+                name="options"
+                id="option2"
+                autoComplete="off"
+                checked={!selectedMap}
+                onClick={() => setSelectedMap(false)}
+              />
+              <label className="btn btnYellow" htmlFor="option2">
+                Карта
+              </label>
+</div>          
+              
             {selectedMap ? (
               <table class="table table-striped mt-3">
                 <thead>
