@@ -188,3 +188,7 @@ tr:hover {
   border: none;
   border-radius: none;
 }
+
+.despatcherRequests{
+  background-color: var(--grey-5);
+}
