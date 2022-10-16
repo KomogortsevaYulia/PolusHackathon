@@ -86,6 +86,20 @@
     background-clip: text;
 }
 
+.numberCenterSmall {
+    
+    font-family: var(--font-stem);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 159px;
+    /* identical to box height */
+    background: linear-gradient(180deg, #2AFFCC 0%, #BD01FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .borderYellow {
     border-bottom-width:1px;
     border-bottom-color:var(--yellow-5);
