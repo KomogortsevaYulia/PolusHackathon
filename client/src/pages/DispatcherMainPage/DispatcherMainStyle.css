@@ -213,3 +213,9 @@ tr:hover {
   font-size: 1.2rem;
   color: var(--grey-50);
 }
+
+.text {
+    font-family: 'Stem';
+    font-size: 30px;
+    color: #000000;
+}
