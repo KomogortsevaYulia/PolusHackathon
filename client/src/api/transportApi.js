@@ -2,9 +2,17 @@ import axios from "axios";
 const apiUrl = "/api";
 
 export class TransportApi {
-  static async fetchTransport(type, status) {
+  static async fetchTransport(type, name, status) {
+    let query = "";
+
+    if (type || name || status) {
+      query += "?";
+    }
+
+    query += `name=${name}`;
+
     return axios
-      .get(`${apiUrl}/car`)
+      .get(`${apiUrl}/car${query}`)
       .then((response) => response.data)
       .catch((err) => {
         console.log(err);

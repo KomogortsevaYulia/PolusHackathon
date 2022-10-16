@@ -89,6 +89,7 @@ export class CarService {
   async getCarsWithStatuses(
     type?: CarTypes,
     subType?: CarSubTypes,
+    name?: string,
     status?: CarStatus,
   ) {
     const cars = await this.getAll(type, subType);
@@ -127,6 +128,8 @@ export class CarService {
     });
 
     // return status ? mappedCars.filter((c) => c.status === status) : mappedCars;
-    return Object.fromEntries(carsMap);
+    return name
+      ? Object.fromEntries(carsMap)[name]
+      : Object.fromEntries(carsMap);
   }
 }
