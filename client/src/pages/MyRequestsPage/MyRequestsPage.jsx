@@ -93,7 +93,7 @@ const MyRequestsPage = () => {
                   </p>
                   )}
                 </div>
-                {row.plannedDateEnd === row.plannedDateStart ? (
+                {row.type === "Работа на точке" ? (
                   <>
                     <div className="col-2 borderItem pt-4">{row.firstPlace}</div>
                   </>
