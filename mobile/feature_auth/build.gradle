@@ -37,6 +37,7 @@ android {
 
 dependencies {
     implementation project(':core_style')
+    implementation project(':core_domain')
 
     implementation viewBindingDependencies.viewBinding
 
@@ -46,6 +47,12 @@ dependencies {
 
     implementation androidxNavigationDependencies.navigation_fragment
     implementation androidxNavigationDependencies.navigation_ui
+
+    implementation glideDependencies.glide
+    implementation glideDependencies.glide_compiler
+    implementation glideDependencies.glide_transformations
+
+    implementation blurryDependencies.blurry
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'

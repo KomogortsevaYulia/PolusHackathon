@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
+
+apply from: "$rootDir/dependencies.gradle"
 
 android {
     compileSdk 32
@@ -30,6 +33,13 @@ android {
 }
 
 dependencies {
+    implementation project(':core_domain')
+
+    implementation roomDependencies.room
+    kapt roomDependencies.room_compiler
+    implementation roomDependencies.room_runtime
+
+    implementation gsonDependencies.gson
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'

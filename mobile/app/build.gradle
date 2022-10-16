@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
 }
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 apply from: "$rootDir/dependencies.gradle"
 
@@ -32,6 +33,16 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
+    sourceSets {
+        main {
+            java {
+                srcDirs += 'build/generated/source/navigation-args'
+            }
+        }
+    }
 }
 
 dependencies {
@@ -39,8 +50,12 @@ dependencies {
     implementation project(':core_style')
     implementation project(':core_database')
     implementation project(':core_network')
+    implementation project(':core_data')
     implementation project(':core_util')
     implementation project(':feature_auth')
+    implementation project(':feature_shift')
+    implementation project(':feature_scaner')
+    implementation project(':feature_map')
 
     implementation daggerDependencies.dagger
     kapt daggerDependencies.dagger_compiler
@@ -48,6 +63,14 @@ dependencies {
 
     implementation androidxNavigationDependencies.navigation_fragment
     implementation androidxNavigationDependencies.navigation_ui
+
+    implementation viewBindingDependencies.viewBinding
+
+    implementation roomDependencies.room
+    kapt roomDependencies.room_compiler
+    implementation roomDependencies.room_runtime
+
+    implementation yandexMapDependencies.yandexMap
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'

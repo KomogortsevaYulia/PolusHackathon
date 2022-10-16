@@ -1,11 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_nav_graph"
     app:startDestination="@id/authFragment">
 
     <fragment
         android:id="@+id/authFragment"
         android:name="ru.pochtifullstack.feature_auth.api.AuthFragment"
-        android:label="AuthFragment" />
+        android:label="AuthFragment" >
+        <action
+            android:id="@+id/action_authFragment_to_startShiftFragment"
+            app:destination="@id/startShiftFragment"
+            app:popUpTo="@id/app_nav_graph" />
+        <action
+            android:id="@+id/action_authFragment_to_requestListFragment"
+            app:destination="@id/requestListFragment"
+            app:popUpTo="@id/app_nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/startShiftFragment"
+        android:name="ru.pochtifullstack.feature_shift.api.StartShiftFragment"
+        android:label="fragment_start_shift"
+        tools:layout="@layout/fragment_start_shift" >
+        <action
+            android:id="@+id/action_startShiftFragment_to_scanerFragment"
+            app:destination="@id/scanerFragment"
+            app:popUpTo="@id/app_nav_graph" />
+        <action
+            android:id="@+id/action_startShiftFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanerFragment"
+        android:name="ru.pochtifullstack.feature_scaner.api.ScanerFragment"
+        android:label="ScanerFragment" >
+        <action
+            android:id="@+id/action_scanerFragment_to_approveVehicleFragment"
+            app:destination="@id/approveVehicleFragment"
+            app:popUpTo="@id/app_nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/approveVehicleFragment"
+        android:name="ru.pochtifullstack.feature_shift.api.ApproveVehicleFragment"
+        android:label="ApproveVehicleFragment" >
+        <action
+            android:id="@+id/action_approveVehicleFragment_to_requestListFragment"
+            app:destination="@id/requestListFragment"
+            app:popUpTo="@id/app_nav_graph" />
+        <argument
+            android:name="vehicleId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestListFragment"
+        android:name="ru.pochtifullstack.feature_shift.api.RequestListFragment"
+        android:label="RequestListFragment" >
+        <action
+            android:id="@+id/action_requestListFragment_to_scanerFragment"
+            app:destination="@id/scanerFragment"
+            app:popUpTo="@id/app_nav_graph" />
+        <action
+            android:id="@+id/action_requestListFragment_to_startShiftFragment"
+            app:destination="@id/startShiftFragment" />
+        <action
+            android:id="@+id/action_requestListFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="ru.pochtifullstack.feature_map.api.MapFragment"
+        android:label="MapFragment" />
+
 </navigation>
