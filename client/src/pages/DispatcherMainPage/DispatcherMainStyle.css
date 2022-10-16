@@ -192,3 +192,24 @@ tr:hover {
 .despatcherRequests{
   background-color: var(--grey-5);
 }
+
+.customerRequestTitle{
+  border-bottom: 2px solid var(--grey-50);
+}
+
+.customerRequestName{
+  font-size: 1.2rem;
+}
+
+.borderSlicer{
+  border-right: 2px solid var(--grey-50);
+}
+
+.customerText{
+  font-size: 1.2rem;
+}
+
+.customerSubText{
+  font-size: 1.2rem;
+  color: var(--grey-50);
+}
