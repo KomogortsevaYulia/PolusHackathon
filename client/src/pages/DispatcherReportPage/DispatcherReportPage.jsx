@@ -1,6 +1,39 @@
 import React from "react";
 import "./DispatcherReportPageStyle.css"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ReactECharts from "echarts-for-react";
+
+
+
 const DispatcherReportPage = () => {
+
+  const option = {
+    tooltip: {
+      formatter: '{a} <br/>{b} : {c}%'
+    },
+    series: [
+      {
+        name: 'Pressure',
+        type: 'gauge',
+        progress: {
+          show: true
+        },
+        detail: {
+          valueAnimation: true,
+          formatter: '{value}'
+        },
+        data: [
+          {
+            value: 60,
+            name: '%'
+          }
+        ]
+      }
+    ]
+  };
+
+
   return (
     <div>
       <div className="row align-items-stretch containerCustomer d-flex ">
@@ -59,25 +92,41 @@ const DispatcherReportPage = () => {
               22/25
             </div>
             <div className="row boxWhite">
-
             </div>
           </div>
           <div className="col">
-            <div className="row boxWhite">
-              <div className="card-body m-2">
+            <div className="row boxWhite cardProblem">
+              <div className="card-body m-4 ">
                 <div className="row">
-                  <div className="col numCard p-2 d-flex">6</div>
-                  <div className="col textCard p-2 d-flex text-end">Проблем</div>
+                  <div className="col numCard p-2 ps-5 d-flex">6</div>
+                  <div className="col textCard p-3 d-flex text-end">Проблем</div>
+                </div>
+                <div className="row">
+                  <div className="col textCard p-2 ps-5 d-flex">Подробнее
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row boxWhite cardOk">
+              <div className="card-body m-4">
+                <div className="row text-end">
+                  <div className="col numCard p-2 ps-5 d-flex ">15</div>
+                  <div className="col textCard p-3 d-flex text-end">Закрытых заявок</div>
+                </div>
+                <div className="row text-end">
+                  <div className="col textCard p-2 ps-5 d-flex ">Подробнее
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  </div>
                 </div>
               </div>
             </div>
             <div className="row boxWhite">
-              <div className="card-body m-2">
-                <div className="row">
-                  <div className="col numCard p-2 d-flex">15</div>
-                  <div className="col textCard p-2 d-flex text-end">Закрытых заявок</div>
-                </div>
-               </div>
+              <div className="card-body m-4">
+                <div className="col textEcharts p-3 d-flex">
+                  <span className="text-center">Загруженность</span> </div>
+                <ReactECharts option={option} />
+              </div>
             </div>
           </div>
         </div>

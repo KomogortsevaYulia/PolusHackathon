@@ -21,54 +21,46 @@ const DispatcherMainPage = () => {
   React.useEffect(() => {
     if (!selectedMap) {
       myMap = new window.ymaps.Map("first_map", {
-        center: [55.76, 37.64],
-        zoom: 10,
+        center: [52, 108],
+        zoom: 5,
       });
 
-      myMap.geoObjects
-        .add(
-          new window.ymaps.Placemark(
-            [108, 52],
-            {
-              balloonContent: "KOMATSU FD50AYT-10 - Погрузчик_Вилочный",
-            },
-            {
-              preset: "islands#circleIcon",
-            }
-          )
-        )
-        .add(
-          new window.ymaps.Placemark(
-            [104, 52],
-            {
-              balloonContent: "KOMATSU FD50AYT-10 - Погрузчик_Вилочный",
-            },
-            {
-              preset: "islands#circleIcon",
-            }
-          )
-        )
-        .add(
-          new window.ymaps.Placemark(
-            [55.782392, 37.614924],
-            {
-              balloonContent: "КС-5363А - Кран 25 т.",
-            },
-            {
-              preset: "islands#circleIcon",
-            }
-          )
-        )
-        .add(
-          new window.ymaps.Placemark(
-            [55.642063, 37.656123],
-            {
-              balloonContent: "Peter",
-            },
-            {
-              preset: "islands#circleIcon",
-            }
-          )
+      var location = window.ymaps.geolocation;
+
+      // Получение местоположения и автоматическое отображение его на карте.
+      location
+        .get({
+          mapStateAutoApply: true,
+        })
+        .then(
+          function (result) {
+            myMap.geoObjects
+              .add(
+                new window.ymaps.Placemark(
+                  [52, 108],
+                  {
+                    balloonContent: "KOMATSU FD50AYT-10 - Погрузчик_Вилочный",
+                  },
+                  {
+                    preset: "islands#circleIcon",
+                  }
+                )
+              )
+              .add(
+                new window.ymaps.Placemark(
+                  [52, 104],
+                  {
+                    balloonContent: "KOMATSU FD50AYT-10 - Погрузчик_Вилочный",
+                  },
+                  {
+                    preset: "islands#circleIcon",
+                  }
+                )
+              );
+          },
+          function (err) {
+            console.log("Ошибка: " + err);
+          }
         );
     }
   }, [selectedMap]);
@@ -145,33 +137,6 @@ const DispatcherMainPage = () => {
               </button>
             </div>
             <div className="row justify-content-between">
-              <div className="dropdown col-4">
-                <button
-                  className="btn btn-filter btn-secondary dropdown-toggle col-12"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Фильтр 2
-                </button>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </div>
               <div className="form-check col-3 pt-2">
                 <input
                   className="form-check-input"
@@ -306,12 +271,6 @@ const DispatcherMainPage = () => {
             <p className="col-auto">На заявке</p>
             <p className="brokenTransport col-auto">4</p>
             <p className="col-auto">Сломан</p>
-          </div>
-        </div>
-        <div className="transportStatus col m-4">
-          <div className="row d-flex justify-content-start align-items-center">
-            <p className="waitTransport col-auto ms-2">28</p>
-            <p className="col-auto p-2 ms-3">В ожидании</p>
           </div>
         </div>
 
