@@ -35,12 +35,9 @@ class MapFragment : Fragment(R.layout.fragment_map) {
         val gson = Gson()
         val type = object : TypeToken<Point>() {}.type
         val point1 =
-            gson.fromJson<Point>(requireArguments().getSerializable("point1").toString(), type)
+            gson.fromJson<Point>(requireArguments().getString("point1"), type)
         val point2 =
-            gson.fromJson<Point>(requireArguments().getSerializable("point2").toString(), type)
-
-        Log.d("anime", "point1 = ${point1.latitude} ${point1.longitude}")
-        Log.d("anime", "point2 = ${point1.latitude} ${point1.longitude}")
+            gson.fromJson<Point>(requireArguments().getString("point2"), type)
 
         binding.mapview.map.move(
             CameraPosition(point1, 11.0f, 0.0f, 0.0f),
@@ -86,11 +83,16 @@ class MapFragment : Fragment(R.layout.fragment_map) {
 
     private fun initBottomSheet() {
         binding.apply {
-            val bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheet.root)
+            val bottomSheetBehavior = BottomSheetBehavior.from(binding.layoutBottomSheet)
             bottomSheetBehavior.isHideable = true
             bottomSheetBehavior.peekHeight = 200
             bottomSheetBehavior.maxHeight = 1200
-            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED)
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+
+            bottomSheet.tvRequestName.text = requireArguments().getString("taskName")
+            bottomSheet.tvCustomer.text = requireArguments().getString("customer")
+            bottomSheet.tvFrom.text = requireArguments().getString("firstPlace")
+            bottomSheet.tvTo.text = requireArguments().getString("secondPlace")
         }
     }
 }

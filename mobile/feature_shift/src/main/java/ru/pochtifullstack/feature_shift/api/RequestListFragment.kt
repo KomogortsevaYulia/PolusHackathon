@@ -45,12 +45,14 @@ class RequestListFragment : Fragment(R.layout.fragment_request_list) {
             val point2 = Point(request.endLon.toDouble(), request.endLat.toDouble())
             val type = object : TypeToken<Point>() {}.type
 
-            Log.d("anime", "prev1 = ${point1.latitude} ${point1.longitude}")
-            Log.d("anime", "prev2 = ${point2.latitude} ${point2.longitude}")
-
             bundle.apply {
-                putSerializable("point1", gson.toJson(point1, type))
-                putSerializable("point2", gson.toJson(point2, type))
+                putString("point1", gson.toJson(point1, type))
+                putString("point2", gson.toJson(point2, type))
+                putString("firstPlace", request.firstPlace)
+                putString("secondPlace", request.secondPlace)
+                putString("taskName", request.subType)
+                putString("time", request.dateCreate)
+                putString("customer", request.client.name)
             }
 
             shiftViewModel.moveToMap(bundle)

@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:text="Заявка на перевоз груза"
+            tools:text="Заявка на перевоз груза"
             android:textColor="@color/black"
             android:textStyle="bold" />
 

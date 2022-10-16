@@ -46,8 +46,8 @@ internal class RequestListViewHolder(
             tvRequestCustomer.text = request.client.name
             //tvRequestTime.text = request.
             //tvRequestDate.text = request.date
-            //tvRequestFrom.text = request
-            //tvRequestTo.text = request.to
+            tvRequestFrom.text = request.firstPlace
+            tvRequestTo.text = request.secondPlace
 
             binding.root.setOnClickListener {
                 onRequestItemClickListener.onRequestItemClicked(request)

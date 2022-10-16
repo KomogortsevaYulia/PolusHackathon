@@ -58,7 +58,7 @@
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="@+id/tv_request_customer"
         app:layout_constraintTop_toBottomOf="@+id/tv_request_customer"
-        tools:text="От" />
+        android:text="От" />
 
     <TextView
         android:id="@+id/tv_request_from"
@@ -75,7 +75,7 @@
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="@+id/tv_request_customer"
         app:layout_constraintTop_toBottomOf="@+id/tv_request_from"
-        tools:text="Куда" />
+        android:text="Куда" />
 
     <TextView
         android:id="@+id/tv_request_to"
