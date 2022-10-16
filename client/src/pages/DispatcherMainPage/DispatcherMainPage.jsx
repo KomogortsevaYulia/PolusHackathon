@@ -10,7 +10,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
-import { fetchRequestAll } from "../../store/requestSlice/requestSlice";
+import {
+  appointCar,
+  fetchRequestAll,
+} from "../../store/requestSlice/requestSlice";
+import { fetchTransportByName } from "../../store/transportSlice/transportSlice";
 
 var myMap;
 
@@ -67,12 +71,13 @@ const DispatcherMainPage = () => {
 
   const { user } = useSelector((state) => state.user);
   const { requests } = useSelector((state) => state.request);
+  const { arrayOfTransportByName } = useSelector((state) => state.transport);
   const dispatch = useDispatch();
 
   const [selectedCar, setSelectedCar] = React.useState("");
 
   const handleChangeSelect = (e) => {
-    setSelectedCar(e.currentTarget.value);
+    setSelectedCar(+e.currentTarget.value);
   };
 
   React.useEffect(() => {
@@ -212,7 +217,10 @@ const DispatcherMainPage = () => {
                     requests?.map((row) => (
                       <tr
                         className="requestTr"
-                        onClick={() => setSelectedRequest(row)}
+                        onClick={() => {
+                          setSelectedRequest(row);
+                          dispatch(fetchTransportByName(row.requiredCarName));
+                        }}
                       >
                         {/* <th scope="row"></th> */}
                         <td>{row.type}</td>
@@ -334,14 +342,16 @@ const DispatcherMainPage = () => {
                 className="row text-center btnBlue"
                 style={{ height: "100%" }}
               >
-                <span
-                  className="col"
-                  style={{ cursor: "pointer" }}
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop2"
-                >
-                  Назначить заявку
-                </span>
+                {!selectedRequest.car && (
+                  <span
+                    className="col"
+                    style={{ cursor: "pointer" }}
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop2"
+                  >
+                    Назначить заявку
+                  </span>
+                )}
                 <button
                   type="button"
                   class="btn btn-primary"
@@ -403,7 +413,7 @@ const DispatcherMainPage = () => {
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">
-                      Назначить заявку
+                      Назначить заявку на транспорт
                     </h5>
                     <button
                       type="button"
@@ -413,27 +423,45 @@ const DispatcherMainPage = () => {
                     ></button>
                   </div>
                   <div class="modal-body">
-                    ...
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "16px",
+                        marginBottom: "16px",
+                      }}
+                    >
+                      Свободный транспорт вида
+                      <div>{selectedRequest.requiredCarName} </div>
+                      на даты
+                      <div>
+                        {selectedRequest.plannedDateStart
+                          .split("T")
+                          .map((s) => s.split(".")[0])
+                          .join(" ")}
+                      </div>
+                      -
+                      <div>
+                        {selectedRequest.plannedDateEnd
+                          ?.split("T")
+                          .map((s) => s.split(".")[0])
+                          .join(" ")}
+                      </div>
+                    </div>
                     <select
                       class="form-select textForm"
                       aria-label="Default select example"
                       onChange={handleChangeSelect}
                     >
-                      {/* <option
-                        selected={isSelect === "Автовышка"}
-                        value="Автовышка"
-                      >
-                        Автовышка
+                      <option value={0} selected disabled>
+                        Вибирите машину
                       </option>
-                      <option
-                        selected={isSelect === "Погрузчик"}
-                        value="Погрузчик"
-                      >
-                        Погрузчик
-                      </option>
-                      <option selected={isSelect === "Кран"} value="Кран">
-                        Кран
-                      </option> */}
+                      {Array.isArray(arrayOfTransportByName) &&
+                        arrayOfTransportByName?.map((t) => (
+                          <option selected={selectedCar === t.id} value={t.id}>
+                            {t.number}
+                          </option>
+                        ))}
                     </select>
                   </div>
                   <div class="modal-footer">
@@ -444,7 +472,19 @@ const DispatcherMainPage = () => {
                     >
                       Отмена
                     </button>
-                    <button type="button" class="btn btn-primary">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-bs-dismiss="modal"
+                      onClick={() =>
+                        dispatch(
+                          appointCar({
+                            requestId: selectedRequest.id,
+                            carId: selectedCar,
+                          })
+                        )
+                      }
+                    >
                       Назначить
                     </button>
                   </div>

@@ -15,9 +15,10 @@ export class CarController {
   async getAll(
     @Query('type') type: CarTypes,
     @Query('sub_type') subType: CarSubTypes,
+    @Query('name') name: string,
     @Query('status') status: CarStatus,
   ) {
-    return this.carService.getCarsWithStatuses(type, subType, status);
+    return this.carService.getCarsWithStatuses(type, subType, name, status);
   }
 
   @Get(':id')
