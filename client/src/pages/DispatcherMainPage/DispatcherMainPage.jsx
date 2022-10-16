@@ -10,6 +10,7 @@ import {
   faTruckFast,
   faClock,
   faUserCheck,
+  faEnvelopeOpen
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
@@ -429,7 +430,7 @@ const DispatcherMainPage = () => {
                 )}
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  className="btn btn-primary col-6"
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 >
