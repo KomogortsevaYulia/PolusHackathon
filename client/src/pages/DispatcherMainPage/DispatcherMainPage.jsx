@@ -6,7 +6,7 @@ import {
   faMagnifyingGlass,
   faCheck,
   faCheckDouble,
-  faEllipsisVertical
+  faEllipsisVertical,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import CalendarComp from "../../components/Calendar/CalendarComp.jsx";
@@ -15,8 +15,33 @@ import {
   fetchRequestAll,
 } from "../../store/requestSlice/requestSlice";
 import { fetchTransportByName } from "../../store/transportSlice/transportSlice";
+import id from "date-fns/esm/locale/id/index.js";
 
 var myMap;
+
+function getRandomColor() {
+  var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function addToMap(obj, coords, name) {
+  obj.add(
+    new window.ymaps.Placemark(
+      coords,
+      {
+        balloonContent: name,
+      },
+      {
+        preset: "islands#circleIcon",
+        iconColor: getRandomColor(),
+      }
+    )
+  );
+}
 
 const DispatcherMainPage = () => {
   const [selectedMap, setSelectedMap] = useState(true);
@@ -25,42 +50,29 @@ const DispatcherMainPage = () => {
   React.useEffect(() => {
     if (!selectedMap) {
       myMap = new window.ymaps.Map("first_map", {
-        center: [52, 108],
-        zoom: 5,
+        center: [52, 104],
+        zoom: 7,
       });
+    }
+  }, [selectedMap]);
 
+  React.useEffect(() => {
+    if (!selectedMap) {
       var location = window.ymaps.geolocation;
 
-      // Получение местоположения и автоматическое отображение его на карте.
       location
         .get({
           mapStateAutoApply: true,
         })
         .then(
           function (result) {
-            myMap.geoObjects
-              .add(
-                new window.ymaps.Placemark(
-                  [52, 108],
-                  {
-                    balloonContent: "KOMATSU FD50AYT-10 - Погрузчик_Вилочный",
-                  },
-                  {
-                    preset: "islands#circleIcon",
-                  }
-                )
-              )
-              .add(
-                new window.ymaps.Placemark(
-                  [52, 104],
-                  {
-                    balloonContent: "KOMATSU FD50AYT-10 - Погрузчик_Вилочный",
-                  },
-                  {
-                    preset: "islands#circleIcon",
-                  }
-                )
+            for (let req of requests) {
+              addToMap(
+                myMap.geoObjects,
+                [req.startLon, req.startLat],
+                req.requiredCarName
               );
+            }
           },
           function (err) {
             console.log("Ошибка: " + err);
@@ -178,7 +190,11 @@ const DispatcherMainPage = () => {
             </div>
           </div>
           <div className="requestTableContainer m-4">
-            <div className="btn-group" role="group" aria-label="Basic outlined example">
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="Basic outlined example"
+            >
               <input
                 type="radio"
                 className="btn-check"
@@ -210,19 +226,27 @@ const DispatcherMainPage = () => {
                 {requests &&
                   requests?.map((row) => (
                     <>
-                      <div className="row requestTable d-flex mt-3 despatcherRequests"
+                      <div
+                        className="row requestTable d-flex mt-3 despatcherRequests"
                         onClick={() => {
                           setSelectedRequest(row);
                           dispatch(fetchTransportByName(row.requiredCarName));
-                        }}>
+                        }}
+                      >
                         <div className="col-2 borderItem pt-4">
                           {row.status === "Создана" ? (
-                            <FontAwesomeIcon icon={faCheck} size="2x" color="#1A73E8" />
-                          )
-                            : (
-                              <FontAwesomeIcon icon={faCheckDouble} size="2x" color="#11BE56" />
-                            )
-                          }
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              size="2x"
+                              color="#1A73E8"
+                            />
+                          ) : (
+                            <FontAwesomeIcon
+                              icon={faCheckDouble}
+                              size="2x"
+                              color="#11BE56"
+                            />
+                          )}
                           <p className="mt-2">{row.status}</p>
                         </div>
                         <div className="col-3 pt-4 borderItem">
@@ -250,16 +274,26 @@ const DispatcherMainPage = () => {
                         </div>
                         {row.type === "Работа на точке" ? (
                           <>
-                            <div className="col-6 borderItem pt-4">{row.firstPlace}</div>
+                            <div className="col-6 borderItem pt-4">
+                              {row.firstPlace}
+                            </div>
                           </>
                         ) : (
                           <>
-                            <div className="col-3 borderItem pt-4">{row.firstPlace}</div>
-                            <div className="col-3 borderItem pt-4">{row.firstPlace}</div>
+                            <div className="col-3 borderItem pt-4">
+                              {row.firstPlace}
+                            </div>
+                            <div className="col-3 borderItem pt-4">
+                              {row.firstPlace}
+                            </div>
                           </>
                         )}
                         <div className="col-1 pt-5">
-                          <FontAwesomeIcon icon={faEllipsisVertical} size="2x" color="#7c7c7c" />
+                          <FontAwesomeIcon
+                            icon={faEllipsisVertical}
+                            size="2x"
+                            color="#7c7c7c"
+                          />
                         </div>
                       </div>
                     </>
