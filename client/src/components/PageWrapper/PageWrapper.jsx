@@ -48,7 +48,7 @@ const PageWrapper = ({ children }) => {
                     <FontAwesomeIcon icon={faListSquares} />
                     <span
                       className="ms-3"
-                      onClick={() => navigate("/dispatcherMainPage")}
+                      onClick={() => navigate("/dispatcherReportPage")}
                     >
                       Главная
                     </span>
@@ -59,9 +59,9 @@ const PageWrapper = ({ children }) => {
                     <FontAwesomeIcon icon={faListCheck} />
                     <span
                       className="ms-3"
-                      onClick={() => navigate("/dispatcherReportPage")}
+                      onClick={() => navigate("/dispatcherMainPage")}
                     >
-                      Отчеты
+                      Заявки
                     </span>
                   </a>
                 </div>
@@ -72,10 +72,11 @@ const PageWrapper = ({ children }) => {
                       className="ms-3"
                       onClick={() => navigate("/dispatcherAnalitycPage")}
                     >
-                      Аналитика
+                      Отчет
                     </span>
                   </a>
                 </div>
+
                 <div className="col-md-2 p-3">
                   <Moment format="YYYY-MM-DD HH:mm" interval={1000} />
                 </div>
